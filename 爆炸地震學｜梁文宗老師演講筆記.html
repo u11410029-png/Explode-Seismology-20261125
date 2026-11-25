@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://127.0.0.1:8765/#reflection -->
+<html lang="zh-Hant"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>爆炸地震學｜梁文宗老師演講筆記</title>
+  <meta name="description" content="把梁文宗老師「爆炸地震學：近地表爆炸事件之 PGV 衰減關係研究」演講，整理成一本米色手寫風互動筆記。從北韓核試爆、Pg/Lg 頻譜比、雷利波，到 TAIGER 炸測與高雄氣爆。">
+  <meta name="theme-color" content="#f2e7d3">
+  <meta property="og:title" content="爆炸地震學｜梁文宗老師演講筆記">
+  <meta property="og:description" content="從北韓豐溪里到高雄氣爆：一份把硬知識聽懂的爆炸地震學互動筆記。">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f2e7d3'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23b4472f' stroke-width='4'/%3E%3Cpath d='M18 34h7l4-12 5 22 4-13 3 3h6' fill='none' stroke='%232c2823' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link rel="stylesheet" href="./爆炸地震學｜梁文宗老師演講筆記_files/fonts.css">
+  <link rel="stylesheet" href="./爆炸地震學｜梁文宗老師演講筆記_files/style.css">
+</head>
+<body>
+  <a class="skip-link" href="http://127.0.0.1:8765/#main">跳到主要內容</a>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar" style="width: 0%;"></span></div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="http://127.0.0.1:8765/#top" aria-label="回到首頁">
+      <span class="brand-stamp">爆</span>
+      <span class="brand-text">爆炸地震學<small>演講筆記本</small></span>
+    </a>
+    <nav class="site-nav" id="siteNav" aria-label="章節導覽">
+      <a href="http://127.0.0.1:8765/#forensic" class="">01 辨識</a>
+      <a href="http://127.0.0.1:8765/#difference" class="">02 差異</a>
+      <a href="http://127.0.0.1:8765/#dprk" class="">03 北韓</a>
+      <a href="http://127.0.0.1:8765/#rayleigh" class="">04 雷利波</a>
+      <a href="http://127.0.0.1:8765/#taiger" class="">05 TAIGER</a>
+      <a href="http://127.0.0.1:8765/#pgv" class="">06 衰減式</a>
+      <a href="http://127.0.0.1:8765/#reflection" class="nav-accent">心得</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-btn" id="printBtn" type="button" aria-label="列印這份筆記" title="列印 / 存成 PDF">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V4h10v5M7 18H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M7 14h10v6H7z"></path></svg>
+      </button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="開啟章節選單">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="top">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse-dot"></span>2026 · DingfuTaipei · 梁文宗老師</p>
+          <h1 class="hero-title">
+            <span class="title-line">爆炸</span>
+            <span class="title-line title-accent">地震學</span>
+          </h1>
+          <p class="hero-sub">近地表爆炸事件之地面最大速度 <span class="mono">PGV</span> 衰減關係研究</p>
+          <p class="hero-lede">從北韓豐溪里的六次核試爆，到高雄氣爆的 <span class="mark">ML 2.38</span>；從 P 波、Lg 波到 20 秒雷利波。這是一份把硬知識聽懂的演講筆記。</p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="http://127.0.0.1:8765/#forensic">翻開筆記 <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="http://127.0.0.1:8765/#reflection">先讀演講心得</a>
+          </div>
+          <div class="hero-meta">
+            <span><b>20</b> 張投影片</span>
+            <span><b>6</b> 個章節</span>
+            <span><b>1</b> 份心得</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="牡丹江測站波形示意圖">
+          <div class="clipboard">
+            <span class="tape tape-top" aria-hidden="true"></span>
+            <div class="clipboard-head"><span>MDJ · BHZ</span><span>2006—2017</span></div>
+            <svg class="hero-seismo" id="heroSeismo" viewBox="0 0 560 300" role="img" aria-label="六次北韓核試爆的垂直向波形示意">
+              <g class="chart-grid">
+                <path d="M40 50H540M40 110H540M40 170H540M40 230H540"></path>
+                <path d="M40 40V240M140 40V240M240 40V240M340 40V240M440 40V240M540 40V240"></path>
+              </g>
+              <path class="hero-wave" id="heroWave" d="M40.0,145.0 L40.7,145.1 L41.3,145.2 L42.0,145.2 L42.6,145.6 L43.3,145.0 L43.9,144.2 L44.6,145.1 L45.3,145.2 L45.9,144.9 L46.6,144.9 L47.2,145.6 L47.9,144.8 L48.6,145.3 L49.2,145.4 L49.9,144.4 L50.5,144.4 L51.2,144.6 L51.8,144.8 L52.5,144.8 L53.2,145.2 L53.8,144.4 L54.5,145.2 L55.1,145.1 L55.8,144.8 L56.4,145.6 L57.1,145.6 L57.8,145.5 L58.4,144.7 L59.1,145.2 L59.7,144.5 L60.4,144.2 L61.1,145.4 L61.7,145.9 L62.4,144.7 L63.0,144.4 L63.7,145.4 L64.3,144.7 L65.0,145.1 L65.7,145.2 L66.3,145.7 L67.0,144.4 L67.6,145.6 L68.3,145.5 L68.9,144.7 L69.6,144.2 L70.3,144.3 L70.9,145.7 L71.6,145.0 L72.2,145.0 L72.9,144.5 L73.6,145.0 L74.2,145.5 L74.9,144.4 L75.5,145.3 L76.2,144.1 L76.8,144.8 L77.5,145.2 L78.2,145.9 L78.8,145.0 L79.5,145.0 L80.1,144.7 L80.8,144.1 L81.4,145.3 L82.1,144.8 L82.8,145.6 L83.4,144.8 L84.1,145.1 L84.7,144.6 L85.4,145.5 L86.1,144.3 L86.7,144.4 L87.4,145.4 L88.0,145.3 L88.7,144.3 L89.3,144.6 L90.0,144.6 L90.7,145.8 L91.3,145.8 L92.0,145.4 L92.6,144.9 L93.3,145.6 L93.9,144.9 L94.6,144.8 L95.3,144.8 L95.9,145.3 L96.6,144.3 L97.2,145.6 L97.9,144.4 L98.6,144.6 L99.2,144.3 L99.9,144.5 L100.5,145.7 L101.2,145.1 L101.8,144.8 L102.5,144.0 L103.2,145.0 L103.8,145.4 L104.5,146.0 L105.1,146.0 L105.8,145.0 L106.4,144.8 L107.1,144.9 L107.8,145.0 L108.4,144.6 L109.1,145.6 L109.7,145.3 L110.4,145.6 L111.1,145.0 L111.7,144.2 L112.4,144.6 L113.0,145.7 L113.7,146.1 L114.3,144.5 L115.0,145.3 L115.7,144.5 L116.3,145.5 L117.0,145.7 L117.6,144.8 L118.3,144.5 L118.9,144.7 L119.6,144.8 L120.3,144.8 L120.9,144.5 L121.6,146.8 L122.2,144.8 L122.9,142.9 L123.6,145.8 L124.2,144.7 L124.9,142.2 L125.5,148.0 L126.2,148.1 L126.8,141.4 L127.5,144.9 L128.2,148.2 L128.8,140.1 L129.5,145.5 L130.1,152.9 L130.8,140.0 L131.4,140.6 L132.1,153.1 L132.8,140.2 L133.4,138.4 L134.1,156.1 L134.7,143.5 L135.4,135.7 L136.1,153.0 L136.7,146.3 L137.4,136.0 L138.0,151.7 L138.7,151.1 L139.3,138.2 L140.0,146.3 L140.7,147.4 L141.3,140.1 L142.0,144.3 L142.6,150.8 L143.3,143.2 L143.9,142.0 L144.6,147.6 L145.3,140.2 L145.9,146.2 L146.6,144.3 L147.2,149.1 L147.9,143.3 L148.6,143.3 L149.2,147.4 L149.9,137.5 L150.5,154.6 L151.2,137.7 L151.8,153.7 L152.5,139.2 L153.2,144.4 L153.8,147.9 L154.5,134.9 L155.1,161.5 L155.8,128.5 L156.4,161.7 L157.1,130.1 L157.8,149.9 L158.4,145.9 L159.1,135.0 L159.7,166.2 L160.4,121.5 L161.1,171.2 L161.7,121.0 L162.4,158.3 L163.0,140.3 L163.7,138.6 L164.3,166.0 L165.0,118.7 L165.7,171.7 L166.3,115.4 L167.0,163.6 L167.6,136.3 L168.3,147.3 L168.9,158.3 L169.6,124.8 L170.3,166.3 L170.9,120.2 L171.6,164.4 L172.2,135.2 L172.9,151.7 L173.6,148.6 L174.2,132.0 L174.9,155.7 L175.5,128.8 L176.2,160.0 L176.8,139.2 L177.5,152.6 L178.2,143.5 L178.8,139.0 L179.5,147.0 L180.1,139.4 L180.8,155.2 L181.4,142.3 L182.1,149.2 L182.8,140.6 L183.4,141.6 L184.1,145.0 L184.7,146.3 L185.4,152.4 L186.1,144.6 L186.7,144.1 L187.4,140.5 L188.0,141.7 L188.7,145.1 L189.3,147.9 L190.0,149.0 L190.7,145.1 L191.3,141.2 L192.0,141.0 L192.6,144.0 L193.3,148.5 L193.9,148.8 L194.6,148.5 L195.3,142.0 L195.9,138.5 L196.6,141.8 L197.2,147.0 L197.9,149.0 L198.6,148.5 L199.2,144.7 L199.9,141.3 L200.5,139.2 L201.2,143.9 L201.8,151.0 L202.5,150.3 L203.2,146.5 L203.8,142.3 L204.5,139.2 L205.1,140.6 L205.8,147.5 L206.4,151.8 L207.1,150.0 L207.8,142.9 L208.4,138.6 L209.1,139.7 L209.7,144.0 L210.4,148.5 L211.1,151.9 L211.7,148.5 L212.4,138.9 L213.0,136.8 L213.7,142.3 L214.3,148.4 L215.0,151.3 L215.7,151.2 L216.3,145.1 L217.0,136.5 L217.6,137.7 L218.3,146.8 L218.9,151.8 L219.6,151.7 L220.3,146.5 L220.9,140.5 L221.6,135.9 L222.2,139.6 L222.9,149.4 L223.6,155.9 L224.2,150.2 L224.9,141.3 L225.5,138.9 L226.2,137.4 L226.8,143.6 L227.5,153.6 L228.2,156.4 L228.8,146.7 L229.5,136.4 L230.1,136.3 L230.8,141.5 L231.4,148.5 L232.1,155.3 L232.8,153.0 L233.4,141.8 L234.1,131.7 L234.7,137.6 L235.4,148.4 L236.1,152.7 L236.7,154.4 L237.4,149.5 L238.0,136.6 L238.7,130.3 L239.3,140.3 L240.0,153.6 L240.7,156.6 L241.3,148.9 L242.0,142.8 L242.6,134.5 L243.3,132.9 L243.9,146.1 L244.6,160.0 L245.3,156.4 L245.9,143.7 L246.6,136.0 L247.2,135.9 L247.9,139.0 L248.6,150.6 L249.2,161.1 L249.9,154.2 L250.5,134.9 L251.2,131.0 L251.8,138.9 L252.5,147.4 L253.2,154.7 L253.8,158.6 L254.5,148.6 L255.1,129.5 L255.8,128.7 L256.4,144.5 L257.1,156.5 L257.8,155.7 L258.4,151.9 L259.1,141.9 L259.7,127.4 L260.4,130.7 L261.1,151.7 L261.7,161.9 L262.4,153.5 L263.0,143.8 L263.7,135.7 L264.3,130.3 L265.0,136.9 L265.7,158.5 L266.3,166.0 L267.0,147.6 L267.6,132.5 L268.3,132.3 L268.9,136.9 L269.6,145.9 L270.3,162.2 L270.9,164.7 L271.6,141.7 L272.2,123.6 L272.9,131.5 L273.6,146.0 L274.2,153.6 L274.9,161.2 L275.5,156.4 L276.2,134.0 L276.8,119.4 L277.5,136.6 L278.2,158.4 L278.8,159.8 L279.5,154.1 L280.1,145.7 L280.8,129.8 L281.4,122.6 L282.1,142.6 L282.8,166.3 L283.4,162.4 L284.1,143.7 L284.7,135.0 L285.4,130.0 L286.1,129.1 L286.7,150.9 L287.4,172.5 L288.0,160.5 L288.7,133.1 L289.3,125.1 L290.0,133.7 L290.7,141.5 L291.3,156.5 L292.0,170.3 L292.6,154.9 L293.3,123.7 L293.9,121.5 L294.6,142.6 L295.3,155.7 L295.9,159.9 L296.6,161.6 L297.2,145.6 L297.9,118.8 L298.6,122.3 L299.2,152.7 L299.9,167.6 L300.5,158.1 L301.2,148.8 L301.8,135.9 L302.5,120.8 L303.2,128.0 L303.8,162.2 L304.5,173.7 L305.1,152.6 L305.8,132.4 L306.4,130.3 L307.1,129.1 L307.8,139.2 L308.4,168.3 L309.1,173.8 L309.7,143.4 L310.4,119.4 L311.1,126.9 L311.7,142.5 L312.4,151.3 L313.0,167.2 L313.7,167.0 L314.3,135.3 L315.0,111.9 L315.7,131.6 L316.3,156.7 L317.0,162.1 L317.6,160.4 L318.3,153.2 L318.9,127.2 L319.6,112.0 L320.3,137.8 L320.9,169.0 L321.6,167.0 L322.2,149.4 L322.9,138.6 L323.6,125.5 L324.2,121.1 L324.9,147.8 L325.5,177.8 L326.2,167.3 L326.8,135.1 L327.5,125.5 L328.2,128.8 L328.8,135.4 L329.5,155.8 L330.1,176.5 L330.8,160.4 L331.4,123.2 L332.1,117.2 L332.8,138.3 L333.4,151.0 L334.1,160.8 L334.7,168.5 L335.4,148.9 L336.1,115.5 L336.7,116.2 L337.4,149.0 L338.0,166.4 L338.7,161.3 L339.3,155.8 L340.0,139.2 L340.7,116.2 L341.3,122.6 L342.0,160.3 L342.6,175.3 L343.3,157.2 L343.9,138.2 L344.6,130.9 L345.3,122.4 L345.9,134.2 L346.6,168.4 L347.2,176.6 L347.9,146.8 L348.6,123.9 L349.2,126.8 L349.9,134.9 L350.5,147.0 L351.2,169.0 L351.8,171.1 L352.5,137.3 L353.2,114.4 L353.8,128.3 L354.5,150.6 L355.1,159.1 L355.8,163.9 L356.4,159.2 L357.1,130.6 L357.8,112.7 L358.4,134.4 L359.1,164.6 L359.7,166.3 L360.4,155.0 L361.1,144.2 L361.7,126.0 L362.4,116.8 L363.0,143.2 L363.7,173.1 L364.3,168.2 L365.0,143.1 L365.7,131.2 L366.3,127.2 L367.0,131.0 L367.6,153.3 L368.3,174.6 L368.9,161.6 L369.6,129.2 L370.3,122.0 L370.9,133.1 L371.6,145.7 L372.2,161.2 L372.9,171.9 L373.6,153.1 L374.2,121.5 L374.9,117.9 L375.5,141.6 L376.2,158.3 L376.8,161.3 L377.5,158.4 L378.2,142.6 L378.8,120.6 L379.5,125.6 L380.1,155.0 L380.8,169.7 L381.4,157.4 L382.1,143.3 L382.8,130.5 L383.4,121.6 L384.1,131.4 L384.7,161.0 L385.4,173.4 L386.1,153.8 L386.7,134.0 L387.4,130.9 L388.0,132.3 L388.7,142.1 L389.3,162.7 L390.0,163.5 L390.7,139.8 L391.3,122.0 L392.0,129.6 L392.6,145.9 L393.3,159.3 L393.9,167.5 L394.6,160.6 L395.3,134.1 L395.9,116.9 L396.6,129.7 L397.2,150.3 L397.9,158.2 L398.6,157.9 L399.2,150.3 L399.9,134.8 L400.5,128.1 L401.2,144.2 L401.8,162.5 L402.5,160.0 L403.2,142.7 L403.8,131.5 L404.5,125.4 L405.1,129.5 L405.8,152.3 L406.4,172.6 L407.1,165.5 L407.8,144.4 L408.4,132.1 L409.1,131.2 L409.7,135.2 L410.4,147.8 L411.1,157.2 L411.7,148.5 L412.4,133.1 L413.0,134.0 L413.7,147.5 L414.3,159.2 L415.0,163.0 L415.7,157.7 L416.3,138.7 L417.0,119.3 L417.6,120.5 L418.3,139.9 L418.9,157.1 L419.6,161.2 L420.3,159.0 L420.9,148.7 L421.6,137.1 L422.2,137.8 L422.9,148.9 L423.6,152.3 L424.2,140.1 L424.9,130.0 L425.5,128.4 L426.2,136.4 L426.8,152.6 L427.5,169.6 L428.2,172.1 L428.8,153.7 L429.5,132.9 L430.1,124.3 L430.8,127.6 L431.4,135.6 L432.1,148.6 L432.8,152.8 L433.4,147.7 L434.1,144.3 L434.7,151.5 L435.4,159.1 L436.1,158.5 L436.7,150.6 L437.4,134.8 L438.0,120.8 L438.7,117.8 L439.3,134.8 L440.0,156.7 L440.7,168.5 L441.3,166.8 L442.0,157.7 L442.6,142.9 L443.3,134.2 L443.9,135.4 L444.6,139.9 L445.3,137.3 L445.9,133.5 L446.6,135.7 L447.2,145.2 L447.9,157.9 L448.6,167.6 L449.2,170.1 L449.9,155.4 L450.5,133.2 L451.2,120.1 L451.8,120.2 L452.5,130.6 L453.2,145.9 L453.8,156.9 L454.5,159.6 L455.1,155.3 L455.8,152.6 L456.4,152.5 L457.1,149.3 L457.8,141.3 L458.4,131.1 L459.1,124.2 L459.7,123.7 L460.4,137.0 L461.1,156.6 L461.7,170.5 L462.4,170.3 L463.0,158.6 L463.7,142.6 L464.3,130.4 L465.0,127.1 L465.7,131.0 L466.3,137.4 L467.0,141.7 L467.6,145.2 L468.3,152.2 L468.9,158.6 L469.6,163.4 L470.3,160.4 L470.9,149.8 L471.6,132.2 L472.2,120.7 L472.9,123.3 L473.6,133.9 L474.2,148.0 L474.9,159.5 L475.5,163.2 L476.2,158.7 L476.8,151.4 L477.5,146.0 L478.2,140.4 L478.8,136.3 L479.5,132.5 L480.1,131.2 L480.8,135.6 L481.4,144.2 L482.1,157.4 L482.8,165.0 L483.4,163.0 L484.1,154.2 L484.7,140.4 L485.4,129.6 L486.1,127.1 L486.7,132.4 L487.4,141.0 L488.0,148.2 L488.7,151.7 L489.3,153.5 L490.0,155.3 L490.7,154.7 L491.3,151.0 L492.0,143.4 L492.6,134.2 L493.3,129.7 L493.9,130.3 L494.6,139.7 L495.3,151.1 L495.9,158.6 L496.6,160.2 L497.2,154.2 L497.9,146.2 L498.6,141.3 L499.2,138.4 L499.9,138.0 L500.5,138.7 L501.2,139.0 L501.8,142.2 L502.5,147.7 L503.2,152.4 L503.8,156.1 L504.5,155.0 L505.1,148.2 L505.8,140.7 L506.4,134.0 L507.1,133.3 L507.8,138.9 L508.4,145.4 L509.1,150.2 L509.7,152.3 L510.4,150.0 L511.1,148.4 L511.7,148.3 L512.4,145.6 L513.0,142.2 L513.7,139.3 L514.3,138.2 L515.0,139.3 L515.7,144.3 L516.3,148.7 L517.0,152.3 L517.6,151.8 L518.3,148.1 L518.9,144.2 L519.6,139.9 L520.3,140.4 L520.9,141.6 L521.6,143.6 L522.2,144.4 L522.9,145.0 L523.6,147.1 L524.2,149.0 L524.9,149.5 L525.5,148.0 L526.2,145.3 L526.8,141.5 L527.5,139.7 L528.2,140.6 L528.8,141.9 L529.5,146.2 L530.1,147.8 L530.8,148.8 L531.4,147.9 L532.1,146.3 L532.8,145.3 L533.4,143.7 L534.1,144.5 L534.7,143.5 L535.4,142.9 L536.1,143.9 L536.7,144.0 L537.4,147.1 L538.0,148.3 L538.7,148.5 L539.3,145.8 L540.0,143.4"></path>
+              <g class="phase-labels" aria-hidden="true">
+                <g><path d="M138 46v24"></path><text x="138" y="38" text-anchor="middle">Pn</text></g>
+                <g><path d="M180 46v24"></path><text x="180" y="38" text-anchor="middle">Pg</text></g>
+                <g><path d="M340 46v24"></path><text x="340" y="38" text-anchor="middle">Lg</text></g>
+                <g><path d="M450 46v24"></path><text x="450" y="38" text-anchor="middle">Rayleigh</text></g>
+              </g>
+            </svg>
+            <div class="clipboard-foot"><span>垂直向速度波形 · 示意重繪</span><span id="boomReadout">按「爆」試試</span></div>
+            <button class="boom" id="boomBtn" type="button" aria-label="引爆並示範波形變化">爆</button>
+            <p class="doodle doodle-1">P 波先到，<br>Lg 波後到。</p>
+            <p class="doodle doodle-2">Lg 波在地殼裡<br>彈來彈去 →</p>
+          </div>
+          <div class="stamp-round" aria-hidden="true">FIELD<br>NOTES</div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="http://127.0.0.1:8765/#toc"><span>往下翻</span><span class="arrow" aria-hidden="true">↓</span></a>
+    </section>
+
+    <!-- ================= TOC ================= -->
+    <section class="section section-toc" id="toc">
+      <div class="section-inner">
+        <header class="chapter-head">
+          <div class="chapter-num">00</div>
+          <div class="chapter-heading">
+            <p class="kicker">CONTENTS</p>
+            <h2>這本筆記怎麼讀</h2>
+            <p class="chapter-sub">六張索引卡，先抓住整場演講的骨架。點卡片就能跳到那一章。</p>
+          </div>
+        </header>
+
+        <div class="toc-grid">
+          <a class="toc-card tilt-1" href="http://127.0.0.1:8765/#forensic">
+            <span class="toc-index">01</span>
+            <h3>爆炸／法醫地震學</h3>
+            <p>沒有目擊證人時，地震波就是現場唯一的證詞。</p>
+            <span class="toc-arrow">→</span>
+          </a>
+          <a class="toc-card tilt-2" href="http://127.0.0.1:8765/#difference">
+            <span class="toc-index">02</span>
+            <h3>爆炸 vs. 天然地震</h3>
+            <p>mb–Ms、Pg/Lg 振幅比、全矩張量：三招「驗明正身」。</p>
+            <span class="toc-arrow">→</span>
+          </a>
+          <a class="toc-card tilt-3" href="http://127.0.0.1:8765/#dprk">
+            <span class="toc-index">03</span>
+            <h3>北韓核試爆 2006–2017</h3>
+            <p>豐溪里六次試爆，牡丹江測站都聽到了。</p>
+            <span class="toc-arrow">→</span>
+          </a>
+          <a class="toc-card tilt-4" href="http://127.0.0.1:8765/#rayleigh">
+            <span class="toc-index">04</span>
+            <h3>表面雷利波</h3>
+            <p>同樣的距離，為什麼振幅差這麼多？地下構造在搞鬼。</p>
+            <span class="toc-arrow">→</span>
+          </a>
+          <a class="toc-card tilt-5" href="http://127.0.0.1:8765/#taiger">
+            <span class="toc-index">05</span>
+            <h3>TAIGER 炸測實驗</h3>
+            <p>十次人工爆破，把震源參數變成「已知」。</p>
+            <span class="toc-arrow">→</span>
+          </a>
+          <a class="toc-card tilt-6" href="http://127.0.0.1:8765/#pgv">
+            <span class="toc-index">06</span>
+            <h3>PGV 衰減關係式</h3>
+            <p>從炸藥量到高雄氣爆，一條公式能走多遠？</p>
+            <span class="toc-arrow">→</span>
+          </a>
+        </div>
+
+        <div class="margin-note margin-right">
+          <span class="pin" aria-hidden="true"></span>
+          <p>整場演講約一小時，但背後的資料處理與反演，是好幾年的工夫。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 01 FORENSIC ================= -->
+    <section class="section" id="forensic">
+      <div class="section-inner">
+        <header class="chapter-head">
+          <div class="chapter-num">01</div>
+          <div class="chapter-heading">
+            <p class="kicker">FORENSIC SEISMOLOGY</p>
+            <h2>沒有目擊證人的現場</h2>
+            <p class="chapter-sub">爆炸地震學（Explosion / Forensic Seismology）：用波形分析與震源定位，抽絲剝繭找出地面為什麼震動。</p>
+          </div>
+        </header>
+
+        <div class="quote-card reveal in">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <p>在沒有目擊證人的情況下，運用地震學的波形分析與震源定位技術，釐清引起地面震動的意外事件原因。</p>
+          <span class="quote-source">— 投影片第 3 頁</span>
+        </div>
+
+        <div class="grid-3 monitor-grid">
+          <article class="note monitor-card reveal in">
+            <div class="monitor-icon seismic" aria-hidden="true">
+              <svg viewBox="0 0 120 70"><path d="M4 38h20l8-22 12 44 10-35 8 13h14l7-18 9 30 6-12h18"></path></svg>
+            </div>
+            <span class="tag">固體地球</span>
+            <h3>地震波</h3>
+            <p>經由地殼與地函傳播，由全球與區域地震儀陣列記錄成震波圖（Seismogram）。</p>
+            <button class="flip-trigger" type="button" aria-expanded="false">看它會聽到什麼 <span>＋</span></button>
+            <div class="flip-content">
+              <p>地下核試爆、礦場爆破、構造地震、岩崩、礦坑坍塌。</p>
+            </div>
+          </article>
+
+          <article class="note monitor-card reveal in">
+            <div class="monitor-icon air" aria-hidden="true">
+              <svg viewBox="0 0 120 70"><path d="M10 44c10-18 20 18 30 0s20 18 30 0 20 18 30 0 10 10 20 0"></path><circle cx="92" cy="20" r="4"></circle></svg>
+            </div>
+            <span class="tag">大氣層</span>
+            <h3>次聲波</h3>
+            <p>大氣層中的低頻聲波，由微氣壓計陣列接收成聲波圖（Acoustogram）。</p>
+            <button class="flip-trigger" type="button" aria-expanded="false">看它會聽到什麼 <span>＋</span></button>
+            <div class="flip-content">
+              <p>大氣層核爆、火流星（Bolide）、火山噴發、大型地表工廠或管線爆炸。</p>
+            </div>
+          </article>
+
+          <article class="note monitor-card reveal in">
+            <div class="monitor-icon water" aria-hidden="true">
+              <svg viewBox="0 0 120 70"><path d="M8 24c14 0 14 8 28 8s14-8 28-8 14 8 28 8 14-8 20-8M8 40c14 0 14 8 28 8s14-8 28-8 14 8 28 8 14-8 20-8"></path><path d="M60 14v10M54 18h12"></path></svg>
+            </div>
+            <span class="tag">海洋</span>
+            <h3>水聲波</h3>
+            <p>透過海洋聲道（SOFAR channel）長距離傳遞，由水下聽音器監測。</p>
+            <button class="flip-trigger" type="button" aria-expanded="false">看它會聽到什麼 <span>＋</span></button>
+            <div class="flip-content">
+              <p>海洋核試爆、水下潛艇爆炸、海底火山活動。</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid-2 split-wide">
+          <div class="note case-file reveal in">
+            <div class="card-label">CASE FILES / 法醫地震學實例</div>
+            <ul class="case-list">
+              <li><span class="case-year">1998</span><div><b>肯亞美國大使館恐怖攻擊</b><p>透過鄰近測站的爆炸震波，反推引爆時間與炸藥當量。</p></div></li>
+              <li><span class="case-year">2000</span><div><b>北海「母鹿號」Kursk 核潛艇</b><p>魚雷艙爆炸；地震與水聲波解析出首次小型爆炸與後續主爆炸的時間差。</p></div></li>
+              <li><span class="case-year">2000</span><div><b>美國新墨西哥州瓦斯管線爆炸</b><p>利用區域測站分析地表天然氣管線爆炸的地動訊號與震源位置。</p></div></li>
+              <li><span class="case-year">2017</span><div><b>南韓浦項地熱電廠誘發 M5.4 地震</b><p>高解析度震源定位與波形特徵，釐清深層地熱注水與地震觸發的關聯。</p></div></li>
+            </ul>
+          </div>
+
+          <div class="note ctbto-card reveal in">
+            <div class="card-label">CTBTO · 全面核試爆禁止條約組織</div>
+            <p class="ctbto-lede">統計全球歷年核試爆次數，並建置國際監測系統（IMS）全天候監控。</p>
+            <div class="bar-chart" role="img" aria-label="美國 1030 次、蘇聯 715 次、法國 210 次，其餘國家數次至數十次">
+              <div class="bar-row"><span class="bar-name">美國</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><b>1,030</b></div>
+              <div class="bar-row"><span class="bar-name">蘇聯</span><div class="bar-track"><div class="bar-fill alt" style="--w:69%"></div></div><b>715</b></div>
+              <div class="bar-row"><span class="bar-name">法國</span><div class="bar-track"><div class="bar-fill alt2" style="--w:20%"></div></div><b>210</b></div>
+              <div class="bar-row"><span class="bar-name">其他</span><div class="bar-track"><div class="bar-fill ghost" style="--w:7%"></div></div><b>數次—數十次</b></div>
+            </div>
+            <div class="highlight-box">
+              <b>21 世紀後</b>，只有北韓仍執行地下核試爆：2006–2017 年間共 <b>6 次</b>。
+            </div>
+            <p class="tiny">長條比例為視覺化示意；美國、蘇聯、法國使用投影片提供的次數，其他國家投影片僅列「數次至數十次」。</p>
+          </div>
+        </div>
+
+        <div class="margin-note margin-left">
+          <span class="pin" aria-hidden="true"></span>
+          <p>「法醫」的重點不是逮捕誰，而是把<b>時間、位置、能量</b>還原出來。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 02 DIFFERENCE ================= -->
+    <section class="section section-alt" id="difference">
+      <div class="section-inner">
+        <header class="chapter-head">
+          <div class="chapter-num">02</div>
+          <div class="chapter-heading">
+            <p class="kicker">EXPLOSION VS. EARTHQUAKE</p>
+            <h2>三招，驗明正身</h2>
+            <p class="chapter-sub">爆炸是各向同性的體積膨脹；天然地震主要是剪切錯動。這個物理差異，會一路寫進波形裡。</p>
+          </div>
+        </header>
+
+        <div class="compare-grid">
+          <article class="compare-card explosion reveal in">
+            <div class="compare-head"><span class="compare-badge">爆炸</span><span class="compare-en">ISOTROPIC</span></div>
+            <svg class="mini-wave" viewBox="0 0 320 90" aria-hidden="true"><path d="M4 45h44l10-30 12 60 10-48 8 18h28l8-24 10 48 7-24h30l10-10 8 20h28l9-38 10 52 8-14h56"></path></svg>
+            <ul>
+              <li>各向同性體積膨脹</li>
+              <li>激發較強的壓縮波（P 波）→ <b>mb 較大</b></li>
+              <li>表面波相對微弱 → <b>Ms 較小</b></li>
+              <li>高頻 Pg 相對於 Lg 更突出</li>
+            </ul>
+          </article>
+          <article class="compare-card quake reveal in">
+            <div class="compare-head"><span class="compare-badge">天然地震</span><span class="compare-en">SHEAR</span></div>
+            <svg class="mini-wave" viewBox="0 0 320 90" aria-hidden="true"><path d="M4 45h60l8-18 9 36 8-30 7 24h48l9-12 8 24 8-18h24l10-34 10 62 8-38 8 20h38l8-10 6 20h30"></path></svg>
+            <ul>
+              <li>以剪切錯動為主</li>
+              <li>表面波能量顯著</li>
+              <li>同體波規模下，<b>Ms 偏高</b></li>
+              <li>Lg 波通常較強</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid-2 chart-grid">
+          <article class="note chart-card reveal in">
+            <div class="card-label">METHOD 01 / mb–Ms 散佈圖</div>
+            <h3>體波規模 vs. 表面波規模</h3>
+            <p>爆炸落在判別線下方：P 波強、表面波弱。天然地震則散佈在藍色群集中。</p>
+            <div class="chart-shell">
+              <svg id="mbmsChart" viewBox="0 0 640 430" role="img" aria-label="mb 與 Ms 散佈圖，爆炸事件以紅色星星表示"><defs><clippath id="mbmsClip"><rect x="62" y="28" width="554" height="344"></rect></clippath></defs><g class="chart-axis"><line x1="62" y1="372" x2="616" y2="372" class="chart-tick"></line><line x1="62" y1="28" x2="62" y2="372" class="chart-tick"></line><text x="62" y="394" text-anchor="middle">2</text><text x="48" y="376" text-anchor="end">2</text><line x1="62" y1="303.2" x2="616" y2="303.2" class="chart-tick"></line><line x1="172.8" y1="28" x2="172.8" y2="372" class="chart-tick"></line><text x="172.8" y="394" text-anchor="middle">3</text><text x="48" y="307.2" text-anchor="end">3</text><line x1="62" y1="234.4" x2="616" y2="234.4" class="chart-tick"></line><line x1="283.6" y1="28" x2="283.6" y2="372" class="chart-tick"></line><text x="283.6" y="394" text-anchor="middle">4</text><text x="48" y="238.4" text-anchor="end">4</text><line x1="62" y1="165.6" x2="616" y2="165.6" class="chart-tick"></line><line x1="394.4" y1="28" x2="394.4" y2="372" class="chart-tick"></line><text x="394.4" y="394" text-anchor="middle">5</text><text x="48" y="169.6" text-anchor="end">5</text><line x1="62" y1="96.80000000000001" x2="616" y2="96.80000000000001" class="chart-tick"></line><line x1="505.20000000000005" y1="28" x2="505.20000000000005" y2="372" class="chart-tick"></line><text x="505.20000000000005" y="394" text-anchor="middle">6</text><text x="48" y="100.80000000000001" text-anchor="end">6</text><line x1="62" y1="28" x2="616" y2="28" class="chart-tick"></line><line x1="616" y1="28" x2="616" y2="372" class="chart-tick"></line><text x="616" y="394" text-anchor="middle">7</text><text x="48" y="32" text-anchor="end">7</text><line x1="62" y1="372" x2="616" y2="372" stroke="rgba(76,62,45,.45)"></line><line x1="62" y1="28" x2="62" y2="372" stroke="rgba(76,62,45,.45)"></line><text x="339" y="414" text-anchor="middle" class="axis-title">體波規模 mb</text><text x="16" y="200" text-anchor="middle" class="axis-title" transform="rotate(-90 16 200)">表面波規模 Ms</text></g><path d="M150.64 510.1504 L616 108.4960000000001" class="screening-line"></path><text x="510.73999999999995" y="189.34640000000007" class="screening-label" text-anchor="middle" transform="rotate(-31 510.73999999999995 189.34640000000007)">Ms = 1.39 mb − 3.9</text><g clip-path="url(#mbmsClip)"><circle cx="389.0145746763144" cy="226.43929758123832" r="3.6478665759321305" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.1</title></circle><circle cx="377.51247034520384" cy="237.2272700979706" r="4.287705900287256" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.0</title></circle><circle cx="334.8444113495574" cy="238.05344583682117" r="3.7991176171693954" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.9</title></circle><circle cx="339.99406726379414" cy="258.7559866811927" r="2.7567683201283217" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.6</title></circle><circle cx="273.71883271395234" cy="262.260777838362" r="2.748822496784851" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 3.9 / Ms 3.6</title></circle><circle cx="355.9053053296684" cy="230.3635728428024" r="3.5098123115021735" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.1</title></circle><circle cx="284.60537654725374" cy="277.1207988599125" r="3.8622499282937497" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.0 / Ms 3.4</title></circle><circle cx="334.99138030382346" cy="230.3312406270574" r="3.067542176367715" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.1</title></circle><circle cx="285.14232903179254" cy="255.58714157106687" r="3.947558609861881" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.0 / Ms 3.7</title></circle><circle cx="393.8080376543385" cy="201.55758894859778" r="2.94713713391684" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.5</title></circle><circle cx="271.4589589895262" cy="272.74979489089134" r="4.319204351864755" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 3.9 / Ms 3.4</title></circle><circle cx="374.9032014904591" cy="227.2897245772701" r="3.023320894315839" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.1</title></circle><circle cx="352.5287369691348" cy="213.658830437969" r="4.349016296630726" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.3</title></circle><circle cx="343.10559506598395" cy="245.49026548102086" r="4.012945183552802" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.8</title></circle><circle cx="362.9408759101108" cy="203.04340914943216" r="4.302356634708122" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.5</title></circle><circle cx="336.75913519608326" cy="253.75094192855767" r="3.263950086431578" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.7</title></circle><circle cx="379.25026777859784" cy="211.8540558684483" r="2.933962707454339" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 4.3</title></circle><circle cx="385.5834430401028" cy="224.76005577263382" r="3.4431514605414124" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 4.1</title></circle><circle cx="326.8703093621694" cy="256.9084608621686" r="4.296381959225982" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.7</title></circle><circle cx="356.5965130009968" cy="235.71867140999953" r="3.3654787003062667" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.0</title></circle><circle cx="345.83186899251774" cy="207.27705564465708" r="3.076179805956781" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.4</title></circle><circle cx="337.105190300108" cy="255.4846464091908" r="3.9750659335870298" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.7</title></circle><circle cx="306.05722179788165" cy="291.9791511759363" r="4.488336419546977" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 3.2</title></circle><circle cx="374.2993921960518" cy="238.37578551926615" r="3.2265066736377777" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 3.9</title></circle><circle cx="334.63082968264825" cy="242.5372831721544" r="3.3050174397882075" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.9</title></circle><circle cx="373.7541399414931" cy="220.49256917644067" r="3.760736299166456" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.2</title></circle><circle cx="302.3988417008473" cy="262.191591568369" r="3.0976043025031688" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 3.6</title></circle><circle cx="328.9046152707702" cy="272.8640344844866" r="2.776347199128941" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.4</title></circle><circle cx="336.23756282961" cy="241.44644145506766" r="4.342730310140178" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.9</title></circle><circle cx="347.74248045089655" cy="223.02089331376322" r="4.212675660336391" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.2</title></circle><circle cx="354.88911480452407" cy="218.1505725962776" r="3.0751373817678544" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.2</title></circle><circle cx="390.5051123973727" cy="204.09362324858603" r="4.217747071338818" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.4</title></circle><circle cx="302.97661507362966" cy="275.30648304439296" r="3.9179823650512846" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 3.4</title></circle><circle cx="444.39018914551013" cy="172.9999769594665" r="4.235334720695391" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.5 / Ms 4.9</title></circle><circle cx="347.0921299457364" cy="216.2522761361241" r="3.3286491567268968" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.3</title></circle><circle cx="388.26201544274113" cy="220.33216593988942" r="3.3583500370848927" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 4.2</title></circle><circle cx="293.55502894202255" cy="236.93800100690274" r="4.283036486199126" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.1 / Ms 4.0</title></circle><circle cx="340.568743082257" cy="268.3437113101832" r="2.7858164115808908" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.5</title></circle><circle cx="339.0608887952334" cy="222.25040281014478" r="4.112623795727268" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.2</title></circle><circle cx="345.6552111134213" cy="244.53800961413754" r="3.526308172289282" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 3.9</title></circle><circle cx="319.43581873130057" cy="268.34149705863143" r="3.1813198131043467" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.5</title></circle><circle cx="374.39137991425116" cy="245.14696007332913" r="2.7067762322723867" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 3.8</title></circle><circle cx="327.42547928544695" cy="236.7961499502338" r="3.6044388229027393" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 4.0</title></circle><circle cx="312.1750758901751" cy="274.0728642639626" r="3.9649763496592643" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.4</title></circle><circle cx="366.0125041866023" cy="213.4041704362906" r="4.133490169839934" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.3</title></circle><circle cx="387.25679127953947" cy="252.4418784390405" r="2.8725769649259747" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 3.7</title></circle><circle cx="313.61210009293166" cy="246.54432702561056" r="4.457963204523549" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.8</title></circle><circle cx="293.8545821315423" cy="260.89671083237374" r="3.666011969698593" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.1 / Ms 3.6</title></circle><circle cx="405.5931246379205" cy="220.9663273958579" r="4.248028414836154" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.1 / Ms 4.2</title></circle><circle cx="412.86454644243236" cy="203.05754164092764" r="3.5892513516359035" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.2 / Ms 4.5</title></circle><circle cx="396.110966000408" cy="212.0928856182188" r="4.440548930224032" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.3</title></circle><circle cx="402.12238617598086" cy="200.68543940657895" r="4.256432808749378" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.1 / Ms 4.5</title></circle><circle cx="362.4123105141381" cy="220.18941678424883" r="3.311364908795804" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.2</title></circle><circle cx="396.1296715949011" cy="192.5067117171637" r="2.971548114297912" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.6</title></circle><circle cx="375.13425027188384" cy="230.55800602731819" r="4.088178148213775" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.1</title></circle><circle cx="367.1724853328476" cy="198.42542757097593" r="3.680519813206047" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.5</title></circle><circle cx="317.70493658623195" cy="230.0972694270756" r="3.4580233988352123" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 4.1</title></circle><circle cx="378.5488012325764" cy="243.5953845079407" r="3.0016657990403477" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 3.9</title></circle><circle cx="280.33714530447503" cy="244.03401665417252" r="3.930029816972092" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.0 / Ms 3.9</title></circle><circle cx="263.1985637520254" cy="282.0377250021338" r="4.240920219384134" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 3.8 / Ms 3.3</title></circle><circle cx="432.3363293887396" cy="222.5061309052758" r="3.8289933109190315" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.3 / Ms 4.2</title></circle><circle cx="313.96321487427224" cy="256.98631913672347" r="3.6342884895857424" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.7</title></circle><circle cx="329.7848731280817" cy="228.4029355566982" r="4.353506743256003" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 4.1</title></circle><circle cx="248.29970925425184" cy="305.84786649978685" r="3.113871709490195" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 3.7 / Ms 3.0</title></circle><circle cx="431.37311227615464" cy="199.68694100880958" r="2.7577467895578596" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.3 / Ms 4.5</title></circle><circle cx="389.62507495505736" cy="219.94256026966275" r="3.6091353771742436" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.2</title></circle><circle cx="313.5011204651837" cy="243.49990259514524" r="4.125817841291428" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.9</title></circle><circle cx="365.6360723282956" cy="244.0297533972725" r="3.9143137091305107" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 3.9</title></circle><circle cx="332.1877805129439" cy="256.0807137583583" r="3.7850183931179346" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.7</title></circle><circle cx="370.8103129117331" cy="217.24146617926988" r="2.789728399598971" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.2</title></circle><circle cx="382.3640016462235" cy="249.76031260092145" r="3.9815128023270523" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 3.8</title></circle><circle cx="386.76696407066663" cy="236.31884235263763" r="3.8567832841537895" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 4.0</title></circle><circle cx="359.64169281297836" cy="267.14382491521127" r="4.490979243675247" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 3.5</title></circle><circle cx="330.0210068362579" cy="243.9375119976416" r="3.9136796089354906" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.9</title></circle><circle cx="394.3972980304901" cy="236.3463080438204" r="3.632591485278681" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.0</title></circle><circle cx="371.6874219612731" cy="238.79935193910782" r="2.7626715717371555" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 3.9</title></circle><circle cx="368.19527615719016" cy="240.32086107269637" r="2.773766858736053" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 3.9</title></circle><circle cx="366.56945346952887" cy="212.71646855008188" r="4.158136161603034" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.3</title></circle><circle cx="329.8057842849568" cy="248.7369332826152" r="3.5556951650418345" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.8</title></circle><circle cx="317.72871439569167" cy="266.6197700213935" r="3.94398110001348" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.5</title></circle><circle cx="337.17215160974774" cy="235.95368926770573" r="3.812587113445625" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.0</title></circle><circle cx="348.16925527232706" cy="236.93103780679925" r="3.4956319958902897" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.0</title></circle><circle cx="342.6134774914524" cy="229.06192103020433" r="4.402046362124384" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.1</title></circle><circle cx="340.7176155343932" cy="244.36318493566432" r="3.628943642461673" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.9</title></circle><circle cx="374.2216927174526" cy="207.26411344291225" r="3.895721814734862" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.4</title></circle><circle cx="474.520445145322" cy="145.58914158301582" r="4.160263364156709" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.7 / Ms 5.3</title></circle><circle cx="334.1397450905806" cy="266.60778104313795" r="4.273717840388418" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.5</title></circle><circle cx="379.12943402170674" cy="212.0403681454841" r="4.361578702926636" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 4.3</title></circle><circle cx="319.2556931082672" cy="249.36852569786794" r="2.7907043837942185" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.8</title></circle><circle cx="313.92765273724683" cy="255.7615507034264" r="4.454027916491032" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.7</title></circle><circle cx="392.3151191920555" cy="230.9993857683647" r="4.275507092569024" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.0</title></circle><circle cx="376.08479005885783" cy="232.54392760221995" r="4.215517065580935" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.0</title></circle><circle cx="348.2152098061564" cy="217.16597412717303" r="3.0108242369256915" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.3</title></circle><circle cx="340.0984133133944" cy="233.72165020268926" r="3.773444316722453" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.0</title></circle><circle cx="381.8431257578591" cy="217.07304806029012" r="3.0262847616802904" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 4.3</title></circle><circle cx="393.38211326485504" cy="210.15012471921145" r="4.31294569792226" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.4</title></circle><circle cx="300.1190142665338" cy="262.64347290804756" r="2.7001184819731865" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.1 / Ms 3.6</title></circle><circle cx="282.1662308822433" cy="255.38611173994056" r="2.7029621344059707" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.0 / Ms 3.7</title></circle><circle cx="362.0522421475081" cy="235.3900183954943" r="3.874790151882917" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.0</title></circle><circle cx="336.14992329639387" cy="227.02481280367599" r="3.447208458418027" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.1</title></circle><circle cx="363.07948937146466" cy="260.95866453547734" r="3.9731413647998126" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 3.6</title></circle><circle cx="392.0061108144746" cy="202.39172300110903" r="3.773404821194709" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.5</title></circle><circle cx="395.77782247097235" cy="191.60589555600058" r="3.3180387179832906" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.6</title></circle><circle cx="425.0232589401585" cy="228.64210668609812" r="3.275774661032483" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.3 / Ms 4.1</title></circle><circle cx="435.7601015980868" cy="211.1146712925319" r="3.786280824244023" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.4 / Ms 4.3</title></circle><circle cx="413.9982033010852" cy="200.47326748615274" r="3.251279466412962" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.2 / Ms 4.5</title></circle><circle cx="323.9754327456281" cy="241.41105026663237" r="3.828648614790291" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.9</title></circle><circle cx="329.93916087793656" cy="264.5359008382555" r="3.7265720281284302" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.6</title></circle><circle cx="405.43539064000834" cy="191.5566186864559" r="4.237545145908371" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.1 / Ms 4.6</title></circle><circle cx="358.07228514235936" cy="224.20050838421247" r="3.82618016442284" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.1</title></circle><circle cx="279.76986118571836" cy="268.78604760149267" r="3.287826656783" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.0 / Ms 3.5</title></circle><circle cx="296.8775326306746" cy="293.26336334059533" r="3.5271112751215696" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.1 / Ms 3.1</title></circle><circle cx="359.3337303037802" cy="255.76893840268218" r="3.8172000196762386" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 3.7</title></circle><circle cx="339.5077724799794" cy="231.68326095117405" r="2.8517448275350037" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.0</title></circle><circle cx="349.7887854717253" cy="204.19783876628014" r="3.5384051562286913" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.4</title></circle><circle cx="351.2692662361824" cy="208.55543192261604" r="3.4294760066550225" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.4</title></circle><circle cx="350.6540421072906" cy="249.17297392656243" r="2.7626057913992557" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 3.8</title></circle><circle cx="354.5357850962598" cy="231.3530697212271" r="4.457020271429792" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.0</title></circle><circle cx="374.34369383024057" cy="193.42575840710998" r="2.858359571127221" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.6</title></circle><circle cx="358.3894877840812" cy="224.42662458176872" r="3.493171906890348" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.1</title></circle><circle cx="316.7582704109419" cy="232.77191118848094" r="4.286307239346207" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 4.0</title></circle><circle cx="340.7091240041005" cy="232.72999907702163" r="3.728997746296227" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.0</title></circle><circle cx="366.2106967578689" cy="253.4041190851923" r="2.9782065183855595" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 3.7</title></circle><circle cx="273.23037058050284" cy="263.4001209134977" r="3.5125505941919983" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 3.9 / Ms 3.6</title></circle><circle cx="405.65096047262665" cy="220.83069497681927" r="4.0488709869794555" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.1 / Ms 4.2</title></circle><circle cx="325.6812613365753" cy="252.30799518217475" r="3.380133349075914" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.7</title></circle><circle cx="323.2050390327629" cy="237.71497607338947" r="2.817799730272964" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 4.0</title></circle><circle cx="371.02962304675486" cy="225.86174997534934" r="4.449690270284191" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.1</title></circle><circle cx="304.8819317737408" cy="284.13174644824267" r="3.389078758377582" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 3.3</title></circle><circle cx="305.6666744796373" cy="229.12475008133197" r="3.113539526285604" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 4.1</title></circle><circle cx="314.37185096554924" cy="223.17019994160495" r="4.233674804633484" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 4.2</title></circle><circle cx="383.8492763014092" cy="208.1561713343892" r="3.0802300832234324" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 4.4</title></circle><circle cx="376.4992887401535" cy="219.11030395444817" r="2.9438076324295253" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.2</title></circle><circle cx="366.94534390641377" cy="242.2796696042731" r="3.8427595462650066" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 3.9</title></circle><circle cx="355.3226991568739" cy="232.98015003581307" r="3.6460012818686667" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.0</title></circle><circle cx="290.9241380572133" cy="229.26575197406257" r="3.7021969294175507" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.1 / Ms 4.1</title></circle><circle cx="318.1988743451704" cy="255.567655739402" r="3.30677473009564" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.7</title></circle><circle cx="452.88166477943776" cy="209.8759653062947" r="3.208187797944993" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.5 / Ms 4.4</title></circle><circle cx="334.9037309804047" cy="234.99748673806297" r="3.76311617041938" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.0</title></circle><circle cx="366.5150614063069" cy="228.93852102353574" r="4.154690725402907" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.1</title></circle><circle cx="293.49217555108953" cy="260.1941769598234" r="3.1156367052812133" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.1 / Ms 3.6</title></circle><circle cx="378.3791723513324" cy="232.1292899732418" r="3.3337476706132296" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 4.0</title></circle><circle cx="333.51078339196283" cy="235.08655362850016" r="3.867271856311709" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.0</title></circle><circle cx="415.3075665317523" cy="210.2719392970201" r="3.5261232582852244" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.2 / Ms 4.4</title></circle><circle cx="334.68943573155445" cy="207.68773816571155" r="3.4785979486070575" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.4</title></circle><circle cx="391.0626709366031" cy="203.36883855175375" r="3.1876163084059956" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.5</title></circle><circle cx="366.87042844412383" cy="227.16007471347191" r="4.423059288365767" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.1</title></circle><circle cx="376.514730366231" cy="236.24168791256804" r="3.182068916363642" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.0</title></circle><circle cx="301.1967460439355" cy="273.4823409830719" r="2.979771338403225" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 3.4</title></circle><circle cx="321.80561402570925" cy="259.9156234924417" r="3.6891595856286585" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.6</title></circle><circle cx="349.89288788845766" cy="243.36167501842377" r="4.10729893357493" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 3.9</title></circle><circle cx="420.3050952351932" cy="211.09512079237925" r="3.777055496675894" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.2 / Ms 4.3</title></circle><circle cx="371.54927150297914" cy="240.9278164342731" r="3.9231565733905884" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 3.9</title></circle><circle cx="329.7396375936969" cy="233.532683288436" r="4.479277433361858" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 4.0</title></circle><circle cx="427.9917461358989" cy="205.3242165009897" r="4.239126360509545" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.3 / Ms 4.4</title></circle><circle cx="307.299868725501" cy="295.7076097921073" r="4.008493711519987" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 3.1</title></circle><circle cx="279.0987820161554" cy="258.02667105705996" r="3.5664593065157533" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.0 / Ms 3.7</title></circle><circle cx="429.21279810162264" cy="196.4756576442286" r="3.3570418047253043" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.3 / Ms 4.6</title></circle><circle cx="317.1579193671048" cy="227.1683711465463" r="3.5808333136606962" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 4.1</title></circle><circle cx="355.9899544783915" cy="228.65738636994325" r="4.133801605319604" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.1</title></circle><circle cx="377.71307987757496" cy="211.62248285553562" r="4.424776007328183" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.3</title></circle><circle cx="378.97811055558736" cy="201.04878934167098" r="3.1370602789800617" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 4.5</title></circle><circle cx="343.1480354394811" cy="223.56998357039646" r="3.4372323407325895" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.2</title></circle><circle cx="309.5795220644726" cy="247.43817574762886" r="4.428926750505344" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 3.8</title></circle><circle cx="338.6234801498289" cy="245.76531856036144" r="3.2150608826894316" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 3.8</title></circle><circle cx="392.6379042421282" cy="237.18254221894736" r="3.073488930473104" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.0</title></circle><circle cx="406.2271809374029" cy="210.23300819524337" r="4.056993652973325" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.1 / Ms 4.4</title></circle><circle cx="331.7642687699106" cy="249.8190514993496" r="3.58049283195287" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.8</title></circle><circle cx="366.0513900974114" cy="235.15659237655026" r="4.158808917878196" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.0</title></circle><circle cx="321.14296555561486" cy="250.64222890544272" r="2.8794709394685927" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.8</title></circle><circle cx="361.0674707429996" cy="253.46978010532592" r="2.8259944383054973" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 3.7</title></circle><circle cx="355.93783991425767" cy="228.14943958403504" r="3.6470240991096947" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.7 / Ms 4.1</title></circle><circle cx="396.2419098828268" cy="223.64290994499396" r="4.118560495320708" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.0 / Ms 4.2</title></circle><circle cx="303.7967899351661" cy="259.20884258854164" r="3.532787982746959" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 3.6</title></circle><circle cx="317.4249388427055" cy="234.70868883294943" r="4.435364719759673" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 4.0</title></circle><circle cx="419.0940268382477" cy="181.4392040343132" r="3.353475221525878" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.2 / Ms 4.8</title></circle><circle cx="294.2421328158165" cy="269.9791060019653" r="4.443884901702404" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.1 / Ms 3.5</title></circle><circle cx="452.81324443938684" cy="187.28168169995365" r="2.8261794487014416" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.5 / Ms 4.7</title></circle><circle cx="351.5569787561009" cy="205.51215905898022" r="4.04693923490122" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.6 / Ms 4.4</title></circle><circle cx="447.8131407772238" cy="171.7085466037836" r="4.328826013114304" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.5 / Ms 4.9</title></circle><circle cx="311.8424292231957" cy="275.5929263311099" r="4.030606293585151" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.3 / Ms 3.4</title></circle><circle cx="323.02604696427477" cy="248.50436539178116" r="2.73736384799704" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.8</title></circle><circle cx="337.28825070083144" cy="231.5142646614253" r="3.2944114430341873" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.5 / Ms 4.0</title></circle><circle cx="386.1813717506407" cy="242.41847892658745" r="3.74564324291423" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.9 / Ms 3.9</title></circle><circle cx="430.6298275762517" cy="176.91361014510468" r="3.994461026368663" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 5.3 / Ms 4.8</title></circle><circle cx="307.1683359024162" cy="251.4843294028114" r="2.9838451738469303" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 3.8</title></circle><circle cx="374.0282685553003" cy="190.61434970178232" r="3.9872886951081457" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.8 / Ms 4.6</title></circle><circle cx="304.94279963032346" cy="248.2665428195275" r="4.19634349308908" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.2 / Ms 3.8</title></circle><circle cx="290.7967610977404" cy="287.99943642171615" r="3.8333755077794196" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.1 / Ms 3.2</title></circle><circle cx="326.56841826839843" cy="282.9648371529054" r="3.1372665052302184" class="quake-dot" tabindex="0"><title>天然地震示例 · mb 4.4 / Ms 3.3</title></circle></g><g><g><path d="M372.2 302.1 L374.3 307.2 L379.8 307.6 L375.6 311.2 L376.9 316.6 L372.2 313.6 L367.5 316.6 L368.9 311.2 L364.6 307.6 L370.2 307.2 Z" class="explosion-star" tabindex="0"><title>爆炸／推定爆炸 · China 950817 · mb 4.8 / Ms 2.9</title></path></g><g><path d="M361.2 329.6 L363.2 334.8 L368.8 335.1 L364.5 338.7 L365.9 344.1 L361.2 341.1 L356.5 344.1 L357.8 338.7 L353.6 335.1 L359.1 334.8 Z" class="explosion-star" tabindex="0"><title>爆炸／推定爆炸 · China 960608 · mb 4.7 / Ms 2.5</title></path></g><g><path d="M339.0 315.8 L341.1 321.0 L346.6 321.4 L342.3 324.9 L343.7 330.3 L339.0 327.3 L334.3 330.3 L335.7 324.9 L331.4 321.4 L336.9 321.0 Z" class="explosion-star" tabindex="0"><title>爆炸／推定爆炸 · Pakistan 980528 · mb 4.5 / Ms 2.7</title></path></g><g><path d="M316.8 336.5 L318.9 341.6 L324.4 342.0 L320.2 345.6 L321.5 351.0 L316.8 348.0 L312.1 351.0 L313.5 345.6 L309.2 342.0 L314.8 341.6 Z" class="explosion-star" tabindex="0"><title>爆炸／推定爆炸 · India 980511 · mb 4.3 / Ms 2.4</title></path></g><g><path d="M350.1 357.1 L352.1 362.3 L357.7 362.6 L353.4 366.2 L354.8 371.6 L350.1 368.6 L345.4 371.6 L346.8 366.2 L342.5 362.6 L348.0 362.3 Z" class="explosion-star" tabindex="0"><title>爆炸／推定爆炸 · China 960729 · mb 4.6 / Ms 2.1</title></path></g><g><path d="M294.7 322.7 L296.7 327.9 L302.3 328.2 L298.0 331.8 L299.4 337.2 L294.7 334.2 L290.0 337.2 L291.4 331.8 L287.1 328.2 L292.6 327.9 Z" class="explosion-star" tabindex="0"><title>爆炸／推定爆炸 · DPRK 061009 · mb 4.1 / Ms 2.6</title></path></g></g></svg>
+            <div class="chart-legend"><span><i class="legend-dot"></i>天然地震（藍色群集）</span><span><i class="legend-star">★</i>爆炸／推定爆炸</span><span>虛線：篩選線</span></div></div>
+            <div class="chart-controls">
+              <button class="chip is-active" type="button" data-mbms="all">全部事件</button>
+              <button class="chip" type="button" data-mbms="explosion">只看爆炸</button>
+              <span class="hint">滑過資料點看說明</span>
+            </div>
+          </article>
+
+          <article class="note chart-card reveal in">
+            <div class="card-label">METHOD 02 / 區域 P/S 振幅比</div>
+            <h3>高頻 Pg/Lg，爆炸的指紋</h3>
+            <p>在 2–10 Hz 以上，核試爆的 Pg 相對於 Lg 的振幅比，明顯高於天然地震。</p>
+            <div class="ratio-demo">
+              <div class="ratio-line">
+                <span>天然地震</span>
+                <div class="ratio-bars"><i class="p"></i><i class="s long"></i></div>
+                <em>P 較弱 / Lg 較強</em>
+              </div>
+              <div class="ratio-line">
+                <span>核試爆</span>
+                <div class="ratio-bars"><i class="p huge"></i><i class="s"></i></div>
+                <em>P 突出 / Lg 較弱</em>
+              </div>
+            </div>
+            <div class="hand-callout">記住這一句：<br><b>高頻 Pg/Lg ↑，爆炸的味道就出來了。</b></div>
+            <p class="tiny">此為概念示意；實際判識仍需考慮路徑衰減、測站方位與背景噪訊。</p>
+          </article>
+        </div>
+
+        <article class="note moment-card reveal in">
+          <div class="moment-copy">
+            <div class="card-label">METHOD 03 / 全矩張量震源機制反演</div>
+            <h3>把震源拆成三個成分</h3>
+            <p>將震源拆解為等向性膨脹（ISO）、補償線性向量偶極（CLVD）與雙力偶剪力（DC）。天然構造地震靠近中央的純 DC；地下核試爆則因強烈向外膨脹，落在上方的高正值 <b>+ISO</b> 區域，輻射花樣呈現全象限壓縮初動。</p>
+            <div class="moment-legend">
+              <span><i class="dot dc"></i>DC：雙力偶剪力</span>
+              <span><i class="dot iso"></i>+ISO：等向性膨脹</span>
+              <span><i class="dot clvd"></i>CLVD：補償線性向量偶極</span>
+            </div>
+          </div>
+          <div class="moment-interactive">
+            <div class="moment-controls">
+              <label for="isoRange">ISO 成分 <output id="isoOut">49%</output></label>
+              <input id="isoRange" type="range" min="0" max="100" value="42" step="1">
+              <p id="isoText">明顯的膨脹成分。2017 年北韓事件約 <b>42% ISO</b>、Mw 4.95，是核試爆的典型特徵。</p>
+            </div>
+            <svg id="sourceType" viewBox="0 0 360 360" role="img" aria-label="震源型態判別圖，滑桿可移動標記"><polygon points="180,54 302,180 180,306 58,180" class="source-diamond"></polygon><g><line x1="180" y1="54" x2="180" y2="306" class="source-axis"></line><line x1="58" y1="180" x2="302" y2="180" class="source-axis"></line></g><text x="180" y="34" text-anchor="middle" class="source-label big red">+ISO</text><text x="180" y="334" text-anchor="middle" class="source-label big">−ISO</text><text x="44" y="184" text-anchor="middle" class="source-label">CLVD</text><text x="318" y="184" text-anchor="middle" class="source-label">CLVD</text><text x="180" y="186" text-anchor="middle" class="source-label big">DC</text><text x="180" y="202" text-anchor="middle" class="source-label">雙力偶</text><path d="M85.64999999999999 148.5 Q180 136.5 274.35 148.5" fill="none" stroke="rgba(76,62,45,.1)" stroke-width="1"></path><path d="M113.1 117 Q180 105 246.9 117" fill="none" stroke="rgba(76,62,45,.1)" stroke-width="1"></path><path d="M140.55 85.5 Q180 73.5 219.45 85.5" fill="none" stroke="rgba(76,62,45,.1)" stroke-width="1"></path><g id="sourceFixed" style="transition: opacity 0.25s; opacity: 1;"><circle cx="180" cy="127.08000000000001" r="15" fill="none" stroke="rgba(78,111,102,.55)" stroke-width="1.2" stroke-dasharray="3 3"></circle><text x="202" y="131.08" class="source-label" fill="#4e6f66">2017 · 42% ISO</text></g><circle cx="187.99605248292585" cy="118.25999999999999" r="13" class="source-marker-ring"></circle><circle cx="187.99605248292585" cy="118.25999999999999" r="8" class="source-marker"></circle><text x="172.99605248292585" y="106.25999999999999" class="source-label red" text-anchor="end">目前設定</text></svg>
+          </div>
+        </article>
+
+        <div class="margin-note margin-right">
+          <span class="pin" aria-hidden="true"></span>
+          <p>三招不是各自獨立：<b>規模關係、頻譜比、震源機制</b>要一起看，才不會被單一測站騙了。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 03 DPRK ================= -->
+    <section class="section" id="dprk">
+      <div class="section-inner">
+        <header class="chapter-head">
+          <div class="chapter-num">03</div>
+          <div class="chapter-heading">
+            <p class="kicker">DPRK · 2006—2017</p>
+            <h2>豐溪里的六次試爆</h2>
+            <p class="chapter-sub">北韓咸鏡北道吉州郡豐溪里（Punggye-ri），花崗岩質山區的地下坑道。2006 到 2017，六次地下核試爆，牡丹江（MDJ）測站都記錄到了。</p>
+          </div>
+        </header>
+
+        <div class="dprk-layout">
+          <article class="note timeline-card reveal in">
+            <div class="card-label">SIX TESTS / 點一個事件，聽一段波形</div>
+            <div class="timeline" id="dprkTimeline" role="tablist" aria-label="北韓核試爆事件">
+              <button class="timeline-item" type="button" role="tab" data-event="0" aria-selected="false">
+                <span class="timeline-year">2006</span><span class="timeline-date">10 / 09</span><span class="magnitude">4.1</span><span class="timeline-dot"></span>
+              </button>
+              <button class="timeline-item" type="button" role="tab" data-event="1" aria-selected="false">
+                <span class="timeline-year">2009</span><span class="timeline-date">05 / 25</span><span class="magnitude">4.7</span><span class="timeline-dot"></span>
+              </button>
+              <button class="timeline-item" type="button" role="tab" data-event="2" aria-selected="false">
+                <span class="timeline-year">2013</span><span class="timeline-date">02 / 12</span><span class="magnitude">5.1</span><span class="timeline-dot"></span>
+              </button>
+              <button class="timeline-item" type="button" role="tab" data-event="3" aria-selected="false">
+                <span class="timeline-year">2016</span><span class="timeline-date">01 / 06</span><span class="magnitude">5.1</span><span class="timeline-dot"></span>
+              </button>
+              <button class="timeline-item" type="button" role="tab" data-event="4" aria-selected="false">
+                <span class="timeline-year">2016</span><span class="timeline-date">09 / 09</span><span class="magnitude">5.3</span><span class="timeline-dot"></span>
+              </button>
+              <button class="timeline-item is-active" type="button" role="tab" data-event="5" aria-selected="true">
+                <span class="timeline-year">2017</span><span class="timeline-date">09 / 03</span><span class="magnitude big">6.3</span><span class="timeline-dot"></span>
+              </button>
+            </div>
+            <div class="timeline-line" aria-hidden="true"></div>
+            <div class="ball-scale">
+              <span>mb 4.1</span><i class="ball b1"></i><i class="ball b2"></i><i class="ball b3"></i><i class="ball b4"></i><i class="ball b5"></i><span>mb 6.3</span>
+            </div>
+          </article>
+
+          <article class="note wave-card reveal in">
+            <div class="wave-head">
+              <div>
+                <div class="card-label">MDJ · 牡丹江測站 · 約 370 km</div>
+                <h3 id="dprkWaveTitle">2017 / 09 / 03 · mb 6.3</h3>
+              </div>
+              <span class="wave-badge" id="dprkWaveBadge">最大的一次</span>
+            </div>
+            <svg id="dprkWave" class="big-wave" viewBox="0 0 760 280" role="img" aria-label="2017 / 09 / 03 · mb 6.3 牡丹江測站波形示意"><g class="wave-grid"><line x1="50" y1="24" x2="740" y2="24"></line><line x1="50" y1="66.4" x2="740" y2="66.4"></line><line x1="50" y1="108.8" x2="740" y2="108.8"></line><line x1="50" y1="151.2" x2="740" y2="151.2"></line><line x1="50" y1="193.6" x2="740" y2="193.6"></line><line x1="50" y1="236" x2="740" y2="236"></line><line x1="50" y1="24" x2="50" y2="236"></line><line x1="165" y1="24" x2="165" y2="236"></line><line x1="280" y1="24" x2="280" y2="236"></line><line x1="395" y1="24" x2="395" y2="236"></line><line x1="510" y1="24" x2="510" y2="236"></line><line x1="625" y1="24" x2="625" y2="236"></line><line x1="740" y1="24" x2="740" y2="236"></line></g><g class="chart-axis"><line x1="50" y1="236" x2="740" y2="236" stroke="rgba(76,62,45,.4)"></line><text x="50" y="256" text-anchor="middle">0s</text><text x="165" y="256" text-anchor="middle">8s</text><text x="280" y="256" text-anchor="middle">17s</text><text x="395" y="256" text-anchor="middle">25s</text><text x="510" y="256" text-anchor="middle">33s</text><text x="625" y="256" text-anchor="middle">42s</text><text x="740" y="256" text-anchor="middle">50s</text><text x="380" y="272" text-anchor="middle" class="axis-title">Time (s)</text><text x="14" y="34" class="axis-title">振幅</text></g><line x1="50" y1="130" x2="740" y2="130" class="wave-zero"></line><path d="M54.0,130.1 L54.9,130.9 L55.8,130.1 L56.7,128.2 L57.6,131.1 L58.5,130.1 L59.4,131.7 L60.3,130.9 L61.2,131.2 L62.1,131.3 L63.0,129.1 L63.9,128.4 L64.8,131.2 L65.7,131.2 L66.6,131.3 L67.5,128.4 L68.4,130.5 L69.3,130.4 L70.2,130.6 L71.0,128.5 L71.9,130.4 L72.8,129.3 L73.7,130.5 L74.6,131.6 L75.5,130.1 L76.4,129.1 L77.3,130.8 L78.2,130.9 L79.1,130.5 L80.0,131.1 L80.9,128.5 L81.8,129.7 L82.7,128.4 L83.6,128.6 L84.5,130.0 L85.4,128.8 L86.3,130.4 L87.2,131.1 L88.1,129.2 L89.0,129.8 L89.9,129.9 L90.8,130.5 L91.7,131.1 L92.6,128.7 L93.5,129.6 L94.4,131.4 L95.3,131.0 L96.2,131.1 L97.1,130.3 L98.0,128.7 L98.9,128.9 L99.8,131.0 L100.7,131.7 L101.6,130.3 L102.5,128.9 L103.4,130.8 L104.3,128.1 L105.2,130.5 L106.0,130.1 L106.9,128.7 L107.8,128.6 L108.7,130.7 L109.6,128.7 L110.5,130.5 L111.4,128.3 L112.3,130.8 L113.2,129.4 L114.1,131.0 L115.0,131.5 L115.9,128.9 L116.8,129.6 L117.7,130.1 L118.6,130.2 L119.5,130.0 L120.4,130.9 L121.3,130.3 L122.2,130.4 L123.1,131.2 L124.0,131.9 L124.9,130.9 L125.8,130.0 L126.7,130.0 L127.6,130.1 L128.5,131.1 L129.4,131.1 L130.3,129.2 L131.2,130.5 L132.1,131.5 L133.0,129.1 L133.9,130.4 L134.8,129.5 L135.7,131.8 L136.6,131.7 L137.5,129.4 L138.4,130.0 L139.3,128.7 L140.1,129.1 L141.0,130.4 L141.9,130.2 L142.8,129.0 L143.7,131.0 L144.6,130.4 L145.5,130.0 L146.4,129.3 L147.3,131.2 L148.2,131.5 L149.1,129.2 L150.0,129.7 L150.9,127.9 L151.8,128.0 L152.7,131.5 L153.6,129.5 L154.5,132.2 L155.4,131.0 L156.3,130.4 L157.2,128.5 L158.1,129.6 L159.0,131.1 L159.9,130.9 L160.8,128.6 L161.7,128.6 L162.6,130.7 L163.5,128.3 L164.4,131.6 L165.3,132.8 L166.2,129.3 L167.1,127.8 L168.0,132.7 L168.9,129.5 L169.8,124.0 L170.7,134.6 L171.6,133.5 L172.5,122.5 L173.3,131.3 L174.2,134.9 L175.1,119.6 L176.0,131.7 L176.9,143.1 L177.8,120.4 L178.7,122.6 L179.6,147.4 L180.5,120.6 L181.4,117.9 L182.3,150.4 L183.2,130.1 L184.1,115.1 L185.0,145.1 L185.9,132.0 L186.8,112.5 L187.7,141.1 L188.6,139.5 L189.5,115.1 L190.4,133.7 L191.3,136.9 L192.2,119.8 L193.1,130.3 L194.0,141.0 L194.9,126.6 L195.8,126.2 L196.7,138.2 L197.6,122.5 L198.5,133.3 L199.4,127.3 L200.3,138.8 L201.2,128.2 L202.1,127.4 L203.0,135.8 L203.9,117.4 L204.8,148.3 L205.7,118.0 L206.6,147.2 L207.5,118.0 L208.3,129.3 L209.2,136.7 L210.1,109.7 L211.0,162.4 L211.9,98.0 L212.8,163.4 L213.7,100.9 L214.6,138.9 L215.5,134.7 L216.4,108.9 L217.3,173.4 L218.2,82.0 L219.1,181.2 L220.0,83.3 L220.9,154.0 L221.8,123.3 L222.7,118.9 L223.6,171.2 L224.5,78.2 L225.4,183.6 L226.3,72.4 L227.2,166.2 L228.1,113.4 L229.0,132.6 L229.9,155.5 L230.8,89.8 L231.7,169.3 L232.6,80.2 L233.5,166.9 L234.4,108.6 L235.3,144.8 L236.2,136.7 L237.1,104.8 L238.0,150.0 L238.9,99.7 L239.8,159.5 L240.7,117.9 L241.6,144.5 L242.4,126.1 L243.3,116.6 L244.2,134.1 L245.1,117.7 L246.0,148.7 L246.9,126.9 L247.8,136.8 L248.7,121.6 L249.6,123.5 L250.5,130.9 L251.4,131.4 L252.3,141.7 L253.2,130.6 L254.1,128.0 L255.0,123.0 L255.9,123.9 L256.8,131.7 L257.7,138.1 L258.6,139.7 L259.5,130.2 L260.4,123.7 L261.3,122.5 L262.2,128.7 L263.1,135.7 L264.0,139.8 L264.9,137.3 L265.8,124.3 L266.7,119.1 L267.6,124.3 L268.5,135.6 L269.4,137.5 L270.3,136.8 L271.2,129.1 L272.1,122.3 L273.0,119.8 L273.9,126.4 L274.8,139.7 L275.6,139.6 L276.5,133.2 L277.4,123.8 L278.3,119.6 L279.2,122.1 L280.1,133.2 L281.0,144.5 L281.9,138.1 L282.8,125.4 L283.7,118.1 L284.6,119.8 L285.5,127.8 L286.4,139.8 L287.3,144.1 L288.2,135.0 L289.1,120.8 L290.0,114.9 L290.9,123.3 L291.8,136.1 L292.7,143.1 L293.6,140.5 L294.5,129.3 L295.4,114.8 L296.3,115.6 L297.2,132.2 L298.1,144.2 L299.0,140.6 L299.9,135.8 L300.8,123.5 L301.7,113.6 L302.6,119.5 L303.5,141.6 L304.4,151.1 L305.3,138.1 L306.2,122.9 L307.1,117.5 L308.0,116.3 L308.9,127.2 L309.8,147.2 L310.6,149.9 L311.5,132.6 L312.4,112.9 L313.3,113.9 L314.2,123.9 L315.1,136.9 L316.0,147.8 L316.9,147.4 L317.8,123.7 L318.7,107.1 L319.6,117.1 L320.5,136.1 L321.4,145.8 L322.3,145.4 L323.2,137.2 L324.1,115.0 L325.0,102.9 L325.9,122.6 L326.8,147.8 L327.7,150.7 L328.6,138.8 L329.5,124.9 L330.4,109.0 L331.3,106.6 L332.2,130.5 L333.1,157.0 L334.0,151.1 L334.9,127.1 L335.8,112.9 L336.7,111.4 L337.6,117.8 L338.5,142.0 L339.4,162.0 L340.3,147.3 L341.2,112.8 L342.1,101.8 L343.0,118.2 L343.8,133.8 L344.7,147.6 L345.6,159.1 L346.5,136.6 L347.4,98.8 L348.3,99.1 L349.2,128.7 L350.1,150.5 L351.0,151.1 L351.9,144.9 L352.8,122.8 L353.7,94.4 L354.6,104.8 L355.5,144.3 L356.4,165.0 L357.3,146.6 L358.2,124.5 L359.1,111.3 L360.0,101.1 L360.9,115.2 L361.8,155.2 L362.7,171.0 L363.6,135.4 L364.5,104.4 L365.4,106.6 L366.3,112.6 L367.2,131.3 L368.1,161.3 L369.0,168.6 L369.9,123.2 L370.8,88.4 L371.7,104.8 L372.6,132.8 L373.5,147.5 L374.4,160.1 L375.3,152.3 L376.2,108.6 L377.1,80.3 L377.9,113.4 L378.8,155.1 L379.7,160.1 L380.6,148.3 L381.5,133.4 L382.4,103.0 L383.3,86.5 L384.2,127.0 L385.1,171.7 L386.0,166.6 L386.9,129.1 L387.8,110.5 L388.7,99.4 L389.6,101.5 L390.5,141.5 L391.4,182.5 L392.3,162.8 L393.2,105.7 L394.1,92.2 L395.0,110.6 L395.9,125.7 L396.8,153.1 L397.7,178.2 L398.6,147.3 L399.5,89.1 L400.4,84.6 L401.3,124.2 L402.2,150.0 L403.1,157.6 L404.0,160.5 L404.9,132.3 L405.8,80.8 L406.7,83.3 L407.6,145.3 L408.5,175.6 L409.4,155.8 L410.3,134.2 L411.2,114.1 L412.1,82.0 L412.9,97.5 L413.8,164.4 L414.7,187.5 L415.6,145.8 L416.5,106.5 L417.4,100.6 L418.3,96.5 L419.2,119.2 L420.1,174.4 L421.0,186.3 L421.9,125.9 L422.8,79.6 L423.7,94.6 L424.6,122.8 L425.5,144.6 L426.4,173.8 L427.3,171.5 L428.2,107.9 L429.1,66.1 L430.0,103.0 L430.9,153.1 L431.8,164.1 L432.7,160.8 L433.6,147.0 L434.5,95.7 L435.4,66.7 L436.3,115.6 L437.2,179.6 L438.1,171.8 L439.0,139.8 L439.9,117.0 L440.8,94.5 L441.7,82.8 L442.6,136.5 L443.5,194.3 L444.4,170.8 L445.3,111.4 L446.1,93.1 L447.0,98.2 L447.9,109.8 L448.8,150.9 L449.7,191.1 L450.6,160.1 L451.5,87.6 L452.4,76.5 L453.3,116.2 L454.2,143.6 L455.1,163.0 L456.0,177.9 L456.9,139.8 L457.8,75.1 L458.7,75.4 L459.6,139.8 L460.5,172.4 L461.4,163.1 L462.3,149.6 L463.2,117.5 L464.1,73.5 L465.0,88.1 L465.9,157.8 L466.8,189.5 L467.7,151.4 L468.6,118.7 L469.5,100.4 L470.4,88.7 L471.3,108.4 L472.2,173.0 L473.1,193.0 L474.0,134.5 L474.9,88.3 L475.8,94.2 L476.7,112.3 L477.6,135.1 L478.5,177.0 L479.4,180.5 L480.3,116.2 L481.1,68.0 L482.0,98.0 L482.9,139.0 L483.8,158.4 L484.7,168.3 L485.6,157.0 L486.5,101.1 L487.4,67.4 L488.3,109.1 L489.2,167.6 L490.1,173.8 L491.0,148.2 L491.9,126.9 L492.8,92.8 L493.7,75.0 L494.6,126.3 L495.5,183.6 L496.4,173.0 L497.3,127.3 L498.2,104.1 L499.1,97.4 L500.0,102.0 L500.9,146.7 L501.8,189.7 L502.7,160.6 L503.6,100.2 L504.5,83.7 L505.4,109.7 L506.3,130.5 L507.2,162.1 L508.1,180.5 L509.0,146.4 L509.9,84.9 L510.8,77.7 L511.7,122.5 L512.6,153.7 L513.5,159.9 L514.4,155.3 L515.2,125.5 L516.1,83.0 L517.0,92.6 L517.9,151.2 L518.8,176.0 L519.7,154.0 L520.6,127.8 L521.5,103.4 L522.4,83.8 L523.3,104.4 L524.2,161.4 L525.1,185.7 L526.0,148.4 L526.9,109.5 L527.8,102.3 L528.7,104.8 L529.6,127.2 L530.5,162.2 L531.4,168.0 L532.3,120.7 L533.2,87.0 L534.1,100.1 L535.0,134.1 L535.9,155.3 L536.8,173.3 L537.7,159.8 L538.6,108.9 L539.5,76.1 L540.4,100.4 L541.3,142.4 L542.2,157.3 L543.1,154.0 L544.0,143.2 L544.9,112.4 L545.8,97.4 L546.7,130.0 L547.6,165.4 L548.5,159.0 L549.3,124.2 L550.2,102.8 L551.1,91.6 L552.0,100.2 L552.9,145.8 L553.8,181.9 L554.7,172.2 L555.6,128.5 L556.5,104.2 L557.4,101.4 L558.3,110.5 L559.2,135.2 L560.1,155.4 L561.0,139.2 L561.9,108.1 L562.8,106.4 L563.7,135.3 L564.6,159.7 L565.5,164.8 L566.4,155.4 L567.3,119.3 L568.2,79.4 L569.1,82.2 L570.0,120.6 L570.9,152.5 L571.8,162.7 L572.7,157.4 L573.6,138.7 L574.5,117.0 L575.4,116.0 L576.3,137.7 L577.2,143.7 L578.1,121.6 L579.0,100.2 L579.9,96.3 L580.8,111.6 L581.7,144.5 L582.6,181.0 L583.4,182.0 L584.3,145.6 L585.2,108.2 L586.1,91.9 L587.0,95.5 L587.9,113.9 L588.8,138.1 L589.7,145.6 L590.6,136.5 L591.5,127.1 L592.4,142.0 L593.3,157.7 L594.2,155.5 L595.1,140.9 L596.0,110.6 L596.9,83.7 L597.8,77.9 L598.7,110.8 L599.6,151.2 L600.5,176.2 L601.4,171.5 L602.3,153.5 L603.2,125.9 L604.1,109.5 L605.0,110.3 L605.9,118.5 L606.8,116.9 L607.7,106.2 L608.6,112.4 L609.5,128.3 L610.4,153.7 L611.3,175.6 L612.2,178.3 L613.1,150.3 L614.0,107.4 L614.9,79.3 L615.8,82.4 L616.6,103.9 L617.5,132.6 L618.4,156.1 L619.3,159.9 L620.2,152.0 L621.1,144.5 L622.0,145.4 L622.9,138.4 L623.8,121.6 L624.7,101.5 L625.6,87.6 L626.5,89.0 L627.4,114.1 L628.3,152.8 L629.2,178.2 L630.1,178.4 L631.0,156.5 L631.9,128.0 L632.8,101.4 L633.7,94.4 L634.6,103.6 L635.5,114.7 L636.4,121.9 L637.3,130.2 L638.2,145.2 L639.1,158.4 L640.0,166.4 L640.9,158.6 L641.8,137.4 L642.7,107.0 L643.6,82.5 L644.5,85.6 L645.4,109.2 L646.3,138.3 L647.2,158.8 L648.1,165.7 L649.0,158.0 L649.9,142.4 L650.8,131.4 L651.6,122.4 L652.5,113.9 L653.4,106.2 L654.3,102.1 L655.2,108.6 L656.1,129.8 L657.0,154.4 L657.9,169.2 L658.8,168.0 L659.7,148.2 L660.6,122.3 L661.5,101.9 L662.4,94.7 L663.3,104.9 L664.2,124.1 L665.1,136.1 L666.0,141.8 L666.9,147.0 L667.8,149.8 L668.7,149.1 L669.6,141.1 L670.5,126.3 L671.4,108.3 L672.3,101.0 L673.2,103.2 L674.1,120.0 L675.0,137.9 L675.9,154.3 L676.8,158.1 L677.7,151.2 L678.6,130.7 L679.5,116.0 L680.4,114.6 L681.3,118.3 L682.2,120.9 L683.1,117.9 L684.0,121.2 L684.9,134.7 L685.7,151.3 L686.6,156.7 L687.5,141.6 L688.4,127.3 L689.3,124.1 L690.2,121.3 L691.1,112.5 L692.0,105.4 L692.9,122.0 L693.8,147.9 L694.7,156.8 L695.6,139.4 L696.5,121.4 L697.4,128.1 L698.3,145.4 L699.2,137.7 L700.1,110.9 L701.0,96.0 L701.9,118.1 L702.8,147.8 L703.7,149.6 L704.6,129.0 L705.5,125.9 L706.4,145.8 L707.3,149.5 L708.2,125.7 L709.1,96.5 L710.0,108.9 L710.9,141.1 L711.8,151.8 L712.7,129.0 L713.6,110.7 L714.5,129.5 L715.4,157.6 L716.3,154.8 L717.2,119.7 L718.1,103.5 L718.9,121.1 L719.8,141.3 L720.7,135.1 L721.6,118.7 L722.5,119.1 L723.4,142.3 L724.3,151.9 L725.2,132.9 L726.1,112.3 L727.0,117.2 L727.9,137.7 L728.8,139.4 L729.7,124.8 L730.6,113.9 L731.5,125.7 L732.4,144.6 L733.3,145.2 L734.2,130.9 L735.1,122.5 L736.0,129.7" class="wave-path" style="stroke: var(--red);"></path><line x1="181.1" y1="24" x2="181.1" y2="236" class="wave-phase-line"></line><text x="181.1" y="17" text-anchor="middle" class="wave-phase-text" style="fill: var(--blue);">Pn</text><line x1="222.5" y1="24" x2="222.5" y2="236" class="wave-phase-line"></line><text x="222.5" y="17" text-anchor="middle" class="wave-phase-text" style="fill: var(--red);">Pg</text><line x1="464" y1="24" x2="464" y2="236" class="wave-phase-line"></line><text x="464" y="17" text-anchor="middle" class="wave-phase-text" style="fill: var(--teal);">Lg</text><line x1="629.6" y1="24" x2="629.6" y2="236" class="wave-phase-line"></line><text x="629.6" y="17" text-anchor="middle" class="wave-phase-text" style="fill: var(--mustard);">Rayleigh</text><text x="734" y="38" text-anchor="end" class="wave-phase-text">2017：振幅跳級</text></svg>
+            <p class="wave-note" id="dprkWaveText">規模高達 6.3，振幅遠大於前五次。主震後約 8.5 分鐘，伴隨坑道坍塌訊號。</p>
+            <div class="wave-phases" aria-hidden="true">
+              <span><i class="swatch pn"></i>Pn</span><span><i class="swatch pg"></i>Pg</span><span><i class="swatch lg"></i>Lg</span><span><i class="swatch ray"></i>Rayleigh</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid-2">
+          <article class="note reveal in">
+            <div class="card-label">WHY Lg? / 地殼波導</div>
+            <h3>被關在地殼裡的剪力波</h3>
+            <p>Lg 波是受限於地殼波導（crustal waveguide）中多次反射的剪力波。地表與莫霍面（MOHO）之間存在明顯的速度／波阻抗差，S 波能量被反覆反射、干涉，形成持續時間長、振幅通常較大的波群。</p>
+            <ul class="bullet-list">
+              <li>平均地殼剪力波群速度約 <b>3.5 km/s</b>；不同區域約 2.8–3.6 km/s。</li>
+              <li>主要觀測於區域震央距約 <b>150–2,000 km</b>（講義另標 120–2,000 km）。</li>
+              <li>對地殼厚度變化與構造不均質性極為敏感；遇到海洋地殼或地殼急遽變薄，Lg 會強烈衰減甚至無法有效傳播。</li>
+            </ul>
+            <div class="hand-callout small">所以 Lg 不只是一條波，它還是「地殼構造的探針」。</div>
+          </article>
+
+          <article class="note reveal in">
+            <div class="card-label">WAVEFORM / 2017 年那一條紅線</div>
+            <h3>P → Lg → Rayleigh 的抵達順序</h3>
+            <div class="phase-stack">
+              <div class="phase-row"><span class="phase-time">~55 s</span><b>Pn</b><p>跑得快的折射 P 波，沿地函頂部滑行，最先到。</p></div>
+              <div class="phase-row"><span class="phase-time">~60 s</span><b>Pg</b><p>在地殼上層直接傳播的壓縮波；爆炸的高頻能量常集中在這裡。</p></div>
+              <div class="phase-row"><span class="phase-time">~120 s</span><b>Lg</b><p>地殼波導中的多重反射剪力波，波群較長、振幅明顯。</p></div>
+              <div class="phase-row"><span class="phase-time">~130 s+</span><b>Rayleigh</b><p>沿地表傳播的表面波，起伏大、週期長；20 秒振幅是後續衰減分析的主角。</p></div>
+            </div>
+            <p class="tiny">抵達時間依測站距離與速度模型而異；此處為 MDJ 測站示意，非精確走時。</p>
+          </article>
+        </div>
+
+        <div class="margin-note margin-left">
+          <span class="pin" aria-hidden="true"></span>
+          <p>六次試爆的波形「高度相似」，代表震源位置與機制很一致；但 2017 年那次，振幅直接跳了一個檔次。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 04 RAYLEIGH + PG/LG ================= -->
+    <section class="section section-alt" id="rayleigh">
+      <div class="section-inner">
+        <header class="chapter-head">
+          <div class="chapter-num">04</div>
+          <div class="chapter-heading">
+            <p class="kicker">PG/LG &amp; RAYLEIGH</p>
+            <h2>頻率，與地下那顆透鏡</h2>
+            <p class="chapter-sub">Pg/Lg 頻譜比是爆炸的「頻率指紋」；20 秒雷利波則像穿過地下透鏡的光，會被構造聚焦或散焦。</p>
+          </div>
+        </header>
+
+        <div class="spectrum-layout">
+          <article class="note chart-card reveal in">
+            <div class="card-label">PG/LG EXPLORER / 拖動頻率</div>
+            <h3>頻率越高，爆炸的 Pg 越突出</h3>
+            <p>低頻時 Pg 與 Lg 差不多；超過約 2 Hz 後，爆炸的 Pg 頻譜明顯高於 Lg，Log(Pg/Lg) 穩定上升。天然地震則維持較低比值。</p>
+            <div class="chart-shell spectrum-shell">
+              <svg id="pglgChart" viewBox="0 0 720 390" role="img" aria-label="Pg 與 Lg 頻譜比隨頻率變化的示意圖"><defs><clippath id="pglgClip"><rect x="64" y="30" width="626" height="306"></rect></clippath></defs><rect x="64" y="30" width="32.1025641025641" height="306" fill="rgba(84,107,128,.10)"></rect><text x="80.05128205128204" y="44" text-anchor="middle" class="axis-title">低頻噪訊</text><rect x="561.5897435897435" y="30" width="128.41025641025647" height="306" fill="rgba(84,107,128,.10)"></rect><text x="625.7948717948718" y="44" text-anchor="middle" class="axis-title">高頻噪訊</text><g class="chart-axis"><line x1="47.94871794871795" y1="30" x2="47.94871794871795" y2="336" class="chart-tick"></line><text x="47.94871794871795" y="358" text-anchor="middle">0</text><line x1="112.15384615384616" y1="30" x2="112.15384615384616" y2="336" class="chart-tick"></line><text x="112.15384615384616" y="358" text-anchor="middle">2</text><line x1="176.35897435897436" y1="30" x2="176.35897435897436" y2="336" class="chart-tick"></line><text x="176.35897435897436" y="358" text-anchor="middle">4</text><line x1="240.56410256410257" y1="30" x2="240.56410256410257" y2="336" class="chart-tick"></line><text x="240.56410256410257" y="358" text-anchor="middle">6</text><line x1="304.7692307692308" y1="30" x2="304.7692307692308" y2="336" class="chart-tick"></line><text x="304.7692307692308" y="358" text-anchor="middle">8</text><line x1="368.97435897435895" y1="30" x2="368.97435897435895" y2="336" class="chart-tick"></line><text x="368.97435897435895" y="358" text-anchor="middle">10</text><line x1="433.1794871794872" y1="30" x2="433.1794871794872" y2="336" class="chart-tick"></line><text x="433.1794871794872" y="358" text-anchor="middle">12</text><line x1="497.38461538461536" y1="30" x2="497.38461538461536" y2="336" class="chart-tick"></line><text x="497.38461538461536" y="358" text-anchor="middle">14</text><line x1="561.5897435897435" y1="30" x2="561.5897435897435" y2="336" class="chart-tick"></line><text x="561.5897435897435" y="358" text-anchor="middle">16</text><line x1="625.7948717948718" y1="30" x2="625.7948717948718" y2="336" class="chart-tick"></line><text x="625.7948717948718" y="358" text-anchor="middle">18</text><line x1="690" y1="30" x2="690" y2="336" class="chart-tick"></line><text x="690" y="358" text-anchor="middle">20</text><line x1="64" y1="336" x2="690" y2="336" class="chart-tick"></line><text x="52" y="340" text-anchor="end">-0.8</text><line x1="64" y1="280.3636363636364" x2="690" y2="280.3636363636364" class="chart-tick"></line><text x="52" y="284.3636363636364" text-anchor="end">-0.4</text><line x1="64" y1="224.72727272727272" x2="690" y2="224.72727272727272" class="chart-tick"></line><text x="52" y="228.72727272727272" text-anchor="end">0.0</text><line x1="64" y1="169.09090909090907" x2="690" y2="169.09090909090907" class="chart-tick"></line><text x="52" y="173.09090909090907" text-anchor="end">0.4</text><line x1="64" y1="113.45454545454544" x2="690" y2="113.45454545454544" class="chart-tick"></line><text x="52" y="117.45454545454544" text-anchor="end">0.8</text><line x1="64" y1="57.81818181818181" x2="690" y2="57.81818181818181" class="chart-tick"></line><text x="52" y="61.81818181818181" text-anchor="end">1.2</text><line x1="64" y1="336" x2="690" y2="336" stroke="rgba(76,62,45,.45)"></line><line x1="64" y1="30" x2="64" y2="336" stroke="rgba(76,62,45,.45)"></line><text x="377" y="374" text-anchor="middle" class="axis-title">頻率 (Hz)</text><text x="15" y="183" text-anchor="middle" class="axis-title" transform="rotate(-90 15 183)">Log(Pg/Lg)</text></g><line x1="64" y1="224.72727272727272" x2="690" y2="224.72727272727272" stroke="rgba(76,62,45,.35)" stroke-width="1" stroke-dasharray="5 5"></line><path d="M64.0 254.0 L66.6 253.8 L69.2 253.6 L71.8 253.4 L74.4 253.2 L77.0 253.0 L79.7 252.8 L82.3 252.6 L84.9 252.4 L87.5 252.2 L90.1 252.0 L92.7 251.9 L95.3 251.7 L97.9 251.5 L100.5 251.3 L103.1 251.2 L105.7 251.0 L108.3 250.8 L110.9 250.7 L113.6 250.5 L116.2 250.3 L118.8 250.2 L121.4 250.0 L124.0 249.9 L126.6 249.7 L129.2 249.6 L131.8 249.4 L134.4 249.3 L137.0 249.1 L139.6 249.0 L142.3 248.9 L144.9 248.7 L147.5 248.6 L150.1 248.5 L152.7 248.3 L155.3 248.2 L157.9 248.1 L160.5 247.9 L163.1 247.8 L165.7 247.7 L168.3 247.6 L170.9 247.5 L173.6 247.3 L176.2 247.2 L178.8 247.1 L181.4 247.0 L184.0 246.9 L186.6 246.8 L189.2 246.7 L191.8 246.5 L194.4 246.4 L197.0 246.3 L199.6 246.2 L202.2 246.1 L204.8 246.0 L207.5 245.9 L210.1 245.8 L212.7 245.7 L215.3 245.6 L217.9 245.5 L220.5 245.5 L223.1 245.4 L225.7 245.3 L228.3 245.2 L230.9 245.1 L233.5 245.0 L236.2 244.9 L238.8 244.8 L241.4 244.8 L244.0 244.7 L246.6 244.6 L249.2 244.5 L251.8 244.4 L254.4 244.4 L257.0 244.3 L259.6 244.2 L262.2 244.1 L264.8 244.0 L267.5 244.0 L270.1 243.9 L272.7 243.8 L275.3 243.8 L277.9 243.7 L280.5 243.6 L283.1 243.6 L285.7 243.5 L288.3 243.4 L290.9 243.4 L293.5 243.3 L296.1 243.2 L298.8 243.2 L301.4 243.1 L304.0 243.1 L306.6 243.0 L309.2 242.9 L311.8 242.9 L314.4 242.8 L317.0 242.8 L319.6 242.7 L322.2 242.7 L324.8 242.6 L327.4 242.5 L330.1 242.5 L332.7 242.4 L335.3 242.4 L337.9 242.3 L340.5 242.3 L343.1 242.2 L345.7 242.2 L348.3 242.1 L350.9 242.1 L353.5 242.1 L356.1 242.0 L358.7 242.0 L361.3 241.9 L364.0 241.9 L366.6 241.8 L369.2 241.8 L371.8 241.7 L374.4 241.7 L377.0 241.7 L379.6 241.6 L382.2 241.6 L384.8 241.5 L387.4 241.5 L390.0 241.5 L392.7 241.4 L395.3 241.4 L397.9 241.3 L400.5 241.3 L403.1 241.3 L405.7 241.2 L408.3 241.2 L410.9 241.2 L413.5 241.1 L416.1 241.1 L418.7 241.1 L421.3 241.0 L423.9 241.0 L426.6 241.0 L429.2 240.9 L431.8 240.9 L434.4 240.9 L437.0 240.9 L439.6 240.8 L442.2 240.8 L444.8 240.8 L447.4 240.7 L450.0 240.7 L452.6 240.7 L455.3 240.7 L457.9 240.6 L460.5 240.6 L463.1 240.6 L465.7 240.5 L468.3 240.5 L470.9 240.5 L473.5 240.5 L476.1 240.4 L478.7 240.4 L481.3 240.4 L483.9 240.4 L486.6 240.3 L489.2 240.3 L491.8 240.3 L494.4 240.3 L497.0 240.3 L499.6 240.2 L502.2 240.2 L504.8 240.2 L507.4 240.2 L510.0 240.2 L512.6 240.1 L515.2 240.1 L517.8 240.1 L520.5 240.1 L523.1 240.1 L525.7 240.0 L528.3 240.0 L530.9 240.0 L533.5 240.0 L536.1 240.0 L538.7 239.9 L541.3 239.9 L543.9 239.9 L546.5 239.9 L549.2 239.9 L551.8 239.9 L554.4 239.8 L557.0 239.8 L559.6 239.8 L562.2 239.8 L564.8 239.8 L567.4 239.8 L570.0 239.7 L572.6 239.7 L575.2 239.7 L577.8 239.7 L580.4 239.7 L583.1 239.7 L585.7 239.7 L588.3 239.6 L590.9 239.6 L593.5 239.6 L596.1 239.6 L598.7 239.6 L601.3 239.6 L603.9 239.6 L606.5 239.6 L609.1 239.5 L611.8 239.5 L614.4 239.5 L617.0 239.5 L619.6 239.5 L622.2 239.5 L624.8 239.5 L627.4 239.5 L630.0 239.4 L632.6 239.4 L635.2 239.4 L637.8 239.4 L640.4 239.4 L643.1 239.4 L645.7 239.4 L648.3 239.4 L650.9 239.4 L653.5 239.4 L656.1 239.3 L658.7 239.3 L661.3 239.3 L663.9 239.3 L666.5 239.3 L669.1 239.3 L671.7 239.3 L674.4 239.3 L677.0 239.3 L679.6 239.3 L682.2 239.3 L684.8 239.2 L687.4 239.2 L690.0 239.2 " fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="7 5"></path><path d="M64.0 255.1 L66.6 252.9 L69.2 250.6 L71.8 248.3 L74.4 245.9 L77.0 243.4 L79.7 240.9 L82.3 238.4 L84.9 235.8 L87.5 233.2 L90.1 230.6 L92.7 228.0 L95.3 225.5 L97.9 223.0 L100.5 220.6 L103.1 218.3 L105.7 216.0 L108.3 213.8 L110.9 211.7 L113.6 209.7 L116.2 207.7 L118.8 205.9 L121.4 204.2 L124.0 202.5 L126.6 201.0 L129.2 199.5 L131.8 198.1 L134.4 196.7 L137.0 195.4 L139.6 194.2 L142.3 193.0 L144.9 191.9 L147.5 190.9 L150.1 189.8 L152.7 188.8 L155.3 187.9 L157.9 186.9 L160.5 186.1 L163.1 185.2 L165.7 184.3 L168.3 183.5 L170.9 182.7 L173.6 181.9 L176.2 181.1 L178.8 180.3 L181.4 179.6 L184.0 178.8 L186.6 178.1 L189.2 177.3 L191.8 176.6 L194.4 175.9 L197.0 175.2 L199.6 174.4 L202.2 173.7 L204.8 173.0 L207.5 172.3 L210.1 171.6 L212.7 170.9 L215.3 170.2 L217.9 169.5 L220.5 168.8 L223.1 168.2 L225.7 167.5 L228.3 166.8 L230.9 166.1 L233.5 165.4 L236.2 164.7 L238.8 164.0 L241.4 163.4 L244.0 162.7 L246.6 162.0 L249.2 161.3 L251.8 160.6 L254.4 159.9 L257.0 159.3 L259.6 158.6 L262.2 157.9 L264.8 157.2 L267.5 156.5 L270.1 155.9 L272.7 155.2 L275.3 154.5 L277.9 153.8 L280.5 153.2 L283.1 152.5 L285.7 151.8 L288.3 151.1 L290.9 150.4 L293.5 149.8 L296.1 149.1 L298.8 148.4 L301.4 147.7 L304.0 147.0 L306.6 146.4 L309.2 145.7 L311.8 145.0 L314.4 144.3 L317.0 143.7 L319.6 143.0 L322.2 142.3 L324.8 141.6 L327.4 140.9 L330.1 140.3 L332.7 139.6 L335.3 138.9 L337.9 138.2 L340.5 137.6 L343.1 136.9 L345.7 136.2 L348.3 135.5 L350.9 134.8 L353.5 134.2 L356.1 133.5 L358.7 132.8 L361.3 132.1 L364.0 131.4 L366.6 130.8 L369.2 130.1 L371.8 129.4 L374.4 128.7 L377.0 128.1 L379.6 127.4 L382.2 126.7 L384.8 126.0 L387.4 125.3 L390.0 124.7 L392.7 124.0 L395.3 123.3 L397.9 122.6 L400.5 122.0 L403.1 121.3 L405.7 120.6 L408.3 119.9 L410.9 119.2 L413.5 118.6 L416.1 117.9 L418.7 117.2 L421.3 116.5 L423.9 115.9 L426.6 115.2 L429.2 114.5 L431.8 113.8 L434.4 113.1 L437.0 112.5 L439.6 111.8 L442.2 111.1 L444.8 110.4 L447.4 109.8 L450.0 109.1 L452.6 108.4 L455.3 107.7 L457.9 107.0 L460.5 106.4 L463.1 105.7 L465.7 105.0 L468.3 104.3 L470.9 103.6 L473.5 103.0 L476.1 102.3 L478.7 101.6 L481.3 100.9 L483.9 100.3 L486.6 99.6 L489.2 98.9 L491.8 98.2 L494.4 97.5 L497.0 96.9 L499.6 96.2 L502.2 95.5 L504.8 94.8 L507.4 94.2 L510.0 93.5 L512.6 92.8 L515.2 92.1 L517.8 91.4 L520.5 90.8 L523.1 90.1 L525.7 89.4 L528.3 88.7 L530.9 88.1 L533.5 87.4 L536.1 86.7 L538.7 86.0 L541.3 85.3 L543.9 84.7 L546.5 84.0 L549.2 83.3 L551.8 82.6 L554.4 82.0 L557.0 81.3 L559.6 80.6 L562.2 79.9 L564.8 79.2 L567.4 78.6 L570.0 77.9 L572.6 77.2 L575.2 76.5 L577.8 75.8 L580.4 75.2 L583.1 74.5 L585.7 73.8 L588.3 73.1 L590.9 72.5 L593.5 71.8 L596.1 71.1 L598.7 70.4 L601.3 69.7 L603.9 69.1 L606.5 68.4 L609.1 67.7 L611.8 67.0 L614.4 66.4 L617.0 65.7 L619.6 65.0 L622.2 64.3 L624.8 63.6 L627.4 63.0 L630.0 62.3 L632.6 61.6 L635.2 60.9 L637.8 60.3 L640.4 59.6 L643.1 58.9 L645.7 58.2 L648.3 57.5 L650.9 56.9 L653.5 56.2 L656.1 55.5 L658.7 54.8 L661.3 54.1 L663.9 53.5 L666.5 52.8 L669.1 52.1 L671.7 51.4 L674.4 50.8 L677.0 50.1 L679.6 49.4 L682.2 48.7 L684.8 48.0 L687.4 47.4 L690.0 46.7 " fill="none" stroke="var(--red)" stroke-width="2.6" stroke-linecap="round"></path><text x="516.6461538461538" y="79.75636370453529" class="screening-label" text-anchor="middle">爆炸</text><text x="516.6461538461538" y="260.1008885107691" class="axis-title" fill="var(--teal)" text-anchor="middle">天然地震</text><g clip-path="url(#pglgClip)"><line x1="240.56410256410257" y1="30" x2="240.56410256410257" y2="336" stroke="rgba(76,62,45,.55)" stroke-width="1.2" stroke-dasharray="4 4"></line><circle cx="240.56410256410257" cy="163.565237798056" r="6" fill="var(--red)" stroke="var(--paper-3)" stroke-width="2.5"></circle><circle cx="240.56410256410257" cy="244.77660594537065" r="5" fill="var(--teal)" stroke="var(--paper-3)" stroke-width="2"></circle></g><text x="240.56410256410257" y="54" text-anchor="middle" class="screening-label">6.0 Hz</text></svg>
+            </div>
+            <div class="range-control">
+              <label for="freqRange">頻率 <output id="freqOut">6.0 Hz</output></label>
+              <input id="freqRange" type="range" min="0.5" max="20" value="6" step="0.1">
+              <div class="range-readout" id="freqReadout">在 <b>6.0 Hz</b>：爆炸 Log(Pg/Lg) ≈ <b>0.44</b>，天然地震 ≈ <b>-0.14</b>。<b>爆炸特徵明顯</b>：Pg 相對 Lg 的能量高出許多。</div>
+            </div>
+            <p class="tiny">曲線為依照講義趨勢重繪的示意；低頻（&lt;1–2 Hz）與極高頻段可能受背景噪訊主導，實務上只取 SNR 足夠的頻段。</p>
+          </article>
+
+          <div class="stack">
+            <article class="note reveal in">
+              <div class="card-label">STEP BY STEP / 頻譜比怎麼算</div>
+              <ol class="step-list">
+                <li><span>01</span><p>依區域速度模型計算 Pn、Pg、Lg 理論走時，框出 Pg 與 Lg 時間窗（速度窗約 3.6–3.0 km/s）。</p></li>
+                <li><span>02</span><p>對視窗內波形做 FFT，求振幅譜；和震前背景噪訊視窗比較，確認資料品質。</p></li>
+                <li><span>03</span><p>計算 Log(Pg/Lg)。低頻可能受微震噪訊影響，高頻則要留意路徑衰減與散射。</p></li>
+                <li><span>04</span><p>採用同路徑事件對比，或扣除路徑效應，避免把「路徑」誤認成「震源」。 </p></li>
+              </ol>
+            </article>
+            <article class="note reveal in">
+              <div class="card-label">PATH EFFECTS / 路徑也會說話</div>
+              <h3>大陸地殼 vs. 日本海</h3>
+              <p>部分測站路徑完全位於大陸地殼（如中國東北），部分橫跨日本海海洋／過渡型地殼（如日本測站）。Lg 波傳播效率會出現顯著差異，因此不能只看单一測站的比值。</p>
+              <div class="path-compare">
+                <div><span class="path-dot continental"></span><b>大陸路徑</b><small>Lg 傳播較好</small></div>
+                <div><span class="path-dot oceanic"></span><b>海洋／過渡地殼</b><small>Lg 衰減明顯</small></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <article class="note rayleigh-card reveal in">
+          <div class="rayleigh-copy">
+            <div class="card-label">SURFACE RAYLEIGH WAVE / 20 秒</div>
+            <h3>沿著地表滾動的橢圓</h3>
+            <p>雷利波是沿地表傳播的表面波，質點做橢圓形運動，具有頻散（dispersion）特性：長週期穿透較深、群速度較快。透過時頻譜可以辨識能量團與頻散曲線，萃取特定週期（如 20 秒）的最大振幅，用於表面波規模 Ms 與衰減分析。</p>
+            <div class="rayleigh-actions">
+              <button class="chip is-active" type="button" data-lens="slow">低速異常 → 聚焦</button>
+              <button class="chip" type="button" data-lens="fast">高速異常 → 散焦</button>
+            </div>
+            <p class="lens-note" id="lensNote"><b>低速異常：</b>波跑得慢，能量容易聚焦，振幅相對變大。</p>
+          </div>
+          <div class="lens-stage">
+            <svg id="lensSvg" viewBox="0 0 560 340" role="img" aria-label="雷利波穿過低速或高速異常區的聚焦與散焦示意">
+              <defs>
+                <lineargradient id="skyGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#faf3e4"></stop><stop offset="1" stop-color="#e9d8bc"></stop></lineargradient>
+                <lineargradient id="crustGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2cfae"></stop><stop offset="1" stop-color="#cdb58e"></stop></lineargradient>
+                <radialgradient id="lensGrad"><stop offset="0" stop-color="#d9a441" stop-opacity=".55"></stop><stop offset="1" stop-color="#d9a441" stop-opacity="0"></stop></radialgradient>
+              </defs>
+              <rect x="0" y="0" width="560" height="340" fill="url(#skyGrad)"></rect>
+              <path d="M0 90H560V340H0Z" fill="url(#crustGrad)"></path>
+              <path d="M0 90h560" class="surface-line"></path>
+              <ellipse id="lensBlob" cx="300" cy="190" rx="105" ry="55" fill="url(#lensGrad)" stroke="#b98a2f" stroke-width="1.5" stroke-dasharray="5 6"></ellipse>
+              <g id="lensRays" class="lens-rays"><path d="M70 90 Q170 205 500 90"></path><path d="M70 90 Q275 270 500 90" style="stroke: var(--red);"></path><path d="M70 90 Q385 205 500 90"></path></g>
+              <circle cx="70" cy="90" r="8" class="source-dot"></circle>
+              <text x="70" y="70" text-anchor="middle" class="svg-label">震源</text>
+              <g class="receiver" transform="translate(500 90)">
+                <path d="M0 0v28M-12 28h24M-8 28v12M8 28v12"></path>
+                <text x="0" y="60" text-anchor="middle" class="svg-label">測站</text>
+              </g>
+              <text x="300" y="46" text-anchor="middle" class="svg-label hand">地下構造，就像一顆透鏡</text>
+              <text id="lensLabel" x="300" y="198" text-anchor="middle" class="svg-label" style="fill: var(--red);">低速異常</text>
+            </svg>
+          </div>
+        </article>
+
+        <div class="grid-2">
+          <article class="note chart-card reveal in">
+            <div class="card-label">2017 / 09 / 03 · 20 s RAYLEIGH</div>
+            <h3>相近距離，振幅卻差很多</h3>
+            <p>把各測站的雷利波（T = 20 s）依震央距排列，振幅隨距離呈對數衰減；但在 500–1,000 km 附近，不同方位角的測站出現明顯離散。</p>
+            <div class="chart-shell">
+              <svg id="attenChart" viewBox="0 0 640 400" role="img" aria-label="20 秒雷利波振幅隨距離衰減，並顯示方位角造成的離散" class="atten-chart"><rect x="230.4" y="28" width="274" height="314" class="atten-band"></rect><text x="367.40000000000003" y="42" text-anchor="middle" class="atten-label">500–1,000 km：方位角離散明顯</text><g class="chart-axis"><line x1="66" y1="28" x2="66" y2="342" class="chart-tick"></line><text x="66" y="364" text-anchor="middle">200</text><line x1="175.60000000000002" y1="28" x2="175.60000000000002" y2="342" class="chart-tick"></line><text x="175.60000000000002" y="364" text-anchor="middle">400</text><line x1="285.20000000000005" y1="28" x2="285.20000000000005" y2="342" class="chart-tick"></line><text x="285.20000000000005" y="364" text-anchor="middle">600</text><line x1="394.8" y1="28" x2="394.8" y2="342" class="chart-tick"></line><text x="394.8" y="364" text-anchor="middle">800</text><line x1="504.40000000000003" y1="28" x2="504.40000000000003" y2="342" class="chart-tick"></line><text x="504.40000000000003" y="364" text-anchor="middle">1000</text><line x1="614" y1="28" x2="614" y2="342" class="chart-tick"></line><text x="614" y="364" text-anchor="middle">1200</text><line x1="66" y1="342" x2="614" y2="342" class="chart-tick"></line><text x="54" y="346" text-anchor="end">10^-9</text><line x1="66" y1="263.5" x2="614" y2="263.5" class="chart-tick"></line><text x="54" y="267.5" text-anchor="end">10^-8</text><line x1="66" y1="185" x2="614" y2="185" class="chart-tick"></line><text x="54" y="189" text-anchor="end">10^-7</text><line x1="66" y1="106.5" x2="614" y2="106.5" class="chart-tick"></line><text x="54" y="110.5" text-anchor="end">10^-6</text><line x1="66" y1="28" x2="614" y2="28" class="chart-tick"></line><text x="54" y="32" text-anchor="end">10^-5</text><line x1="66" y1="342" x2="614" y2="342" stroke="rgba(76,62,45,.45)"></line><line x1="66" y1="28" x2="66" y2="342" stroke="rgba(76,62,45,.45)"></line><text x="340" y="384" text-anchor="middle" class="axis-title">震央距 (km)</text><text x="16" y="185" text-anchor="middle" class="axis-title" transform="rotate(-90 16 185)">20 s 雷利波振幅 (m)</text></g><path d="M66.0 18.6 L71.5 20.7 L77.0 22.6 L82.4 24.5 L87.9 26.3 L93.4 28.0 L98.9 29.6 L104.4 31.2 L109.8 32.7 L115.3 34.2 L120.8 35.6 L126.3 37.0 L131.8 38.3 L137.2 39.6 L142.7 40.9 L148.2 42.1 L153.7 43.3 L159.2 44.4 L164.6 45.5 L170.1 46.6 L175.6 47.7 L181.1 48.7 L186.6 49.7 L192.0 50.7 L197.5 51.7 L203.0 52.6 L208.5 53.5 L214.0 54.4 L219.4 55.3 L224.9 56.2 L230.4 57.0 L235.9 57.9 L241.4 58.7 L246.8 59.5 L252.3 60.3 L257.8 61.0 L263.3 61.8 L268.8 62.5 L274.2 63.3 L279.7 64.0 L285.2 64.7 L290.7 65.4 L296.2 66.0 L301.6 66.7 L307.1 67.4 L312.6 68.0 L318.1 68.7 L323.6 69.3 L329.0 69.9 L334.5 70.5 L340.0 71.1 L345.5 71.7 L351.0 72.3 L356.4 72.9 L361.9 73.5 L367.4 74.0 L372.9 74.6 L378.4 75.1 L383.8 75.7 L389.3 76.2 L394.8 76.7 L400.3 77.3 L405.8 77.8 L411.2 78.3 L416.7 78.8 L422.2 79.3 L427.7 79.8 L433.2 80.3 L438.6 80.7 L444.1 81.2 L449.6 81.7 L455.1 82.1 L460.6 82.6 L466.0 83.1 L471.5 83.5 L477.0 83.9 L482.5 84.4 L488.0 84.8 L493.4 85.2 L498.9 85.7 L504.4 86.1 L509.9 86.5 L515.4 86.9 L520.8 87.3 L526.3 87.7 L531.8 88.1 L537.3 88.5 L542.8 88.9 L548.2 89.3 L553.7 89.7 L559.2 90.1 L564.7 90.5 L570.2 90.8 L575.6 91.2 L581.1 91.6 L586.6 92.0 L592.1 92.3 L597.6 92.7 L603.0 93.0 L608.5 93.4 L614.0 93.7 " class="atten-trend" stroke="rgba(217,164,65,.75)"></path><path d="M66.0 40.6 L71.5 42.6 L77.0 44.6 L82.4 46.4 L87.9 48.2 L93.4 49.9 L98.9 51.6 L104.4 53.2 L109.8 54.7 L115.3 56.2 L120.8 57.6 L126.3 59.0 L131.8 60.3 L137.2 61.6 L142.7 62.8 L148.2 64.1 L153.7 65.2 L159.2 66.4 L164.6 67.5 L170.1 68.6 L175.6 69.7 L181.1 70.7 L186.6 71.7 L192.0 72.7 L197.5 73.6 L203.0 74.6 L208.5 75.5 L214.0 76.4 L219.4 77.3 L224.9 78.2 L230.4 79.0 L235.9 79.8 L241.4 80.7 L246.8 81.5 L252.3 82.2 L257.8 83.0 L263.3 83.8 L268.8 84.5 L274.2 85.2 L279.7 85.9 L285.2 86.7 L290.7 87.3 L296.2 88.0 L301.6 88.7 L307.1 89.4 L312.6 90.0 L318.1 90.7 L323.6 91.3 L329.0 91.9 L334.5 92.5 L340.0 93.1 L345.5 93.7 L351.0 94.3 L356.4 94.9 L361.9 95.4 L367.4 96.0 L372.9 96.6 L378.4 97.1 L383.8 97.7 L389.3 98.2 L394.8 98.7 L400.3 99.2 L405.8 99.8 L411.2 100.3 L416.7 100.8 L422.2 101.3 L427.7 101.7 L433.2 102.2 L438.6 102.7 L444.1 103.2 L449.6 103.7 L455.1 104.1 L460.6 104.6 L466.0 105.0 L471.5 105.5 L477.0 105.9 L482.5 106.4 L488.0 106.8 L493.4 107.2 L498.9 107.7 L504.4 108.1 L509.9 108.5 L515.4 108.9 L520.8 109.3 L526.3 109.7 L531.8 110.1 L537.3 110.5 L542.8 110.9 L548.2 111.3 L553.7 111.7 L559.2 112.1 L564.7 112.5 L570.2 112.8 L575.6 113.2 L581.1 113.6 L586.6 113.9 L592.1 114.3 L597.6 114.7 L603.0 115.0 L608.5 115.4 L614.0 115.7 " class="atten-trend" stroke="rgba(78,111,102,.75)"></path><g><circle cx="179.09102908401752" cy="50.380817168538556" r="4.711650210851803" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · ULN · 406 km · 振幅 5.19e-6 m</title></circle><circle cx="404.42173475577493" cy="77.98715963506658" r="4.625865876814351" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · MDJ · 818 km · 振幅 2.31e-6 m</title></circle><circle cx="82.67114464492536" cy="43.69999999999999" r="5.636824415484444" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · ULN · 230 km · 振幅 6.31e-6 m</title></circle><circle cx="549.1591860719118" cy="90.75412295799876" r="4.636046071210877" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · ULN · 1082 km · 振幅 1.59e-6 m</title></circle><circle cx="260.6821528757084" cy="51.38912026409457" r="4.985954690119252" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · MAJO · 555 km · 振幅 5.04e-6 m</title></circle><circle cx="598.1914967373107" cy="90.33595333195572" r="5.716665955865756" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · MDJ · 1171 km · 振幅 1.61e-6 m</title></circle><circle cx="87.41250797543675" cy="43.69999999999999" r="5.130851631425322" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · YAK · 239 km · 振幅 6.31e-6 m</title></circle><circle cx="148.63627669667824" cy="43.69999999999999" r="4.76839718897827" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · MDJ · 351 km · 振幅 6.31e-6 m</title></circle><circle cx="276.0253143606801" cy="62.11479493384695" r="5.869871168676764" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · SSE · 583 km · 振幅 3.68e-6 m</title></circle><circle cx="409.889514433695" cy="83.01309883873967" r="4.894505762401969" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · BATS · 828 km · 振幅 1.99e-6 m</title></circle><circle cx="188.42796227155253" cy="50.78387432366662" r="5.729776248615235" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · MAJO · 423 km · 振幅 5.13e-6 m</title></circle><circle cx="233.16365278513172" cy="65.99369280054742" r="4.580196615541354" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · TJN · 505 km · 振幅 3.28e-6 m</title></circle><circle cx="434.25325486502607" cy="83.00769729344421" r="5.916138907056302" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · MDJ · 872 km · 振幅 1.99e-6 m</title></circle><circle cx="291.6536331215501" cy="63.98265284657441" r="4.442805496696383" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · SSE · 612 km · 振幅 3.48e-6 m</title></circle><circle cx="258.95351292794567" cy="61.99409415078736" r="4.403640480805189" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · KSNN · 552 km · 振幅 3.69e-6 m</title></circle><circle cx="312.41601084364584" cy="63.32069654801995" r="4.2320141536183655" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · INCN · 650 km · 振幅 3.55e-6 m</title></circle><circle cx="221.98888554411008" cy="54.811599964419315" r="4.688282905658707" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · INCN · 485 km · 振幅 4.55e-6 m</title></circle><circle cx="339.5056641763635" cy="82.41050574313971" r="5.502781614242122" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · YAK · 699 km · 振幅 2.03e-6 m</title></circle><circle cx="484.58384054462425" cy="92.07892239671415" r="4.98190075205639" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · KSNN · 964 km · 振幅 1.53e-6 m</title></circle><circle cx="358.3613259405456" cy="76.03623176994785" r="5.658621461223811" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · SSE · 734 km · 振幅 2.44e-6 m</title></circle><circle cx="126.7706962657254" cy="43.69999999999999" r="4.3804458834696565" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · YAK · 311 km · 振幅 6.31e-6 m</title></circle><circle cx="409.12105195257817" cy="76.43974150651076" r="4.919458659226075" class="atten-dot continental-dot" tabindex="0"><title>大陸路徑 · YAK · 826 km · 振幅 2.42e-6 m</title></circle></g><g><circle cx="518.668102800576" cy="106.92886634063441" r="4.869299985654652" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · INCN · 1026 km · 振幅 9.87e-7 m</title></circle><circle cx="142.082447331734" cy="53.46032423043556" r="5.550641739042476" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · TJN · 339 km · 振幅 4.74e-6 m</title></circle><circle cx="135.06335450709798" cy="59.11511130113831" r="5.725075855851173" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · ULN · 326 km · 振幅 4.01e-6 m</title></circle><circle cx="459.25227431381126" cy="95.69155990061316" r="4.766989064449445" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · INCN · 918 km · 振幅 1.37e-6 m</title></circle><circle cx="166.6373291751463" cy="50.469124898030714" r="4.527532536629588" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · INCN · 384 km · 振幅 5.17e-6 m</title></circle><circle cx="583.9092240709905" cy="113.95718540100174" r="4.724303318560124" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · ULN · 1145 km · 振幅 8.04e-7 m</title></circle><circle cx="149.45912114061417" cy="53.50010342888038" r="5.360477160383017" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · MAJO · 352 km · 振幅 4.73e-6 m</title></circle><circle cx="168.29583995077758" cy="64.20705489664084" r="4.327274814248085" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · ERM · 387 km · 振幅 3.46e-6 m</title></circle><circle cx="277.1073270942643" cy="71.99130758666729" r="4.2265647581778465" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · BATS · 585 km · 振幅 2.75e-6 m</title></circle><circle cx="509.92584891520437" cy="94.90690666346302" r="4.378326294617728" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · YAK · 1010 km · 振幅 1.41e-6 m</title></circle><circle cx="209.8296724493243" cy="84.36103813384779" r="4.968348470237106" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · BATS · 462 km · 振幅 1.91e-6 m</title></circle><circle cx="540.4916000070609" cy="111.17857143934694" r="5.3030602988787" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · SSE · 1066 km · 振幅 8.72e-7 m</title></circle><circle cx="365.3848347473983" cy="88.37143962241456" r="4.501819018134848" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · ERM · 746 km · 振幅 1.70e-6 m</title></circle><circle cx="445.99288928584195" cy="95.00801468753835" r="5.202392479637638" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · ERM · 893 km · 振幅 1.40e-6 m</title></circle><circle cx="217.55260801530446" cy="72.1170115020982" r="5.614518818724901" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · ERM · 477 km · 振幅 2.74e-6 m</title></circle><circle cx="353.8494344132114" cy="105.17727570915426" r="5.890702942293138" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · SSE · 725 km · 振幅 1.04e-6 m</title></circle><circle cx="504.5571784139238" cy="122.91464783044844" r="5.105047660879791" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · SSE · 1000 km · 振幅 6.18e-7 m</title></circle><circle cx="203.15199328009973" cy="84.64533406514994" r="5.296049150777981" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · KSNN · 450 km · 振幅 1.90e-6 m</title></circle><circle cx="461.3699134223256" cy="98.20449680054722" r="5.695593710057437" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · SSE · 921 km · 振幅 1.28e-6 m</title></circle><circle cx="196.4581850849185" cy="50.17731191609863" r="4.88560719829984" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · SSE · 438 km · 振幅 5.22e-6 m</title></circle><circle cx="380.84218619676307" cy="84.71996636895005" r="5.885544312139974" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · YAK · 775 km · 振幅 1.89e-6 m</title></circle><circle cx="179.01580999298955" cy="70.99085565779853" r="4.682486052252353" class="atten-dot oceanic-dot" tabindex="0"><title>日本海／過渡路徑 · KSNN · 406 km · 振幅 2.83e-6 m</title></circle></g></svg>
+            <div class="chart-legend"><span><i class="legend-dot" style="background:#d9a441"></i>大陸路徑</span><span><i class="legend-dot" style="background:#4e6f66"></i>日本海／過渡路徑</span></div></div>
+            <div class="chart-controls">
+              <button class="chip is-active" type="button" data-atten="all">全部路徑</button>
+              <button class="chip" type="button" data-atten="continental">大陸路徑</button>
+              <button class="chip" type="button" data-atten="oceanic">日本海路徑</button>
+            </div>
+          </article>
+
+          <article class="note reveal in">
+            <div class="card-label">STRUCTURE / 構造不均質性</div>
+            <h3>為什麼遠近不是唯一變數？</h3>
+            <p>20 秒雷利波的振幅殘差與群速度分布，可以和東北亞地殼厚度、日本海張裂盆地、上部地函速度構造比對。穿越日本海（薄海洋地殼、低速上部地函）的路徑，能量散射與衰減較強；穿越大陸穩定地塊的路徑，衰減較小。</p>
+            <div class="structure-list">
+              <div><span class="structure-icon fast"></span><div><b>高速異常區</b><p>波跑得快，能量容易散焦，振幅相對變小。</p></div></div>
+              <div><span class="structure-icon slow"></span><div><b>低速異常區</b><p>波跑得慢，能量容易聚焦，振幅相對變大。</p></div></div>
+            </div>
+            <p class="tiny">參考：Furumura et al. (2014)、Witek et al. (2014)、Wei et al. (2014)。圖為概念示意。</p>
+          </article>
+        </div>
+
+        <div class="margin-note margin-right">
+          <span class="pin" aria-hidden="true"></span>
+          <p>同一顆地震、同樣的距離，<b>方位角</b>換了，波形就換了一張臉。這就是構造在說話。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 05 TAIGER ================= -->
+    <section class="section" id="taiger">
+      <div class="section-inner">
+        <header class="chapter-head">
+          <div class="chapter-num">05</div>
+          <div class="chapter-heading">
+            <p class="kicker">TAIGER · 2006—2009</p>
+            <h2>把震源變成「已知」</h2>
+            <p class="chapter-sub">TAiwan Integrated GEodynamic Research：台灣與美國團隊合作，用陸上深井爆破與海域氣槍震源，建立高解析度的人工震源資料。</p>
+          </div>
+        </header>
+
+        <div class="taiger-layout">
+          <article class="note map-card reveal in">
+            <div class="card-label">TAIWAN / 10 SHOTS · 位置僅示意</div>
+            <div class="taiwan-wrap">
+              <svg id="taiwanMap" viewBox="0 0 360 540" role="img" aria-label="台灣十次炸測位置示意圖">
+                <path class="taiwan-island" d="M181.1 411.6 L166.3 446.4 L158.7 512.0 L145.9 507.5 L138.9 496.4 L137.3 478.1 L124.5 449.7 L89.5 422.1 L78.5 397.5 L67.5 360.4 L58.7 343.2 L57.3 335.2 L66.6 299.2 L64.3 280.7 L65.2 262.5 L130.9 143.3 L158.2 108.0 L185.3 63.2 L228.2 45.0 L239.3 32.0 L248.3 28.0 L258.4 28.2 L270.8 41.8 L292.7 52.9 L299.6 59.8 L302.7 71.8 L293.1 83.1 L288.3 93.3 L289.4 135.2 L277.3 171.2 L264.4 193.6 L261.0 204.8 L243.0 295.5 L232.5 331.9 L219.0 361.6 L201.2 389.1 L181.1 411.6 Z"></path>
+                <path class="taiwan-ridge" d="M228 72c-8 40-18 67-24 95-8 39-3 70-10 108-6 35-8 66-18 92-6 16-10 27-12 35"></path>
+                <g id="shotDots"><g><circle cx="225" cy="92" r="6" class="shot-dot" data-shot="N1" tabindex="0" role="button" aria-label="N1 炸測位置"><title>N1 · 1,000 kg · ML 2.23</title></circle><text x="235" y="95.5" class="shot-label">N1</text></g><g><circle cx="240" cy="122" r="6" class="shot-dot" data-shot="N2" tabindex="0" role="button" aria-label="N2 炸測位置"><title>N2 · 750 kg · ML 1.81</title></circle><text x="250" y="125.5" class="shot-label">N2</text></g><g><circle cx="172" cy="230" r="6" class="shot-dot is-active" data-shot="N3" tabindex="0" role="button" aria-label="N3 炸測位置"><title>N3 · 3,000 kg · ML 2.63</title></circle><text x="182" y="233.5" class="shot-label">N3</text></g><g><circle cx="190" cy="255" r="6" class="shot-dot" data-shot="N3P" tabindex="0" role="button" aria-label="N3P 炸測位置"><title>N3P · 750 kg · ML 1.90</title></circle><text x="200" y="258.5" class="shot-label">N3P</text></g><g><circle cx="168" cy="300" r="6" class="shot-dot" data-shot="N4" tabindex="0" role="button" aria-label="N4 / N5 炸測位置"><title>N4 / N5 · 1,000 kg · ML 1.72 / 2.20</title></circle><text x="178" y="303.5" class="shot-label">N4/N5</text></g><g><circle cx="177" cy="332" r="6" class="shot-dot" data-shot="N6" tabindex="0" role="button" aria-label="N6 炸測位置"><title>N6 · 1,000 kg · ML 2.13</title></circle><text x="187" y="335.5" class="shot-label">N6</text></g><g><circle cx="155" cy="360" r="6" class="shot-dot" data-shot="N7" tabindex="0" role="button" aria-label="N7 炸測位置"><title>N7 · 750 kg · ML 1.72</title></circle><text x="165" y="363.5" class="shot-label">N7</text></g><g><circle cx="153" cy="392" r="6" class="shot-dot" data-shot="N8" tabindex="0" role="button" aria-label="N8 炸測位置"><title>N8 · 1,000 kg · ML 1.95</title></circle><text x="163" y="395.5" class="shot-label">N8</text></g><g><circle cx="145" cy="422" r="6" class="shot-dot" data-shot="N9" tabindex="0" role="button" aria-label="N9 炸測位置"><title>N9 · 1,500 kg · ML 2.15</title></circle><text x="155" y="425.5" class="shot-label">N9</text></g><g><circle cx="158" cy="452" r="6" class="shot-dot" data-shot="N10" tabindex="0" role="button" aria-label="N10 炸測位置"><title>N10 · 750 kg · ML 1.85</title></circle><text x="168" y="455.5" class="shot-label">N10</text></g></g>
+              </svg>
+              <div class="map-caption">N1–N10 深井爆破<br><span>超過 170 個臨時與永久測站同步記錄</span></div>
+            </div>
+          </article>
+
+          <article class="note shots-card reveal in">
+            <div class="card-label">SHOT TABLE / 點一列，看細節</div>
+            <h3>十次炸測，十組已知參數</h3>
+            <div class="table-wrap">
+              <table class="shot-table" id="shotTable">
+                <thead><tr><th>編號</th><th>炸藥量 (kg)</th><th>CWB ML</th><th>看細節</th></tr></thead>
+                <tbody>
+                  <tr data-shot="N1"><td>N1</td><td>1,000</td><td>2.23</td><td><span class="row-arrow">→</span></td></tr>
+                  <tr data-shot="N2"><td>N2</td><td>750</td><td>1.81</td><td><span class="row-arrow">→</span></td></tr>
+                  <tr data-shot="N3" class="is-active"><td>N3</td><td>3,000</td><td>2.63</td><td><span class="row-arrow">→</span></td></tr>
+                  <tr data-shot="N3P"><td>N3P</td><td>750</td><td>1.90</td><td><span class="row-arrow">→</span></td></tr>
+                  <tr data-shot="N4"><td>N4 / N5</td><td>1,000</td><td>1.72 / 2.20</td><td><span class="row-arrow">→</span></td></tr>
+                  <tr data-shot="N6"><td>N6</td><td>1,000</td><td>2.13</td><td><span class="row-arrow">→</span></td></tr>
+                  <tr data-shot="N7"><td>N7</td><td>750</td><td>1.72</td><td><span class="row-arrow">→</span></td></tr>
+                  <tr data-shot="N8"><td>N8</td><td>1,000</td><td>1.95</td><td><span class="row-arrow">→</span></td></tr>
+                  <tr data-shot="N9"><td>N9</td><td>1,500</td><td>2.15</td><td><span class="row-arrow">→</span></td></tr>
+                  <tr data-shot="N10"><td>N10</td><td>750</td><td>1.85</td><td><span class="row-arrow">→</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="shot-detail" id="shotDetail" aria-live="polite">
+      <span class="shot-badge">N3</span>
+      <div><b>3,000 kg · ML 2.63</b><p>十次中炸藥量最大。與同測區的 N3P（750 kg）形成難得的「同點不同當量」對照，可直接檢驗 PGV 的標度律。</p></div>
+    </div>
+          </article>
+        </div>
+
+        <div class="grid-3">
+          <article class="note reveal in">
+            <div class="mini-icon" aria-hidden="true">∿</div>
+            <div class="card-label">STEP 01 / 真實速度</div>
+            <h3>Counts → m/s</h3>
+            <p>原始記錄是數位計數值（Counts），受感測器自然頻率與阻尼調變。必須在頻率域反摺積扣除儀器響應，才能還原真實地面振動速度。</p>
+            <div class="formula small">u(ω)=s(ω)∗l(ω)∗i(ω)<br>⇒ U(ω)=S(ω)·L(ω)·I(ω)</div>
+          </article>
+          <article class="note reveal in">
+            <div class="mini-icon" aria-hidden="true">≈</div>
+            <div class="card-label">STEP 02 / 時頻與 SNR</div>
+            <h3>先確認這段訊號乾淨</h3>
+            <p>時頻分析顯示，近地表炸測的主要能量集中在 <b>2–15 Hz</b>。於 P 波初動前取噪訊窗、初動後取訊號窗，以 RMS 振幅比計算 SNR，剔除交通、風噪與人為干擾。</p>
+            <div class="snr-demo"><span class="noise"></span><span class="signal"></span><em>noise</em><em>signal</em></div>
+          </article>
+          <article class="note reveal in">
+            <div class="mini-icon" aria-hidden="true">⌁</div>
+            <div class="card-label">STEP 03 / 高斯濾波</div>
+            <h3>把能量包起來</h3>
+            <p>針對時頻分析辨識出的主頻（例如 5 Hz），套用對稱高斯帶通濾波器，壓抑低頻微震與高頻隨機噪訊，分離穩定波包，讓不同距離測站的最大振幅量測更一致。</p>
+            <div class="gauss-demo" aria-hidden="true"><svg viewBox="0 0 260 70"><path d="M4 56h252"></path><path class="gauss-curve" d="M8 56c42 0 56-4 78-20 18-13 26-26 42-26s24 13 42 26c22 16 36 20 78 20"></path></svg></div>
+          </article>
+        </div>
+
+        <div class="grid-2">
+          <article class="note energy-card reveal in">
+            <div class="card-label">ENERGY BUDGET / Rich, 1979</div>
+            <h3>大部分能量，其實沒變成地震波</h3>
+            <p>爆炸釋放的總能量中，大部分轉換為光、熱、聲波、地面與圍岩的破壞；只有極小比例真正變成向遠場傳播的地震波。這也解釋了為什麼「炸藥量」與「測得規模」不是完全一對一。</p>
+            <div class="energy-flex">
+              <div class="donut" id="energyDonut" role="img" aria-label="爆炸能量分配示意圖" style="background: conic-gradient(rgb(217, 164, 65) 0%, rgb(217, 164, 65) 38%, rgb(78, 111, 102) 38%, rgb(78, 111, 102) 65%, rgb(185, 138, 104) 65%, rgb(185, 138, 104) 95%, rgb(180, 71, 47) 95%, rgb(180, 71, 47) 100%); box-shadow: inset 0 0 0 1px rgba(76,62,45,.1), 0 0 0 5px #4e6f6622, var(--shadow);">
+                <div class="donut-hole"><b>100%</b><span>總能量</span></div>
+              </div>
+              <div class="energy-legend" id="energyLegend">
+                <button type="button" data-energy="light" class=""><i style="--c:#d9a441"></i>光與熱 <b>38%</b></button>
+                <button type="button" data-energy="sound" class="is-active"><i style="--c:#7d8d72"></i>聲波 <b>27%</b></button>
+                <button type="button" data-energy="rock" class=""><i style="--c:#b98a68"></i>圍岩破壞 <b>30%</b></button>
+                <button type="button" data-energy="seismic" class=""><i style="--c:#b4472f"></i>遠場地震波 <b>5%</b></button>
+              </div>
+            </div>
+            <p class="energy-readout" id="energyReadout"><b>聲波（27%）：</b>空氣中的聲波也是能量出口；大氣層核爆時，次聲波監測站就是靠這個訊號。</p>
+          </article>
+
+          <article class="note reveal in">
+            <div class="card-label">FOUR FACTORS / 影響轉換效率</div>
+            <h3>同樣的炸藥，不一定同樣的震</h3>
+            <div class="factor-grid">
+              <div class="factor"><span>01</span><b>當量 Yield</b><p>炸藥愈多，總能量與可分給地震波的能量通常愈大。</p></div>
+              <div class="factor"><span>02</span><b>爆炸深度</b><p>埋得愈深，能量愈不容易衝破地表跑掉；TAIGER 採深井爆破並覆蓋角礫石。</p></div>
+              <div class="factor"><span>03</span><b>周遭介質</b><p>花崗岩、岩鹽等緻密均質岩層，轉換效率通常較高；鬆散土層容易在近處消耗。</p></div>
+              <div class="factor"><span>04</span><b>耦合程度</b><p>炸藥與圍岩貼得緊不緊。有空隙或鬆垮，推力會先被緩衝掉。</p></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="margin-note margin-left">
+          <span class="pin" aria-hidden="true"></span>
+          <p>TAIGER 最奢侈的地方：<b>位置、起爆時間、埋深、當量全已知</b>。這是天然地震永遠給不了的受控實驗。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 06 PGV ================= -->
+    <section class="section section-alt" id="pgv">
+      <div class="section-inner">
+        <header class="chapter-head">
+          <div class="chapter-num">06</div>
+          <div class="chapter-heading">
+            <p class="kicker">PGV ATTENUATION</p>
+            <h2>一條公式，從炸測走到氣爆</h2>
+            <p class="chapter-sub">從 5 Hz 垂直向 PGV 的距離衰減，到岩盤測站的反演；最後把公式帶回 2014 年 7 月 31 日的高雄。</p>
+          </div>
+        </header>
+
+        <article class="note formula-feature reveal in">
+          <div class="formula-copy">
+            <div class="card-label">THE EQUATION / 講義第 19 頁版本</div>
+            <h3>近地表爆炸 PGV 衰減式</h3>
+            <div class="big-formula">log(PGV) = <span class="coef">a</span>·log(R) + <span class="coef">b</span>·M + <span class="coef">c</span></div>
+            <p class="coef-line"><span>a = −1.43</span><span>b = 1.16</span><span>c = −4.44</span></p>
+            <p>幾何擴散與非彈性衰減的綜合斜率為 <b>−1.43</b>；規模標度係數為 <b>1.16</b>。資料篩選時剔除受西部厚層沉積平原放大效應干擾的測站，只取山區與丘陵岩盤測站做線性迴歸。</p>
+          </div>
+          <div class="formula-side">
+            <div class="sticky-note">
+              <b>另一版投影片</b>
+              <p>四參數式寫成 log(PGVh)=a log(X)+bX+cM_L+d，係數 a=−1.41、c=1.16、d=−6.63。差異來自參數化與資料篩選版本；本頁計算採用上面三參數式。</p>
+            </div>
+            <div class="fit-checks">
+              <div><b>1:1 散佈圖</b><p>觀測 PGV 與模型預測值緊貼對角線。</p></div>
+              <div><b>殘差鐘形</b><p>對數殘差對稱集中於 0，沒有明顯系統性偏差。</p></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="note calculator-card reveal in">
+          <div class="calc-head">
+            <div>
+              <div class="card-label">INTERACTIVE / 拖動看看</div>
+              <h3>PGV 衰減計算機</h3>
+              <p class="tiny">公式：log₁₀(PGV) = −1.43 log₁₀(R) + 1.16 M − 4.44。R 為震源距（km），M 為區域規模 ML；PGV 單位為 m/s。數值為講義公式的示意計算。</p>
+            </div>
+            <div class="calc-output" aria-live="polite">
+              <span>預估 PGV</span>
+              <strong id="pgvOut">4.02 × 10<sup>−3</sup></strong>
+              <em id="pgvCm">0.402 cm/s</em>
+            </div>
+          </div>
+
+          <div class="calc-body">
+            <div class="calc-controls">
+              <label for="pgvR">震源距 R <output id="pgvROut">3 km</output></label>
+              <input id="pgvR" type="range" min="1" max="100" value="10" step="1">
+              <label for="pgvM">區域規模 M<sub>L</sub> <output id="pgvMOut">2.35</output></label>
+              <input id="pgvM" type="range" min="1" max="4" value="2.38" step="0.01">
+              <div class="preset-row">
+                <button class="chip" type="button" data-preset="kaohsiung">高雄氣爆 ML 2.38</button>
+                <button class="chip" type="button" data-preset="n3">N3 · ML 2.63</button>
+                <button class="chip" type="button" data-preset="far">遠一點：R = 50 km</button>
+              </div>
+            </div>
+            <div class="calc-chart">
+              <svg id="pgvChart" viewBox="0 0 680 400" role="img" aria-label="PGV 隨距離衰減的對數圖，並標出目前設定的位置"><g class="chart-axis"><line x1="72" y1="28" x2="72" y2="344" class="chart-tick"></line><text x="72" y="366" text-anchor="middle">1</text><line x1="159.29869874255456" y1="28" x2="159.29869874255456" y2="344" class="chart-tick"></line><text x="159.29869874255456" y="366" text-anchor="middle">2</text><line x1="274.7013012574455" y1="28" x2="274.7013012574455" y2="344" class="chart-tick"></line><text x="274.7013012574455" y="366" text-anchor="middle">5</text><line x1="362" y1="28" x2="362" y2="344" class="chart-tick"></line><text x="362" y="366" text-anchor="middle">10</text><line x1="449.29869874255456" y1="28" x2="449.29869874255456" y2="344" class="chart-tick"></line><text x="449.29869874255456" y="366" text-anchor="middle">20</text><line x1="564.7013012574455" y1="28" x2="564.7013012574455" y2="344" class="chart-tick"></line><text x="564.7013012574455" y="366" text-anchor="middle">50</text><line x1="652" y1="28" x2="652" y2="344" class="chart-tick"></line><text x="652" y="366" text-anchor="middle">100</text><line x1="72" y1="344" x2="652" y2="344" class="chart-tick"></line><text x="60" y="348" text-anchor="end">10^-7</text><line x1="72" y1="301.8666666666667" x2="652" y2="301.8666666666667" class="chart-tick"></line><text x="60" y="305.8666666666667" text-anchor="end">10^-6</text><line x1="72" y1="259.73333333333335" x2="652" y2="259.73333333333335" class="chart-tick"></line><text x="60" y="263.73333333333335" text-anchor="end">10^-5</text><line x1="72" y1="217.6" x2="652" y2="217.6" class="chart-tick"></line><text x="60" y="221.6" text-anchor="end">10^-4</text><line x1="72" y1="175.46666666666667" x2="652" y2="175.46666666666667" class="chart-tick"></line><text x="60" y="179.46666666666667" text-anchor="end">10^-3</text><line x1="72" y1="133.33333333333334" x2="652" y2="133.33333333333334" class="chart-tick"></line><text x="60" y="137.33333333333334" text-anchor="end">10^-2</text><line x1="72" y1="91.19999999999999" x2="652" y2="91.19999999999999" class="chart-tick"></line><text x="60" y="95.19999999999999" text-anchor="end">10^-1</text><line x1="72" y1="49.06666666666666" x2="652" y2="49.06666666666666" class="chart-tick"></line><text x="60" y="53.06666666666666" text-anchor="end">10^0</text><line x1="72" y1="344" x2="652" y2="344" stroke="rgba(76,62,45,.45)"></line><line x1="72" y1="28" x2="72" y2="344" stroke="rgba(76,62,45,.45)"></line><text x="362" y="384" text-anchor="middle" class="axis-title">震源距 R (km，對數)</text><text x="17" y="186" text-anchor="middle" class="axis-title" transform="rotate(-90 17 186)">PGV (m/s，對數)</text></g><path d="M72.0 187.3 L132.7 199.9 L173.4 208.3 L204.2 214.7 L228.9 219.9 L249.5 224.1 L267.2 227.8 L282.8 231.1 L296.6 233.9 L309.1 236.5 L320.4 238.9 L330.8 241.0 L340.4 243.0 L349.3 244.9 L357.7 246.6 L365.5 248.2 L372.9 249.8 L379.8 251.2 L386.4 252.6 L392.7 253.9 L398.6 255.1 L404.3 256.3 L409.8 257.4 L415.0 258.5 L420.0 259.6 L424.8 260.6 L429.5 261.5 L434.0 262.5 L438.3 263.4 L442.5 264.2 L446.5 265.1 L450.4 265.9 L454.2 266.7 L457.9 267.4 L461.5 268.2 L465.0 268.9 L468.4 269.6 L471.7 270.3 L474.9 271.0 L478.1 271.6 L481.1 272.3 L484.1 272.9 L487.0 273.5 L489.9 274.1 L492.7 274.7 L495.4 275.2 L498.1 275.8 L500.7 276.3 L503.3 276.9 L505.8 277.4 L508.2 277.9 L510.7 278.4 L513.0 278.9 L515.4 279.4 L517.6 279.9 L519.9 280.3 L522.1 280.8 L524.3 281.2 L526.4 281.7 L528.5 282.1 L530.6 282.5 L532.6 283.0 L534.6 283.4 L536.5 283.8 L538.5 284.2 L540.4 284.6 L542.3 285.0 L544.1 285.3 L545.9 285.7 L547.7 286.1 L549.5 286.5 L551.2 286.8 L553.0 287.2 L554.7 287.5 L556.3 287.9 L558.0 288.2 L559.6 288.6 L561.2 288.9 L562.8 289.2 L564.4 289.6 L566.0 289.9 L567.5 290.2 L569.0 290.5 L570.5 290.8 L572.0 291.1 L573.4 291.4 L574.9 291.7 L576.3 292.0 L577.7 292.3 L579.1 292.6 L580.5 292.9 L581.9 293.2 L583.2 293.5 L584.6 293.8 L585.9 294.0 L587.2 294.3 L588.5 294.6 L589.8 294.8 L591.1 295.1 L592.3 295.4 L593.6 295.6 L594.8 295.9 L596.0 296.1 L597.2 296.4 L598.4 296.6 L599.6 296.9 L600.8 297.1 L601.9 297.4 L603.1 297.6 L604.2 297.8 L605.4 298.1 L606.5 298.3 L607.6 298.5 L608.7 298.8 L609.8 299.0 L610.9 299.2 L612.0 299.4 L613.0 299.7 L614.1 299.9 L615.1 300.1 L616.2 300.3 L617.2 300.5 L618.2 300.8 L619.3 301.0 L620.3 301.2 L621.3 301.4 L622.3 301.6 L623.2 301.8 L624.2 302.0 L625.2 302.2 L626.1 302.4 L627.1 302.6 L628.0 302.8 L629.0 303.0 L629.9 303.2 L630.8 303.4 L631.8 303.6 L632.7 303.7 L633.6 303.9 L634.5 304.1 L635.4 304.3 L636.2 304.5 L637.1 304.7 L638.0 304.9 L638.9 305.0 L639.7 305.2 L640.6 305.4 L641.4 305.6 L642.3 305.7 L643.1 305.9 L644.0 306.1 L644.8 306.3 L645.6 306.4 L646.4 306.6 L647.2 306.8 L648.0 306.9 L648.8 307.1 L649.6 307.3 L650.4 307.4 L651.2 307.6 L652.0 307.8 " class="pgv-curve-ghost"></path><text x="109.79679286355179" y="191.11669644100314" class="pgv-label" fill="rgba(180,71,47,.45)">M1</text><path d="M72.0 138.4 L132.7 151.0 L173.4 159.5 L204.2 165.9 L228.9 171.0 L249.5 175.3 L267.2 179.0 L282.8 182.2 L296.6 185.1 L309.1 187.6 L320.4 190.0 L330.8 192.2 L340.4 194.2 L349.3 196.0 L357.7 197.7 L365.5 199.4 L372.9 200.9 L379.8 202.3 L386.4 203.7 L392.7 205.0 L398.6 206.2 L404.3 207.4 L409.8 208.6 L415.0 209.6 L420.0 210.7 L424.8 211.7 L429.5 212.7 L434.0 213.6 L438.3 214.5 L442.5 215.4 L446.5 216.2 L450.4 217.0 L454.2 217.8 L457.9 218.6 L461.5 219.3 L465.0 220.0 L468.4 220.7 L471.7 221.4 L474.9 222.1 L478.1 222.8 L481.1 223.4 L484.1 224.0 L487.0 224.6 L489.9 225.2 L492.7 225.8 L495.4 226.4 L498.1 226.9 L500.7 227.5 L503.3 228.0 L505.8 228.5 L508.2 229.0 L510.7 229.5 L513.0 230.0 L515.4 230.5 L517.6 231.0 L519.9 231.4 L522.1 231.9 L524.3 232.4 L526.4 232.8 L528.5 233.2 L530.6 233.7 L532.6 234.1 L534.6 234.5 L536.5 234.9 L538.5 235.3 L540.4 235.7 L542.3 236.1 L544.1 236.5 L545.9 236.9 L547.7 237.2 L549.5 237.6 L551.2 238.0 L553.0 238.3 L554.7 238.7 L556.3 239.0 L558.0 239.4 L559.6 239.7 L561.2 240.0 L562.8 240.4 L564.4 240.7 L566.0 241.0 L567.5 241.3 L569.0 241.6 L570.5 242.0 L572.0 242.3 L573.4 242.6 L574.9 242.9 L576.3 243.2 L577.7 243.5 L579.1 243.8 L580.5 244.0 L581.9 244.3 L583.2 244.6 L584.6 244.9 L585.9 245.2 L587.2 245.4 L588.5 245.7 L589.8 246.0 L591.1 246.2 L592.3 246.5 L593.6 246.7 L594.8 247.0 L596.0 247.3 L597.2 247.5 L598.4 247.8 L599.6 248.0 L600.8 248.2 L601.9 248.5 L603.1 248.7 L604.2 249.0 L605.4 249.2 L606.5 249.4 L607.6 249.7 L608.7 249.9 L609.8 250.1 L610.9 250.4 L612.0 250.6 L613.0 250.8 L614.1 251.0 L615.1 251.2 L616.2 251.5 L617.2 251.7 L618.2 251.9 L619.3 252.1 L620.3 252.3 L621.3 252.5 L622.3 252.7 L623.2 252.9 L624.2 253.1 L625.2 253.3 L626.1 253.5 L627.1 253.7 L628.0 253.9 L629.0 254.1 L629.9 254.3 L630.8 254.5 L631.8 254.7 L632.7 254.9 L633.6 255.1 L634.5 255.2 L635.4 255.4 L636.2 255.6 L637.1 255.8 L638.0 256.0 L638.9 256.2 L639.7 256.3 L640.6 256.5 L641.4 256.7 L642.3 256.9 L643.1 257.0 L644.0 257.2 L644.8 257.4 L645.6 257.6 L646.4 257.7 L647.2 257.9 L648.0 258.1 L648.8 258.2 L649.6 258.4 L650.4 258.6 L651.2 258.7 L652.0 258.9 " class="pgv-curve-ghost"></path><text x="109.79679286355179" y="142.24202977433643" class="pgv-label" fill="rgba(180,71,47,.45)">M2</text><path d="M72.0 89.5 L132.7 102.1 L173.4 110.6 L204.2 117.0 L228.9 122.1 L249.5 126.4 L267.2 130.1 L282.8 133.3 L296.6 136.2 L309.1 138.8 L320.4 141.1 L330.8 143.3 L340.4 145.3 L349.3 147.1 L357.7 148.9 L365.5 150.5 L372.9 152.0 L379.8 153.5 L386.4 154.8 L392.7 156.1 L398.6 157.4 L404.3 158.6 L409.8 159.7 L415.0 160.8 L420.0 161.8 L424.8 162.8 L429.5 163.8 L434.0 164.7 L438.3 165.6 L442.5 166.5 L446.5 167.3 L450.4 168.1 L454.2 168.9 L457.9 169.7 L461.5 170.4 L465.0 171.2 L468.4 171.9 L471.7 172.6 L474.9 173.2 L478.1 173.9 L481.1 174.5 L484.1 175.1 L487.0 175.7 L489.9 176.3 L492.7 176.9 L495.4 177.5 L498.1 178.0 L500.7 178.6 L503.3 179.1 L505.8 179.6 L508.2 180.1 L510.7 180.7 L513.0 181.1 L515.4 181.6 L517.6 182.1 L519.9 182.6 L522.1 183.0 L524.3 183.5 L526.4 183.9 L528.5 184.4 L530.6 184.8 L532.6 185.2 L534.6 185.6 L536.5 186.0 L538.5 186.4 L540.4 186.8 L542.3 187.2 L544.1 187.6 L545.9 188.0 L547.7 188.4 L549.5 188.7 L551.2 189.1 L553.0 189.4 L554.7 189.8 L556.3 190.1 L558.0 190.5 L559.6 190.8 L561.2 191.2 L562.8 191.5 L564.4 191.8 L566.0 192.1 L567.5 192.5 L569.0 192.8 L570.5 193.1 L572.0 193.4 L573.4 193.7 L574.9 194.0 L576.3 194.3 L577.7 194.6 L579.1 194.9 L580.5 195.2 L581.9 195.4 L583.2 195.7 L584.6 196.0 L585.9 196.3 L587.2 196.6 L588.5 196.8 L589.8 197.1 L591.1 197.4 L592.3 197.6 L593.6 197.9 L594.8 198.1 L596.0 198.4 L597.2 198.6 L598.4 198.9 L599.6 199.1 L600.8 199.4 L601.9 199.6 L603.1 199.9 L604.2 200.1 L605.4 200.3 L606.5 200.6 L607.6 200.8 L608.7 201.0 L609.8 201.3 L610.9 201.5 L612.0 201.7 L613.0 201.9 L614.1 202.1 L615.1 202.4 L616.2 202.6 L617.2 202.8 L618.2 203.0 L619.3 203.2 L620.3 203.4 L621.3 203.6 L622.3 203.8 L623.2 204.0 L624.2 204.2 L625.2 204.4 L626.1 204.6 L627.1 204.8 L628.0 205.0 L629.0 205.2 L629.9 205.4 L630.8 205.6 L631.8 205.8 L632.7 206.0 L633.6 206.2 L634.5 206.4 L635.4 206.6 L636.2 206.7 L637.1 206.9 L638.0 207.1 L638.9 207.3 L639.7 207.5 L640.6 207.6 L641.4 207.8 L642.3 208.0 L643.1 208.2 L644.0 208.3 L644.8 208.5 L645.6 208.7 L646.4 208.9 L647.2 209.0 L648.0 209.2 L648.8 209.4 L649.6 209.5 L650.4 209.7 L651.2 209.9 L652.0 210.0 " class="pgv-curve-ghost"></path><text x="109.79679286355179" y="93.36736310766983" class="pgv-label" fill="rgba(180,71,47,.45)">M3</text><path d="M72.0 40.6 L132.7 53.2 L173.4 61.7 L204.2 68.1 L228.9 73.2 L249.5 77.5 L267.2 81.2 L282.8 84.4 L296.6 87.3 L309.1 89.9 L320.4 92.2 L330.8 94.4 L340.4 96.4 L349.3 98.3 L357.7 100.0 L365.5 101.6 L372.9 103.1 L379.8 104.6 L386.4 106.0 L392.7 107.3 L398.6 108.5 L404.3 109.7 L409.8 110.8 L415.0 111.9 L420.0 112.9 L424.8 113.9 L429.5 114.9 L434.0 115.8 L438.3 116.7 L442.5 117.6 L446.5 118.4 L450.4 119.3 L454.2 120.1 L457.9 120.8 L461.5 121.6 L465.0 122.3 L468.4 123.0 L471.7 123.7 L474.9 124.4 L478.1 125.0 L481.1 125.6 L484.1 126.3 L487.0 126.9 L489.9 127.5 L492.7 128.0 L495.4 128.6 L498.1 129.2 L500.7 129.7 L503.3 130.2 L505.8 130.8 L508.2 131.3 L510.7 131.8 L513.0 132.3 L515.4 132.8 L517.6 133.2 L519.9 133.7 L522.1 134.2 L524.3 134.6 L526.4 135.0 L528.5 135.5 L530.6 135.9 L532.6 136.3 L534.6 136.7 L536.5 137.2 L538.5 137.6 L540.4 138.0 L542.3 138.3 L544.1 138.7 L545.9 139.1 L547.7 139.5 L549.5 139.8 L551.2 140.2 L553.0 140.6 L554.7 140.9 L556.3 141.3 L558.0 141.6 L559.6 141.9 L561.2 142.3 L562.8 142.6 L564.4 142.9 L566.0 143.3 L567.5 143.6 L569.0 143.9 L570.5 144.2 L572.0 144.5 L573.4 144.8 L574.9 145.1 L576.3 145.4 L577.7 145.7 L579.1 146.0 L580.5 146.3 L581.9 146.6 L583.2 146.9 L584.6 147.1 L585.9 147.4 L587.2 147.7 L588.5 147.9 L589.8 148.2 L591.1 148.5 L592.3 148.7 L593.6 149.0 L594.8 149.3 L596.0 149.5 L597.2 149.8 L598.4 150.0 L599.6 150.3 L600.8 150.5 L601.9 150.7 L603.1 151.0 L604.2 151.2 L605.4 151.5 L606.5 151.7 L607.6 151.9 L608.7 152.1 L609.8 152.4 L610.9 152.6 L612.0 152.8 L613.0 153.0 L614.1 153.3 L615.1 153.5 L616.2 153.7 L617.2 153.9 L618.2 154.1 L619.3 154.3 L620.3 154.5 L621.3 154.8 L622.3 155.0 L623.2 155.2 L624.2 155.4 L625.2 155.6 L626.1 155.8 L627.1 156.0 L628.0 156.2 L629.0 156.4 L629.9 156.6 L630.8 156.7 L631.8 156.9 L632.7 157.1 L633.6 157.3 L634.5 157.5 L635.4 157.7 L636.2 157.9 L637.1 158.1 L638.0 158.2 L638.9 158.4 L639.7 158.6 L640.6 158.8 L641.4 158.9 L642.3 159.1 L643.1 159.3 L644.0 159.5 L644.8 159.6 L645.6 159.8 L646.4 160.0 L647.2 160.2 L648.0 160.3 L648.8 160.5 L649.6 160.7 L650.4 160.8 L651.2 161.0 L652.0 161.1 " class="pgv-curve-ghost"></path><text x="109.79679286355179" y="44.49269644100315" class="pgv-label" fill="rgba(180,71,47,.45)">M4</text><path d="M72.0 121.3 L132.7 133.9 L173.4 142.4 L204.2 148.7 L228.9 153.9 L249.5 158.2 L267.2 161.8 L282.8 165.1 L296.6 167.9 L309.1 170.5 L320.4 172.9 L330.8 175.1 L340.4 177.0 L349.3 178.9 L357.7 180.6 L365.5 182.3 L372.9 183.8 L379.8 185.2 L386.4 186.6 L392.7 187.9 L398.6 189.1 L404.3 190.3 L409.8 191.5 L415.0 192.5 L420.0 193.6 L424.8 194.6 L429.5 195.6 L434.0 196.5 L438.3 197.4 L442.5 198.3 L446.5 199.1 L450.4 199.9 L454.2 200.7 L457.9 201.5 L461.5 202.2 L465.0 202.9 L468.4 203.6 L471.7 204.3 L474.9 205.0 L478.1 205.6 L481.1 206.3 L484.1 206.9 L487.0 207.5 L489.9 208.1 L492.7 208.7 L495.4 209.3 L498.1 209.8 L500.7 210.4 L503.3 210.9 L505.8 211.4 L508.2 211.9 L510.7 212.4 L513.0 212.9 L515.4 213.4 L517.6 213.9 L519.9 214.3 L522.1 214.8 L524.3 215.2 L526.4 215.7 L528.5 216.1 L530.6 216.6 L532.6 217.0 L534.6 217.4 L536.5 217.8 L538.5 218.2 L540.4 218.6 L542.3 219.0 L544.1 219.4 L545.9 219.7 L547.7 220.1 L549.5 220.5 L551.2 220.9 L553.0 221.2 L554.7 221.6 L556.3 221.9 L558.0 222.3 L559.6 222.6 L561.2 222.9 L562.8 223.3 L564.4 223.6 L566.0 223.9 L567.5 224.2 L569.0 224.5 L570.5 224.9 L572.0 225.2 L573.4 225.5 L574.9 225.8 L576.3 226.1 L577.7 226.4 L579.1 226.6 L580.5 226.9 L581.9 227.2 L583.2 227.5 L584.6 227.8 L585.9 228.1 L587.2 228.3 L588.5 228.6 L589.8 228.9 L591.1 229.1 L592.3 229.4 L593.6 229.6 L594.8 229.9 L596.0 230.2 L597.2 230.4 L598.4 230.7 L599.6 230.9 L600.8 231.1 L601.9 231.4 L603.1 231.6 L604.2 231.9 L605.4 232.1 L606.5 232.3 L607.6 232.6 L608.7 232.8 L609.8 233.0 L610.9 233.2 L612.0 233.5 L613.0 233.7 L614.1 233.9 L615.1 234.1 L616.2 234.3 L617.2 234.6 L618.2 234.8 L619.3 235.0 L620.3 235.2 L621.3 235.4 L622.3 235.6 L623.2 235.8 L624.2 236.0 L625.2 236.2 L626.1 236.4 L627.1 236.6 L628.0 236.8 L629.0 237.0 L629.9 237.2 L630.8 237.4 L631.8 237.6 L632.7 237.8 L633.6 238.0 L634.5 238.1 L635.4 238.3 L636.2 238.5 L637.1 238.7 L638.0 238.9 L638.9 239.1 L639.7 239.2 L640.6 239.4 L641.4 239.6 L642.3 239.8 L643.1 239.9 L644.0 240.1 L644.8 240.3 L645.6 240.5 L646.4 240.6 L647.2 240.8 L648.0 241.0 L648.8 241.1 L649.6 241.3 L650.4 241.5 L651.2 241.6 L652.0 241.8 " class="pgv-curve"></path><line x1="210.3651638687021" y1="28" x2="210.3651638687021" y2="344" class="pgv-guide"></line><line x1="72" y1="150.03007367769615" x2="652" y2="150.03007367769615" class="pgv-guide"></line><circle cx="210.3651638687021" cy="150.03007367769615" r="13" class="pgv-marker-ring"></circle><circle cx="210.3651638687021" cy="150.03007367769615" r="6.5" class="pgv-marker"></circle><text x="226.3651638687021" y="136.03007367769615" class="pgv-readout-label">R = 3 km · M = 2.35</text><text x="82" y="44" class="axis-title">細線：不同規模的衰減曲線</text><text x="82" y="59" class="axis-title" fill="var(--red)">紅線：目前設定的規模</text></svg>
+            </div>
+          </div>
+        </article>
+
+        <div class="grid-2">
+          <article class="note reveal in">
+            <div class="card-label">SCALING / N3 vs. N3P</div>
+            <h3>同一個地點，不同當量</h3>
+            <p>N3（3,000 kg）與 N3P（750 kg）位於相同測區，是檢驗「當量—最大速度」標度律的直接證據。經驗公式常寫成：</p>
+            <div class="formula">log(PGV) = a + b·log(W) − c·log(R) − d·R</div>
+            <p>其中 W 為炸藥當量、R 為震源距；可與 Joyner &amp; Boore (1981)、Campbell (1981) 等經驗衰減模型比較。</p>
+            <div class="scaling-bars" aria-hidden="true">
+              <div><span>N3P · 750 kg</span><i style="--w:44%"></i><b>ML 1.90</b></div>
+              <div><span>N3 · 3,000 kg</span><i style="--w:100%"></i><b>ML 2.63</b></div>
+            </div>
+          </article>
+
+          <article class="note reveal in">
+            <div class="card-label">SITE EFFECT / 北部 vs. 南部測線</div>
+            <h3>沉積平原會改寫衰減曲線</h3>
+            <p>5 Hz 垂直向 PGV 觀測顯示，南部測線橫跨西部麓山帶與厚層鬆散沉積平原，部分近距離測站出現明顯能量放大或異常衰減。淺層沉積層構造對 PGV 衰減斜率有顯著控制作用。</p>
+            <div class="site-sketch" aria-hidden="true">
+              <svg viewBox="0 0 420 150">
+                <path d="M0 122h420" class="ground"></path>
+                <path d="M0 122c60-10 90-48 150-48s85 38 140 38 90-26 130-26v64H0Z" class="sediment"></path>
+                <path d="M0 122c60-10 90-48 150-48s85 38 140 38 90-26 130-26" class="rock-top"></path>
+                <g class="site-bars"><rect x="92" y="54" width="12" height="30"></rect><rect x="150" y="46" width="12" height="38"></rect><rect x="220" y="60" width="12" height="24"></rect><rect x="300" y="52" width="12" height="32"></rect></g>
+                <text x="210" y="142" text-anchor="middle" class="svg-label">厚層鬆散沉積層 → 放大／異常衰減</text>
+              </svg>
+            </div>
+          </article>
+        </div>
+
+        <article class="note diving-card reveal in">
+          <div class="diving-copy">
+            <div class="card-label">MULTIPLE DIVING WAVES / 多重潛水波</div>
+            <h3>在淺層「潛水又浮上來」的波</h3>
+            <p>當淺層速度隨深度連續正梯度增加（V(z)=V₀+k·z），近地表爆炸激發的震波會向下彎曲折射，並在地表與淺層介面間多次反射，形成一系列強振幅的多重潛水波列。不同階次（1st、2nd、3rd）在特定震央距走時交會、能量疊加，解釋了觀測剖面中的強振幅波包與較緩的距離衰減。</p>
+            <p>中央氣象署強震站（CHY031）記錄到的極淺層天然地震，也出現長延時、高振幅的淺層潛水波與面波波列：震源極淺＋厚層低速沉積層，是共同物理機制。</p>
+          </div>
+          <div class="diving-visual">
+            <svg viewBox="0 0 520 340" role="img" aria-label="速度隨深度增加的層狀模型與多重潛水波射線示意">
+              <defs>
+                <lineargradient id="gradEarth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ead8ba"></stop><stop offset="1" stop-color="#c8ae86"></stop></lineargradient>
+              </defs>
+              <rect width="520" height="340" fill="url(#gradEarth)"></rect>
+              <g class="layer-lines"><path d="M0 80h520M0 140h520M0 200h520M0 260h520"></path></g>
+              <g class="ray-paths">
+                <path d="M70 60q100 130 180 0" class="ray r1"></path>
+                <path d="M70 60q150 220 270 0" class="ray r2"></path>
+                <path d="M70 60q200 300 360 0" class="ray r3"></path>
+              </g>
+              <circle cx="70" cy="60" r="8" class="source-dot"></circle>
+              <text x="70" y="38" text-anchor="middle" class="svg-label">爆炸</text>
+              <g class="depth-labels"><text x="12" y="86">V₁</text><text x="12" y="146">V₂</text><text x="12" y="206">V₃</text><text x="12" y="266">V₄</text></g>
+              <text x="260" y="325" text-anchor="middle" class="svg-label">速度隨深度增加 → 射線彎曲、多次潛水</text>
+            </svg>
+          </div>
+        </article>
+
+        <article class="note kaohsiung-card reveal in">
+          <div class="kaohsiung-head">
+            <div>
+              <div class="card-label">CASE STUDY / 2014.07.31</div>
+              <h2>高雄氣爆：ML 2.38</h2>
+              <p>高雄市前鎮與苓雅區地下丙烯管線發生大規模連環爆炸。氣爆發生時，高雄及鄰近多個中央氣象署強震站與寬頻測站，都清晰記錄到地表爆炸激發的震波。</p>
+            </div>
+            <div class="ml-stamp"><span>推估規模</span><b>ML</b><strong>2.38</strong></div>
+          </div>
+          <div class="kaohsiung-grid">
+            <div class="note inset">
+              <div class="card-label">WHAT WAS DONE / 三步</div>
+              <ol class="step-list compact">
+                <li><span>01</span><p>量測各測站 5 Hz 垂直向 PGV，依震源距排列。</p></li>
+                <li><span>02</span><p>套入本研究建立的近地表爆炸 PGV 衰減式進行擬合。</p></li>
+                <li><span>03</span><p>反推等效區域規模，得到 ML ≈ 2.38。</p></li>
+              </ol>
+            </div>
+            <div class="note inset">
+              <div class="card-label">WHY IT MATTERS / 然後呢</div>
+              <p>這展現了衰減公式在<b>重大公共安全</b>與<b>法醫地震學</b>事件評估上的實用價值：即使沒有直接觀測到爆炸，也能從遠處測站的地動訊號，回推事件規模。</p>
+              <div class="hand-callout small">地震學不只在山上；它也會走進城市的街道。</div>
+            </div>
+          </div>
+          <p class="tiny">照片與原始波形未收錄；本頁以示意圖與講義數據重繪。參考：投影片第 19–20 頁。</p>
+        </article>
+
+        <article class="note conclusion-card reveal in">
+          <div class="card-label">CONCLUSION / 五個帶走</div>
+          <h3>講者的結論，我的抄寫</h3>
+          <ol class="conclusion-list">
+            <li><span>01</span><p>2017 年北韓核試爆的雷利波，在相近距離下振幅衰減有明顯空間差異，可歸因於日本海下方地下構造的不均質性。</p></li>
+            <li><span>02</span><p>利用 TAIGER 岩盤測站波形，建立了首個適用於近地表爆炸事件的 PGV 衰減方程式。</p></li>
+            <li><span>03</span><p>西部平原地區的 PGV 衰減特性，與岩盤測站有顯著差異。</p></li>
+            <li><span>04</span><p>炸藥使用量與觀測 ML 的關係顯示，各次爆破的爆炸效率並不相同；可能與地質條件、耦合效果、實際引爆量有關。</p></li>
+            <li><span>05</span><p>透過衰減公式，成功推估 2014 年高雄氣爆的區域規模；但平原地區的近地表爆炸衰減式，仍有待進一步建立。</p></li>
+          </ol>
+        </article>
+
+        <div class="margin-note margin-right">
+          <span class="pin" aria-hidden="true"></span>
+          <p>還有一個未解題：<b>平原區</b>的衰減式。岩盤的公式，不能直接套進厚沉積層。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REFLECTION ================= -->
+    <section class="section reflection" id="reflection">
+      <div class="section-inner">
+        <header class="chapter-head">
+          <div class="chapter-num">07</div>
+          <div class="chapter-heading">
+            <p class="kicker">REFLECTION / 2026.11.18</p>
+            <h2>演講心得</h2>
+            <p class="chapter-sub">聽完梁文宗老師的演講，我把當下寫下的心得放在這裡。保留原本的語氣，也保留那些還沒查證的小故事。</p>
+          </div>
+        </header>
+
+        <div class="letter-wrap">
+          <article class="letter reveal in">
+            <span class="tape tape-top" aria-hidden="true"></span>
+            <div class="letter-head">
+              <span class="letter-date">2026 / 11 / 18</span>
+              <span class="letter-to">給 梁文宗老師</span>
+            </div>
+            <div class="letter-body">
+              <p>聽完這一次老師的演講，認識到了 <span class="mark">Lg 波</span>、<span class="mark">表面雷利波</span>、<span class="mark">PGVh 衰減關係式</span>、甚至除了 P 波還有 <span class="mark">PP 波、PPP 波</span>。以前我最認識的就是 P 波跟 S 波，這次聽完演講才發現分析數據時，背後有很多細節跟巧思，像是 Lg 波在地殼裡來回反射、表面雷利波會受到地下構造影響而聚焦或散焦，還有用衰減關係式去推算爆炸規模，還拿高雄氣爆當例子，真的將這些地震學知識與實際生活連結在一起。</p>
+              <p>在一個小時左右的演講可以學到這麼多知識，真的很感謝老師，收穫真的很多，謝謝老師帶我們把這些看起來很硬的知識聽懂！</p>
+              <p class="letter-aside"><span class="aside-label">補充：我聽到的小故事</span>老師有提到 TAIGER 計畫。其實我之前在新竹讀高中的時候，有聽我們地科老師說過，說很多年前有學生家住在苗栗（？），結果家裡的玻璃被炸破？？隔天也沒有來上課？我其實也不知道是不是真的，但老師一講到在台灣曾經在新竹炸過，就想到這個故事。</p>
+              <p class="letter-sign">— 一位聽完演講、還在把筆記補完的學生</p>
+            </div>
+            <div class="letter-margin">
+              <p>（小故事未經查證，請勿當成史實。）</p>
+              <p>但「在新竹炸過」這件事，確實讓課堂上的地震學突然離家很近。</p>
+            </div>
+          </article>
+
+          <aside class="reflection-side">
+            <div class="note sticky-note tilt-2">
+              <span class="pin" aria-hidden="true"></span>
+              <h3>我的三個帶走</h3>
+              <ol>
+                <li>以前只知道 P/S；現在知道還有 PP、PPP、Lg、雷利波。</li>
+                <li>波形背後的細節：反射、聚焦／散焦、衰減式，都是理解震源的線索。</li>
+                <li>知識能回到生活：高雄氣爆的 ML 2.38，就是一個最好的例子。</li>
+              </ol>
+            </div>
+            <div class="note sticky-note tilt-3">
+              <span class="pin" aria-hidden="true"></span>
+              <h3>給自己的提醒</h3>
+              <p>下次看到「規模」兩個字，先問：是 mb、Ms、ML，還是 Mw？不同規模尺度，量的其實不是同一件事。</p>
+            </div>
+            <div class="note quote-mini">
+              <p>「把看起來很硬的知識聽懂」——這句話本身就是這份筆記的目標。</p>
+            </div>
+          </aside>
+        </div>
+
+        <article class="note quiz-card reveal in">
+          <div class="quiz-head">
+            <div>
+              <div class="card-label">QUICK CHECK / 四題，檢查有沒有聽懂</div>
+              <h3>你會分辨了嗎？</h3>
+            </div>
+            <span class="quiz-progress" id="quizProgress">1 / 4</span>
+          </div>
+          <div id="quizBox" aria-live="polite">
+      <p class="quiz-question">哪一組特徵最像「地下核試爆」？</p>
+      <div class="quiz-options">
+        <button class="quiz-option" type="button" data-opt="0">高頻 Pg/Lg 比值偏高，且 mb 大、Ms 小</button><button class="quiz-option" type="button" data-opt="1">表面波特別強，Ms 遠大於 mb</button><button class="quiz-option" type="button" data-opt="2">震源機制是純雙力偶（DC）</button><button class="quiz-option" type="button" data-opt="3">Lg 波很強，Pg 幾乎看不到</button>
+      </div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+      <button class="btn btn-solid quiz-next" id="quizNext" type="button">下一題 →</button>
+    </div>
+          <div class="quiz-foot">
+            <button class="btn btn-ghost" id="quizRestart" type="button">重新開始</button>
+            <span class="hint">答錯也沒關係，旁邊會出現解釋。</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= SOURCES ================= -->
+    <section class="section sources" id="sources">
+      <div class="section-inner">
+        <header class="chapter-head">
+          <div class="chapter-num">08</div>
+          <div class="chapter-heading">
+            <p class="kicker">SOURCES &amp; NOTES</p>
+            <h2>資料來源與說明</h2>
+            <p class="chapter-sub">這份筆記根據演講投影片與課後心得整理；圖表多為概念重繪，原始數據請以講義與論文為準。</p>
+          </div>
+        </header>
+
+        <div class="grid-2">
+          <article class="note reveal in">
+            <div class="card-label">PRIMARY / 主要資料</div>
+            <ul class="source-list">
+              <li>梁文宗（2026）。<i>爆炸地震學：近地表爆炸事件之地面最大速度（PGV）衰減關係研究</i>。演講投影片，2026 @ DingfuTaipei。</li>
+              <li>梁文宗老師演講心得（2026/11/18）。使用者提供之課後心得 PDF。</li>
+            </ul>
+            <div class="card-label space-top">REFERENCE / 講義提及文獻</div>
+            <ul class="source-list two-col">
+              <li>Kim et al. (2017)</li>
+              <li>Taylor (1996)</li>
+              <li>Furumura et al. (2014)</li>
+              <li>Witek et al. (2014)</li>
+              <li>Wei et al. (2014)</li>
+              <li>Huang et al. (2015)</li>
+              <li>Wu et al. (2014)</li>
+              <li>Rich (1979)</li>
+              <li>Joyner &amp; Boore (1981)</li>
+              <li>Campbell (1981)</li>
+            </ul>
+          </article>
+
+          <article class="note reveal in">
+            <div class="card-label">DISCLAIMER / 圖表與數據說明</div>
+            <ul class="bullet-list">
+              <li>本網站為個人學習筆記，非官方出版品；所有觀點與錯誤由筆記者負責。</li>
+              <li>波形、散佈圖、震源型態圖、雷利波透鏡、衰減散佈圖與 PGV 曲線均為<b>概念重繪或示意</b>，不是原始研究圖檔，也不應直接用於研究或工程判斷。</li>
+              <li>北韓事件規模、TAIGER 炸藥量與 ML、CTBTO 次數、PGV 公式係數，均依演講投影片文字整理；不同版本投影片的係數若有差異，已在文中標註。</li>
+              <li>「苗栗玻璃被炸破」為課堂轉述的未查證小故事，僅作為心得的一部分保留。</li>
+              <li>字型：LXGW WenKai TC、Ma Shan Zheng、Caveat（SIL Open Font License）。</li>
+            </ul>
+            <div class="repo-note">
+              <span class="repo-icon" aria-hidden="true">↗</span>
+              <p>本頁設計為靜態網站，可直接部署到 GitHub Pages。將整個資料夾推到 repo，設定 Pages 來源為 <code>main</code> 分支根目錄即可。</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="end-mark">
+          <span>— 筆記完 —</span>
+          <p>願我們都能把硬的知識，聽成自己的語言。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p><b>爆炸地震學</b> · 梁文宗老師演講筆記</p>
+      <p>Made with paper, waveforms &amp; curiosity. <span class="footer-dot">●</span> 2026</p>
+      <div class="footer-actions">
+        <button class="link-btn" id="copyLink" type="button">複製本頁連結</button>
+        <button class="link-btn" id="printBtn2" type="button">列印 / 存 PDF</button>
+        <a class="link-btn" href="http://127.0.0.1:8765/#top">回到頂端 ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./爆炸地震學｜梁文宗老師演講筆記_files/main.js.下載"></script>
+
+
+</body></html>

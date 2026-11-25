@@ -1,0 +1,1401 @@
+/* =========================================================
+   爆炸地震學 · 互動筆記
+   Vanilla JS, no dependencies.
+   ========================================================= */
+
+(() => {
+  "use strict";
+
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const NS = "http://www.w3.org/2000/svg";
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+  const lerp = (a, b, t) => a + (b - a) * t;
+
+  function svgEl(name, attrs = {}) {
+    const el = document.createElementNS(NS, name);
+    Object.entries(attrs).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) el.setAttribute(key, value);
+    });
+    return el;
+  }
+
+  function addText(svg, x, y, text, attrs = {}) {
+    const t = svgEl("text", { x, y, ...attrs });
+    t.textContent = text;
+    svg.appendChild(t);
+    return t;
+  }
+
+  function mulberry32(seed) {
+    let a = seed >>> 0;
+    return function () {
+      a |= 0;
+      a = (a + 0x6D2B79F5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function gauss(x, center, width) {
+    const z = (x - center) / width;
+    return Math.exp(-0.5 * z * z);
+  }
+
+  /* ---------------------------------------------------------
+     Synthetic waveform path
+     --------------------------------------------------------- */
+  function makeWavePath({
+    x0 = 40,
+    x1 = 540,
+    yBase = 140,
+    scale = 60,
+    amp = 1,
+    seed = 7,
+    duration = 50,
+    type = "explosion",
+    coda = false
+  } = {}) {
+    const rand = mulberry32(seed);
+    const n = 760;
+    const pts = [];
+    const pnAmp = type === "explosion" ? 0.18 : 0.1;
+    const pgAmp = type === "explosion" ? 0.52 : 0.2;
+    const lgAmp = type === "explosion" ? 0.46 : 0.72;
+    const rayAmp = type === "explosion" ? 0.34 : 0.42;
+
+    for (let i = 0; i <= n; i++) {
+      const t = i / n;
+      const time = t * duration;
+      let y = 0;
+
+      // faint background noise, stronger near the coda
+      y += (rand() - 0.5) * 0.032;
+
+      // Pn: first, small and fast
+      y += gauss(time, duration * 0.19, duration * 0.012) *
+        Math.sin(time * 2 * Math.PI * 4.8 + 0.3) * pnAmp;
+
+      // Pg: sharp high-frequency burst
+      y += gauss(time, duration * 0.25, duration * 0.018) *
+        Math.sin(time * 2 * Math.PI * (type === "explosion" ? 8.6 : 6.1) + 1.1) * pgAmp;
+
+      // Lg: broad, longer-period shear-wave train
+      y += gauss(time, duration * 0.6, duration * 0.16) *
+        Math.sin(time * 2 * Math.PI * 2.35 + 0.6) * lgAmp;
+      y += gauss(time, duration * 0.58, duration * 0.12) *
+        Math.sin(time * 2 * Math.PI * 4.2 + 1.8) * lgAmp * 0.34;
+
+      // 20 s Rayleigh packet near the end
+      y += gauss(time, duration * 0.84, duration * 0.075) *
+        Math.sin(time * 2 * Math.PI * 1.45 + 0.2) * rayAmp;
+
+      // 2017-style tunnel-collapse coda
+      if (coda) {
+        y += gauss(time, duration * 0.965, duration * 0.025) *
+          Math.sin(time * 2 * Math.PI * 3.2) * 0.22;
+      }
+
+      y = clamp(y * amp, -1, 1);
+      const x = lerp(x0, x1, t);
+      pts.push(`${x.toFixed(1)},${(yBase + y * scale).toFixed(1)}`);
+    }
+    return `M${pts.join(" L")}`;
+  }
+
+  /* ---------------------------------------------------------
+     Top bar, progress, menu, active nav
+     --------------------------------------------------------- */
+  const topbar = $("#topbar");
+  const progressBar = $("#progressBar");
+  const menuBtn = $("#menuBtn");
+  const siteNav = $("#siteNav");
+  const navLinks = $$("#siteNav a");
+  const sections = ["forensic", "difference", "dprk", "rayleigh", "taiger", "pgv", "reflection"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+  function onScroll() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const p = max > 0 ? clamp(window.scrollY / max, 0, 1) : 0;
+    progressBar.style.width = `${p * 100}%`;
+    topbar.classList.toggle("is-scrolled", window.scrollY > 12);
+
+    let active = "";
+    sections.forEach((sec) => {
+      if (sec.getBoundingClientRect().top <= 150) active = sec.id;
+    });
+    navLinks.forEach((a) => {
+      a.classList.toggle("is-active", a.getAttribute("href") === `#${active}`);
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  onScroll();
+
+  function closeMenu() {
+    siteNav.classList.remove("is-open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("menu-open");
+  }
+
+  menuBtn.addEventListener("click", () => {
+    const open = siteNav.classList.toggle("is-open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+    document.body.classList.toggle("menu-open", open);
+  });
+
+  navLinks.forEach((a) => a.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+  document.addEventListener("click", (e) => {
+    if (!siteNav.classList.contains("is-open")) return;
+    if (siteNav.contains(e.target) || menuBtn.contains(e.target)) return;
+    closeMenu();
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) closeMenu();
+  });
+
+  /* ---------------------------------------------------------
+     Reveal on scroll
+     --------------------------------------------------------- */
+  const revealEls = $$(".reveal");
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("in"));
+  }
+
+  /* ---------------------------------------------------------
+     Print / copy link / toast
+     --------------------------------------------------------- */
+  const toast = $("#toast");
+  let toastTimer = null;
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add("is-visible");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2200);
+  }
+
+  ["#printBtn", "#printBtn2"].forEach((sel) => {
+    const btn = $(sel);
+    if (btn) btn.addEventListener("click", () => window.print());
+  });
+
+  const copyBtn = $("#copyLink");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        showToast("連結已複製，可以貼給同學了");
+      } catch {
+        const ta = document.createElement("textarea");
+        ta.value = window.location.href;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); showToast("連結已複製"); }
+        catch { showToast("複製失敗，請從網址列手動複製"); }
+        ta.remove();
+      }
+    });
+  }
+
+  /* ---------------------------------------------------------
+     Flip cards (monitoring trio)
+     --------------------------------------------------------- */
+  $$(".flip-trigger").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".monitor-card");
+      const open = card.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", String(open));
+      const sign = $("span", btn);
+      if (sign) sign.textContent = open ? "×" : "＋";
+    });
+  });
+
+  /* ---------------------------------------------------------
+     Hero: initial waveform + boom
+     --------------------------------------------------------- */
+  const hero = $(".hero");
+  const heroWave = $("#heroWave");
+  const boomBtn = $("#boomBtn");
+  const boomReadout = $("#boomReadout");
+
+  if (heroWave) {
+    heroWave.setAttribute("d", makeWavePath({
+      x0: 40, x1: 540, yBase: 145, scale: 61, amp: 0.92, seed: 11, duration: 50
+    }));
+  }
+
+  if (boomBtn) {
+    boomBtn.addEventListener("click", () => {
+      if (!heroWave) return;
+      const seed = Math.floor(Math.random() * 1000) + 3;
+      heroWave.setAttribute("d", makeWavePath({
+        x0: 40, x1: 540, yBase: 145, scale: 74, amp: 1.45, seed, duration: 50, coda: true
+      }));
+      if (boomReadout) boomReadout.textContent = "Pg 能量增強，Lg 也醒了";
+      if (!reduceMotion) {
+        hero.classList.remove("is-booming");
+        void hero.offsetWidth;
+        hero.classList.add("is-booming");
+        setTimeout(() => hero.classList.remove("is-booming"), 650);
+        burstParticles(boomBtn);
+      }
+    });
+  }
+
+  function burstParticles(originEl) {
+    const rect = originEl.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const words = ["P", "Pg", "Lg", "20s", "爆", "震", "PP", "PPP"];
+    for (let i = 0; i < 9; i++) {
+      const span = document.createElement("span");
+      span.textContent = words[i % words.length];
+      span.style.cssText = `
+        position: fixed; left: ${cx}px; top: ${cy}px; z-index: 140;
+        font-family: var(--hand); color: var(--red); font-size: ${14 + Math.random() * 12}px;
+        pointer-events: none; will-change: transform, opacity;
+      `;
+      document.body.appendChild(span);
+      const angle = (Math.PI * 2 * i) / 9 + Math.random() * 0.5;
+      const dist = 70 + Math.random() * 90;
+      const dx = Math.cos(angle) * dist;
+      const dy = Math.sin(angle) * dist - 20;
+      const anim = span.animate([
+        { transform: "translate(-50%, -50%) scale(.6)", opacity: 0.95 },
+        { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(1.06) rotate(${Math.random() * 40 - 20}deg)`, opacity: 0 }
+      ], { duration: 850 + Math.random() * 300, easing: "cubic-bezier(.16,.8,.3,1)" });
+      anim.onfinish = () => span.remove();
+    }
+  }
+
+  /* ---------------------------------------------------------
+     MB–MS scatter chart
+     --------------------------------------------------------- */
+  const mbmsSvg = $("#mbmsChart");
+  let quakeGroup = null;
+
+  function buildMbMs() {
+    if (!mbmsSvg) return;
+    mbmsSvg.innerHTML = "";
+    const W = 640, H = 430, L = 62, R = 24, T = 28, B = 58;
+    const x = (v) => L + ((v - 2) / 5) * (W - L - R);
+    const y = (v) => H - B - ((v - 2) / 5) * (H - T - B);
+
+    const defs = svgEl("defs");
+    const clip = svgEl("clipPath", { id: "mbmsClip" });
+    clip.appendChild(svgEl("rect", { x: L, y: T, width: W - L - R, height: H - T - B }));
+    defs.appendChild(clip);
+    mbmsSvg.appendChild(defs);
+
+    const axis = svgEl("g", { class: "chart-axis" });
+    for (let v = 2; v <= 7; v++) {
+      axis.appendChild(svgEl("line", { x1: L, y1: y(v), x2: W - R, y2: y(v), class: "chart-tick" }));
+      axis.appendChild(svgEl("line", { x1: x(v), y1: T, x2: x(v), y2: H - B, class: "chart-tick" }));
+      addText(axis, x(v), H - B + 22, v, { "text-anchor": "middle" });
+      addText(axis, L - 14, y(v) + 4, v, { "text-anchor": "end" });
+    }
+    axis.appendChild(svgEl("line", { x1: L, y1: H - B, x2: W - R, y2: H - B, stroke: "rgba(76,62,45,.45)" }));
+    axis.appendChild(svgEl("line", { x1: L, y1: T, x2: L, y2: H - B, stroke: "rgba(76,62,45,.45)" }));
+    addText(axis, (L + W - R) / 2, H - 16, "體波規模 mb", { "text-anchor": "middle", class: "axis-title" });
+    const yTitle = addText(axis, 16, (T + H - B) / 2, "表面波規模 Ms", {
+      "text-anchor": "middle", class: "axis-title", transform: `rotate(-90 16 ${(T + H - B) / 2})`
+    });
+    yTitle.setAttribute("transform", `rotate(-90 16 ${(T + H - B) / 2})`);
+    mbmsSvg.appendChild(axis);
+
+    // screening line: Ms = 1.39 mb - 3.9
+    const line = svgEl("path", {
+      d: `M${x(2.8)} ${y(1.39 * 2.8 - 3.9)} L${x(7)} ${y(1.39 * 7 - 3.9)}`,
+      class: "screening-line"
+    });
+    mbmsSvg.appendChild(line);
+    const lineLabel = addText(mbmsSvg, x(6.05), y(1.39 * 6.05 - 3.9) - 10, "Ms = 1.39 mb − 3.9", {
+      class: "screening-label", "text-anchor": "middle"
+    });
+    lineLabel.setAttribute("transform", `rotate(-31 ${x(6.05)} ${y(1.39 * 6.05 - 3.9) - 10})`);
+
+    // earthquake cloud
+    quakeGroup = svgEl("g", { "clip-path": "url(#mbmsClip)" });
+    const rand = mulberry32(42);
+    for (let i = 0; i < 190; i++) {
+      let mb = 4.65 + (rand() + rand() + rand() - 1.5) * 0.75;
+      mb = clamp(mb, 2.9, 6.7);
+      let ms = 0.78 * mb + 0.35 + (rand() + rand() - 1) * 0.62;
+      ms = clamp(ms, 2.15, 6.55);
+      const c = svgEl("circle", {
+        cx: x(mb), cy: y(ms), r: 2.7 + rand() * 1.8,
+        class: "quake-dot", tabindex: "0"
+      });
+      const title = svgEl("title");
+      title.textContent = `天然地震示例 · mb ${mb.toFixed(1)} / Ms ${ms.toFixed(1)}`;
+      c.appendChild(title);
+      quakeGroup.appendChild(c);
+    }
+    mbmsSvg.appendChild(quakeGroup);
+
+    // explosion stars
+    const stars = [
+      { mb: 4.8, ms: 2.9, label: "China 950817" },
+      { mb: 4.7, ms: 2.5, label: "China 960608" },
+      { mb: 4.5, ms: 2.7, label: "Pakistan 980528" },
+      { mb: 4.3, ms: 2.4, label: "India 980511" },
+      { mb: 4.6, ms: 2.1, label: "China 960729" },
+      { mb: 4.1, ms: 2.6, label: "DPRK 061009" }
+    ];
+    const starGroup = svgEl("g");
+    stars.forEach((s) => {
+      const g = svgEl("g");
+      const star = svgEl("path", {
+        d: starPath(x(s.mb), y(s.ms), 8, 3.5),
+        class: "explosion-star",
+        tabindex: "0"
+      });
+      const title = svgEl("title");
+      title.textContent = `爆炸／推定爆炸 · ${s.label} · mb ${s.mb} / Ms ${s.ms}`;
+      star.appendChild(title);
+      g.appendChild(star);
+      starGroup.appendChild(g);
+    });
+    mbmsSvg.appendChild(starGroup);
+
+    // legend
+    const parent = mbmsSvg.parentElement;
+    if (parent && !parent.querySelector(".chart-legend")) {
+      const legend = document.createElement("div");
+      legend.className = "chart-legend";
+      legend.innerHTML = `<span><i class="legend-dot"></i>天然地震（藍色群集）</span><span><i class="legend-star">★</i>爆炸／推定爆炸</span><span>虛線：篩選線</span>`;
+      parent.appendChild(legend);
+    }
+  }
+
+  function starPath(cx, cy, outer, inner, points = 5) {
+    let d = "";
+    for (let i = 0; i < points * 2; i++) {
+      const r = i % 2 === 0 ? outer : inner;
+      const a = -Math.PI / 2 + (i * Math.PI) / points;
+      const px = cx + Math.cos(a) * r;
+      const py = cy + Math.sin(a) * r;
+      d += `${i === 0 ? "M" : "L"}${px.toFixed(1)} ${py.toFixed(1)} `;
+    }
+    return d + "Z";
+  }
+
+  buildMbMs();
+
+  $$("[data-mbms]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      $$("[data-mbms]").forEach((b) => b.classList.toggle("is-active", b === btn));
+      const onlyExplosion = btn.dataset.mbms === "explosion";
+      if (quakeGroup) {
+        quakeGroup.style.transition = "opacity .3s";
+        quakeGroup.style.opacity = onlyExplosion ? "0.08" : "1";
+      }
+    });
+  });
+
+  /* ---------------------------------------------------------
+     Source-type plot / ISO slider
+     --------------------------------------------------------- */
+  const sourceSvg = $("#sourceType");
+  const isoRange = $("#isoRange");
+  const isoOut = $("#isoOut");
+  const isoText = $("#isoText");
+  let sourceMarker = null;
+  let sourceRing = null;
+  let sourceMarkerLabel = null;
+
+  function buildSourceType() {
+    if (!sourceSvg) return;
+    sourceSvg.innerHTML = "";
+    const cx = 180, cy = 180, top = 54, bottom = 306, left = 58, right = 302;
+
+    const diamond = svgEl("polygon", {
+      points: `${cx},${top} ${right},${cy} ${cx},${bottom} ${left},${cy}`,
+      class: "source-diamond"
+    });
+    sourceSvg.appendChild(diamond);
+
+    const axes = svgEl("g");
+    axes.appendChild(svgEl("line", { x1: cx, y1: top, x2: cx, y2: bottom, class: "source-axis" }));
+    axes.appendChild(svgEl("line", { x1: left, y1: cy, x2: right, y2: cy, class: "source-axis" }));
+    sourceSvg.appendChild(axes);
+
+    addText(sourceSvg, cx, 34, "+ISO", { "text-anchor": "middle", class: "source-label big red" });
+    addText(sourceSvg, cx, 334, "−ISO", { "text-anchor": "middle", class: "source-label big" });
+    addText(sourceSvg, 44, 184, "CLVD", { "text-anchor": "middle", class: "source-label" });
+    addText(sourceSvg, 318, 184, "CLVD", { "text-anchor": "middle", class: "source-label" });
+    addText(sourceSvg, cx, 186, "DC", { "text-anchor": "middle", class: "source-label big" });
+    addText(sourceSvg, cx, 202, "雙力偶", { "text-anchor": "middle", class: "source-label" });
+
+    // small reference contours
+    [0.25, 0.5, 0.75].forEach((t) => {
+      const yy = cy - (cy - top) * t;
+      const w = (right - cx) * (1 - t) * 0.9 + 12;
+      const line = svgEl("path", {
+        d: `M${cx - w} ${yy} Q${cx} ${yy - 12} ${cx + w} ${yy}`,
+        fill: "none",
+        stroke: "rgba(76,62,45,.1)",
+        "stroke-width": "1"
+      });
+      sourceSvg.appendChild(line);
+    });
+
+    // fixed 2017 event marker (label on the left to avoid overlapping the slider marker)
+    const fixed = svgEl("g", { id: "sourceFixed" });
+    const fixedY = cy - (cy - top) * 0.42;
+    fixed.appendChild(svgEl("circle", {
+      cx, cy: fixedY, r: 15,
+      fill: "none", stroke: "rgba(78,111,102,.55)", "stroke-width": "1.2", "stroke-dasharray": "3 3"
+    }));
+    addText(fixed, cx + 22, fixedY + 4, "2017 · 42% ISO", {
+      class: "source-label", fill: "#4e6f66"
+    });
+    sourceSvg.appendChild(fixed);
+
+    sourceRing = svgEl("circle", { cx, cy: cy, r: 13, class: "source-marker-ring" });
+    sourceMarker = svgEl("circle", { cx, cy: cy, r: 8, class: "source-marker" });
+    sourceMarkerLabel = addText(sourceSvg, cx - 15, cy - 12, "目前設定", { class: "source-label red", "text-anchor": "end" });
+    sourceSvg.appendChild(sourceRing);
+    sourceSvg.appendChild(sourceMarker);
+    sourceSvg.appendChild(sourceMarkerLabel);
+  }
+
+  function updateSource(iso) {
+    if (!sourceMarker) return;
+    const cx = 180, cy = 180, top = 54;
+    const t = iso / 100;
+    const my = cy - (cy - top) * t;
+    const mx = cx + Math.sin(t * Math.PI) * 8;
+    sourceMarker.setAttribute("cx", mx);
+    sourceMarker.setAttribute("cy", my);
+    sourceRing.setAttribute("cx", mx);
+    sourceRing.setAttribute("cy", my);
+    sourceMarkerLabel.setAttribute("x", mx - 15);
+    sourceMarkerLabel.setAttribute("y", my - 12);
+    const fixed = document.getElementById("sourceFixed");
+    if (fixed) {
+      fixed.style.transition = "opacity .25s";
+      fixed.style.opacity = Math.abs(iso - 42) < 4 ? "0.18" : "1";
+    }
+    isoOut.textContent = `${iso}%`;
+
+    if (iso < 15) {
+      isoText.innerHTML = `接近<b>純 DC</b>：典型構造地震的剪切錯動，幾乎沒有膨脹成分。`;
+    } else if (iso < 35) {
+      isoText.innerHTML = `混合型：仍有明顯剪力成分，不能只靠 ISO 判定，需搭配 mb–Ms 與頻譜比。`;
+    } else if (iso < 62) {
+      isoText.innerHTML = `明顯的膨脹成分。2017 年北韓事件約 <b>42% ISO</b>、Mw 4.95，是核試爆的典型特徵。`;
+    } else {
+      isoText.innerHTML = `高度 <b>+ISO</b>：幾乎是純體積膨脹，和斷層錯動的震源機制很不一樣。`;
+    }
+  }
+
+  buildSourceType();
+  if (isoRange) {
+    isoRange.addEventListener("input", () => updateSource(Number(isoRange.value)));
+    updateSource(Number(isoRange.value));
+  }
+
+  /* ---------------------------------------------------------
+     DPRK timeline + MDJ waveform
+     --------------------------------------------------------- */
+  const dprkData = [
+    {
+      year: "2006", date: "10 / 09", mb: "4.1", badge: "第一次",
+      title: "2006 / 10 / 09 · mb 4.1",
+      text: "規模約 4.1–4.3。初動 Pn、Pg 清晰，Lg 波相對較弱。",
+      amp: 0.62, seed: 21, coda: false
+    },
+    {
+      year: "2009", date: "05 / 25", mb: "4.7", badge: "波形高度相似",
+      title: "2009 / 05 / 25 · mb 4.7",
+      text: "規模約 4.7。波形與前一次高度相似，顯示震源位置與機制高度一致。",
+      amp: 0.78, seed: 22, coda: false
+    },
+    {
+      year: "2013", date: "02 / 12", mb: "5.1", badge: "高頻 Pg 增強",
+      title: "2013 / 02 / 12 · mb 5.1",
+      text: "規模約 5.1。高頻 Pg 能量顯著增強，是頻譜比分析的好例子。",
+      amp: 0.92, seed: 23, coda: false
+    },
+    {
+      year: "2016", date: "01 / 06", mb: "5.1", badge: "第四次",
+      title: "2016 / 01 / 06 · mb 5.1",
+      text: "規模約 5.1。與 2016 年 9 月那次波形互相關係數極高。",
+      amp: 0.94, seed: 24, coda: false
+    },
+    {
+      year: "2016", date: "09 / 09", mb: "5.3", badge: "第五次",
+      title: "2016 / 09 / 09 · mb 5.3",
+      text: "規模約 5.3。波形與同年 1 月事件高度相似，位置與機制一致。",
+      amp: 1.0, seed: 25, coda: false
+    },
+    {
+      year: "2017", date: "09 / 03", mb: "6.3", badge: "最大的一次",
+      title: "2017 / 09 / 03 · mb 6.3",
+      text: "規模高達 6.3，振幅遠大於前五次。主震後約 8.5 分鐘，伴隨坑道坍塌訊號。",
+      amp: 1.48, seed: 26, coda: true
+    }
+  ];
+
+  const dprkWave = $("#dprkWave");
+  const dprkWaveTitle = $("#dprkWaveTitle");
+  const dprkWaveBadge = $("#dprkWaveBadge");
+  const dprkWaveText = $("#dprkWaveText");
+  const timelineBtns = $$("#dprkTimeline .timeline-item");
+
+  function renderDprkWave(index) {
+    if (!dprkWave) return;
+    const d = dprkData[index];
+    dprkWave.innerHTML = "";
+    const W = 760, H = 280, L = 50, R = 20, T = 24, B = 44;
+
+    // grid
+    const grid = svgEl("g", { class: "wave-grid" });
+    for (let i = 0; i <= 5; i++) {
+      const yy = T + ((H - T - B) / 5) * i;
+      grid.appendChild(svgEl("line", { x1: L, y1: yy, x2: W - R, y2: yy }));
+    }
+    for (let i = 0; i <= 6; i++) {
+      const xx = L + ((W - L - R) / 6) * i;
+      grid.appendChild(svgEl("line", { x1: xx, y1: T, x2: xx, y2: H - B }));
+    }
+    dprkWave.appendChild(grid);
+
+    // axes & time labels
+    const axis = svgEl("g", { class: "chart-axis" });
+    axis.appendChild(svgEl("line", { x1: L, y1: H - B, x2: W - R, y2: H - B, stroke: "rgba(76,62,45,.4)" }));
+    for (let i = 0; i <= 6; i++) {
+      const xx = L + ((W - L - R) / 6) * i;
+      const sec = Math.round((i / 6) * 50);
+      addText(axis, xx, H - B + 20, `${sec}s`, { "text-anchor": "middle" });
+    }
+    addText(axis, W / 2, H - 8, "Time (s)", { "text-anchor": "middle", class: "axis-title" });
+    addText(axis, 14, T + 10, "振幅", { class: "axis-title" });
+    dprkWave.appendChild(axis);
+
+    // zero line
+    const yBase = T + (H - T - B) / 2;
+    dprkWave.appendChild(svgEl("line", {
+      x1: L, y1: yBase, x2: W - R, y2: yBase, class: "wave-zero"
+    }));
+
+    // waveform
+    const path = makeWavePath({
+      x0: L + 4, x1: W - R - 4, yBase, scale: 74 * d.amp, amp: 1,
+      seed: d.seed, duration: 50, type: "explosion", coda: d.coda
+    });
+    const wave = svgEl("path", { d: path, class: "wave-path" });
+    if (index === 5) wave.style.stroke = "var(--red)";
+    else if (index === 4) wave.style.stroke = "#b26a3c";
+    else wave.style.stroke = "#7a6a4f";
+    dprkWave.appendChild(wave);
+
+    // phase markers
+    const phases = [
+      { t: 0.19, label: "Pn", color: "var(--blue)" },
+      { t: 0.25, label: "Pg", color: "var(--red)" },
+      { t: 0.6, label: "Lg", color: "var(--teal)" },
+      { t: 0.84, label: "Rayleigh", color: "var(--mustard)" }
+    ];
+    phases.forEach((p) => {
+      const xx = lerp(L, W - R, p.t);
+      dprkWave.appendChild(svgEl("line", {
+        x1: xx, y1: T, x2: xx, y2: H - B, class: "wave-phase-line"
+      }));
+      const label = addText(dprkWave, xx, T - 7, p.label, {
+        "text-anchor": "middle", class: "wave-phase-text"
+      });
+      label.style.fill = p.color;
+    });
+
+    // small explanatory amplitude bracket
+    if (index === 5) {
+      addText(dprkWave, W - R - 6, T + 14, "2017：振幅跳級", {
+        "text-anchor": "end", class: "wave-phase-text"
+      });
+    }
+
+    dprkWaveTitle.textContent = d.title;
+    dprkWaveBadge.textContent = d.badge;
+    dprkWaveText.textContent = d.text;
+    dprkWave.setAttribute("aria-label", `${d.title} 牡丹江測站波形示意`);
+  }
+
+  timelineBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const index = Number(btn.dataset.event);
+      timelineBtns.forEach((b) => {
+        const active = b === btn;
+        b.classList.toggle("is-active", active);
+        b.setAttribute("aria-selected", String(active));
+      });
+      renderDprkWave(index);
+    });
+  });
+
+  renderDprkWave(5);
+
+  /* ---------------------------------------------------------
+     Pg/Lg frequency explorer
+     --------------------------------------------------------- */
+  const pglgSvg = $("#pglgChart");
+  const freqRange = $("#freqRange");
+  const freqOut = $("#freqOut");
+  const freqReadout = $("#freqReadout");
+  let freqLine = null;
+  let freqDotE = null;
+  let freqDotQ = null;
+  let freqLabel = null;
+
+  const explosionRatio = (f) => 0.06 * f + 0.22 * Math.tanh((f - 1.2) / 1.3) - 0.14;
+  const earthquakeRatio = (f) => -0.22 + 0.12 * (1 - Math.exp(-f / 6));
+
+  function buildPgLg() {
+    if (!pglgSvg) return;
+    pglgSvg.innerHTML = "";
+    const W = 720, H = 390, L = 64, R = 30, T = 30, B = 54;
+    const x = (f) => L + ((f - 0.5) / 19.5) * (W - L - R);
+    const y = (v) => H - B - ((v + 0.8) / 2.2) * (H - T - B);
+
+    const defs = svgEl("defs");
+    const clip = svgEl("clipPath", { id: "pglgClip" });
+    clip.appendChild(svgEl("rect", { x: L, y: T, width: W - L - R, height: H - T - B }));
+    defs.appendChild(clip);
+    pglgSvg.appendChild(defs);
+
+    // noise bands
+    const bands = [
+      { x1: x(0.5), x2: x(1.5), label: "低頻噪訊" },
+      { x1: x(16), x2: x(20), label: "高頻噪訊" }
+    ];
+    bands.forEach((b) => {
+      pglgSvg.appendChild(svgEl("rect", {
+        x: b.x1, y: T, width: Math.max(0, b.x2 - b.x1), height: H - T - B,
+        fill: "rgba(84,107,128,.10)"
+      }));
+      addText(pglgSvg, (b.x1 + b.x2) / 2, T + 14, b.label, {
+        "text-anchor": "middle", class: "axis-title"
+      });
+    });
+
+    // axes
+    const axis = svgEl("g", { class: "chart-axis" });
+    for (let f = 0; f <= 20; f += 2) {
+      axis.appendChild(svgEl("line", { x1: x(f), y1: T, x2: x(f), y2: H - B, class: "chart-tick" }));
+      addText(axis, x(f), H - B + 22, f, { "text-anchor": "middle" });
+    }
+    [-0.8, -0.4, 0, 0.4, 0.8, 1.2].forEach((v) => {
+      axis.appendChild(svgEl("line", { x1: L, y1: y(v), x2: W - R, y2: y(v), class: "chart-tick" }));
+      addText(axis, L - 12, y(v) + 4, v.toFixed(1), { "text-anchor": "end" });
+    });
+    axis.appendChild(svgEl("line", { x1: L, y1: H - B, x2: W - R, y2: H - B, stroke: "rgba(76,62,45,.45)" }));
+    axis.appendChild(svgEl("line", { x1: L, y1: T, x2: L, y2: H - B, stroke: "rgba(76,62,45,.45)" }));
+    addText(axis, (L + W - R) / 2, H - 16, "頻率 (Hz)", { "text-anchor": "middle", class: "axis-title" });
+    addText(axis, 15, (T + H - B) / 2, "Log(Pg/Lg)", {
+      "text-anchor": "middle", class: "axis-title",
+      transform: `rotate(-90 15 ${(T + H - B) / 2})`
+    });
+    pglgSvg.appendChild(axis);
+
+    // zero line
+    pglgSvg.appendChild(svgEl("line", {
+      x1: L, y1: y(0), x2: W - R, y2: y(0),
+      stroke: "rgba(76,62,45,.35)", "stroke-width": "1", "stroke-dasharray": "5 5"
+    }));
+
+    // curves
+    function pathFor(fn) {
+      let d = "";
+      for (let i = 0; i <= 240; i++) {
+        const f = 0.5 + (i / 240) * 19.5;
+        d += `${i === 0 ? "M" : "L"}${x(f).toFixed(1)} ${y(fn(f)).toFixed(1)} `;
+      }
+      return d;
+    }
+    const ePath = svgEl("path", {
+      d: pathFor(explosionRatio), fill: "none", stroke: "var(--red)",
+      "stroke-width": "2.6", "stroke-linecap": "round"
+    });
+    const qPath = svgEl("path", {
+      d: pathFor(earthquakeRatio), fill: "none", stroke: "var(--teal)",
+      "stroke-width": "2.2", "stroke-linecap": "round", "stroke-dasharray": "7 5"
+    });
+    pglgSvg.appendChild(qPath);
+    pglgSvg.appendChild(ePath);
+
+    addText(pglgSvg, x(14.6), y(explosionRatio(14.6)) - 12, "爆炸", {
+      class: "screening-label", "text-anchor": "middle"
+    });
+    addText(pglgSvg, x(14.6), y(earthquakeRatio(14.6)) + 20, "天然地震", {
+      class: "axis-title", fill: "var(--teal)", "text-anchor": "middle"
+    });
+
+    // interactive line
+    const g = svgEl("g", { "clip-path": "url(#pglgClip)" });
+    freqLine = svgEl("line", {
+      x1: x(6), y1: T, x2: x(6), y2: H - B,
+      stroke: "rgba(76,62,45,.55)", "stroke-width": "1.2", "stroke-dasharray": "4 4"
+    });
+    freqDotE = svgEl("circle", { cx: x(6), cy: y(explosionRatio(6)), r: 6, fill: "var(--red)", stroke: "var(--paper-3)", "stroke-width": "2.5" });
+    freqDotQ = svgEl("circle", { cx: x(6), cy: y(earthquakeRatio(6)), r: 5, fill: "var(--teal)", stroke: "var(--paper-3)", "stroke-width": "2" });
+    g.appendChild(freqLine);
+    g.appendChild(freqDotE);
+    g.appendChild(freqDotQ);
+    pglgSvg.appendChild(g);
+
+    freqLabel = addText(pglgSvg, x(6), T + 24, "6.0 Hz", {
+      "text-anchor": "middle", class: "screening-label"
+    });
+  }
+
+  function updateFreq(f) {
+    if (!freqLine) return;
+    const W = 720, H = 390, L = 64, R = 30, T = 30, B = 54;
+    const x = (v) => L + ((v - 0.5) / 19.5) * (W - L - R);
+    const y = (v) => H - B - ((v + 0.8) / 2.2) * (H - T - B);
+    const e = explosionRatio(f);
+    const q = earthquakeRatio(f);
+    freqLine.setAttribute("x1", x(f));
+    freqLine.setAttribute("x2", x(f));
+    freqDotE.setAttribute("cx", x(f));
+    freqDotE.setAttribute("cy", y(e));
+    freqDotQ.setAttribute("cx", x(f));
+    freqDotQ.setAttribute("cy", y(q));
+    freqLabel.setAttribute("x", x(f));
+    freqLabel.textContent = `${f.toFixed(1)} Hz`;
+    freqOut.textContent = `${f.toFixed(1)} Hz`;
+
+    let verdict;
+    if (f < 1.5) {
+      verdict = "低頻段容易受背景微震噪訊影響，比值先保留。";
+    } else if (e - q > 0.45) {
+      verdict = "<b>爆炸特徵明顯</b>：Pg 相對 Lg 的能量高出許多。";
+    } else if (e - q > 0.18) {
+      verdict = "開始出現差距：爆炸的 Pg/Lg 比值逐漸拉開。";
+    } else {
+      verdict = "兩者還很接近，單靠這個頻率不容易分辨。";
+    }
+    freqReadout.innerHTML = `在 <b>${f.toFixed(1)} Hz</b>：爆炸 Log(Pg/Lg) ≈ <b>${e.toFixed(2)}</b>，天然地震 ≈ <b>${q.toFixed(2)}</b>。${verdict}`;
+  }
+
+  buildPgLg();
+  if (freqRange) {
+    freqRange.addEventListener("input", () => updateFreq(Number(freqRange.value)));
+    updateFreq(Number(freqRange.value));
+  }
+
+  /* ---------------------------------------------------------
+     Rayleigh lens demo
+     --------------------------------------------------------- */
+  const lensSvg = $("#lensSvg");
+  const lensRays = $("#lensRays");
+  const lensBlob = $("#lensBlob");
+  const lensLabel = $("#lensLabel");
+  const lensNote = $("#lensNote");
+
+  const lensRaysSlow = [
+    "M70 90 Q170 205 500 90",
+    "M70 90 Q275 270 500 90",
+    "M70 90 Q385 205 500 90"
+  ];
+  const lensRaysFast = [
+    "M70 90 Q180 130 500 32",
+    "M70 90 Q300 132 500 90",
+    "M70 90 Q420 150 500 158"
+  ];
+
+  function setLens(mode) {
+    if (!lensRays) return;
+    lensRays.innerHTML = "";
+    const paths = mode === "slow" ? lensRaysSlow : lensRaysFast;
+    paths.forEach((d, i) => {
+      const p = svgEl("path", { d });
+      if (i === 1) p.style.stroke = "var(--red)";
+      lensRays.appendChild(p);
+    });
+    if (lensBlob) {
+      lensBlob.setAttribute("rx", mode === "slow" ? "105" : "82");
+      lensBlob.setAttribute("ry", mode === "slow" ? "55" : "42");
+      lensBlob.setAttribute("fill", mode === "slow" ? "url(#lensGrad)" : "rgba(78,111,102,.14)");
+      lensBlob.setAttribute("stroke", mode === "slow" ? "#b98a2f" : "rgba(78,111,102,.7)");
+    }
+    if (lensLabel) {
+      lensLabel.textContent = mode === "slow" ? "低速異常" : "高速異常";
+      lensLabel.style.fill = mode === "slow" ? "var(--red)" : "var(--teal)";
+    }
+    if (lensNote) {
+      lensNote.innerHTML = mode === "slow"
+        ? "<b>低速異常：</b>波跑得慢，能量容易聚焦，振幅相對變大。"
+        : "<b>高速異常：</b>波跑得快，能量容易散焦，振幅相對變小。";
+    }
+  }
+
+  $$("[data-lens]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      $$("[data-lens]").forEach((b) => b.classList.toggle("is-active", b === btn));
+      setLens(btn.dataset.lens);
+    });
+  });
+  setLens("slow");
+
+  /* ---------------------------------------------------------
+     20 s Rayleigh attenuation scatter
+     --------------------------------------------------------- */
+  const attenSvg = $("#attenChart");
+  const attenGroups = { continental: null, oceanic: null };
+
+  function buildAtten() {
+    if (!attenSvg) return;
+    attenSvg.innerHTML = "";
+    attenSvg.classList.add("atten-chart");
+    const W = 640, H = 400, L = 66, R = 26, T = 28, B = 58;
+    const x = (d) => L + ((d - 200) / 1000) * (W - L - R);
+    const y = (amp) => {
+      const log = Math.log10(amp);
+      return H - B - ((log + 9) / 4) * (H - T - B);
+    };
+
+    // highlight band
+    attenSvg.appendChild(svgEl("rect", {
+      x: x(500), y: T, width: x(1000) - x(500), height: H - T - B, class: "atten-band"
+    }));
+    addText(attenSvg, (x(500) + x(1000)) / 2, T + 14, "500–1,000 km：方位角離散明顯", {
+      "text-anchor": "middle", class: "atten-label"
+    });
+
+    // axes
+    const axis = svgEl("g", { class: "chart-axis" });
+    [200, 400, 600, 800, 1000, 1200].forEach((d) => {
+      axis.appendChild(svgEl("line", { x1: x(d), y1: T, x2: x(d), y2: H - B, class: "chart-tick" }));
+      addText(axis, x(d), H - B + 22, d, { "text-anchor": "middle" });
+    });
+    [-9, -8, -7, -6, -5].forEach((log) => {
+      const yy = y(Math.pow(10, log));
+      axis.appendChild(svgEl("line", { x1: L, y1: yy, x2: W - R, y2: yy, class: "chart-tick" }));
+      addText(axis, L - 12, yy + 4, `10^${log}`, { "text-anchor": "end" });
+    });
+    axis.appendChild(svgEl("line", { x1: L, y1: H - B, x2: W - R, y2: H - B, stroke: "rgba(76,62,45,.45)" }));
+    axis.appendChild(svgEl("line", { x1: L, y1: T, x2: L, y2: H - B, stroke: "rgba(76,62,45,.45)" }));
+    addText(axis, (L + W - R) / 2, H - 16, "震央距 (km)", { "text-anchor": "middle", class: "axis-title" });
+    addText(axis, 16, (T + H - B) / 2, "20 s 雷利波振幅 (m)", {
+      "text-anchor": "middle", class: "axis-title",
+      transform: `rotate(-90 16 ${(T + H - B) / 2})`
+    });
+    attenSvg.appendChild(axis);
+
+    const rand = mulberry32(88);
+    const stations = ["MDJ", "YAK", "ULN", "INCN", "TJN", "BATS", "KSNN", "MAJO", "ERM", "SSE"];
+    const groups = { continental: [], oceanic: [] };
+    attenGroups.continental = svgEl("g");
+    attenGroups.oceanic = svgEl("g");
+
+    for (let i = 0; i < 44; i++) {
+      const dist = 230 + rand() * 950;
+      const baseLog = Math.log10(8e-6) - 1.23 * Math.log10(dist / 300);
+      const oceanic = i % 2 === 0;
+      const scatter = (rand() + rand() - 1) * (oceanic ? 0.34 : 0.22);
+      const logAmp = baseLog + scatter + (oceanic ? -0.28 : 0);
+      const amp = Math.pow(10, clamp(logAmp, -8.8, -5.2));
+      const station = stations[Math.floor(rand() * stations.length)];
+      const circle = svgEl("circle", {
+        cx: x(dist), cy: y(amp), r: 4.2 + rand() * 1.8,
+        class: `atten-dot ${oceanic ? "oceanic-dot" : "continental-dot"}`,
+        tabindex: "0"
+      });
+      const title = svgEl("title");
+      title.textContent = `${oceanic ? "日本海／過渡路徑" : "大陸路徑"} · ${station} · ${Math.round(dist)} km · 振幅 ${amp.toExponential(2)} m`;
+      circle.appendChild(title);
+      (oceanic ? attenGroups.oceanic : attenGroups.continental).appendChild(circle);
+      groups[oceanic ? "oceanic" : "continental"].push({ dist, amp });
+    }
+
+    Object.entries(groups).forEach(([key, pts]) => {
+      // draw a smooth-ish trend through the cloud
+      const sorted = pts.slice().sort((a, b) => a.dist - b.dist);
+      let d = "";
+      sorted.forEach((p, i) => {
+        d += `${i === 0 ? "M" : "L"}${x(p.dist).toFixed(1)} ${y(p.amp).toFixed(1)} `;
+      });
+    });
+
+    // explicitly draw the two reference trends
+    function trendPath(oceanic) {
+      let d = "";
+      for (let i = 0; i <= 100; i++) {
+        const dist = 200 + (i / 100) * 1000;
+        const logAmp = Math.log10(8e-6) - 1.23 * Math.log10(dist / 300) + (oceanic ? -0.28 : 0);
+        d += `${i === 0 ? "M" : "L"}${x(dist).toFixed(1)} ${y(Math.pow(10, logAmp)).toFixed(1)} `;
+      }
+      return d;
+    }
+    attenSvg.appendChild(svgEl("path", {
+      d: trendPath(false), class: "atten-trend", stroke: "rgba(217,164,65,.75)"
+    }));
+    attenSvg.appendChild(svgEl("path", {
+      d: trendPath(true), class: "atten-trend", stroke: "rgba(78,111,102,.75)"
+    }));
+
+    Object.values(attenGroups).forEach((g) => attenSvg.appendChild(g));
+
+    const parent = attenSvg.parentElement;
+    if (parent && !parent.querySelector(".chart-legend")) {
+      const legend = document.createElement("div");
+      legend.className = "chart-legend";
+      legend.innerHTML = `<span><i class="legend-dot" style="background:#d9a441"></i>大陸路徑</span><span><i class="legend-dot" style="background:#4e6f66"></i>日本海／過渡路徑</span>`;
+      parent.appendChild(legend);
+    }
+  }
+
+  buildAtten();
+
+  $$("[data-atten]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      $$("[data-atten]").forEach((b) => b.classList.toggle("is-active", b === btn));
+      const mode = btn.dataset.atten;
+      const set = (group, dim) => {
+        if (!group) return;
+        Array.from(group.children).forEach((c) => {
+          c.style.transition = "opacity .25s";
+          c.style.opacity = dim ? "0.10" : "0.75";
+        });
+      };
+      if (mode === "all") {
+        set(attenGroups.continental, false);
+        set(attenGroups.oceanic, false);
+      } else if (mode === "continental") {
+        set(attenGroups.continental, false);
+        set(attenGroups.oceanic, true);
+      } else {
+        set(attenGroups.continental, true);
+        set(attenGroups.oceanic, false);
+      }
+    });
+  });
+
+  /* ---------------------------------------------------------
+     TAIGER shots
+     --------------------------------------------------------- */
+  const shotData = {
+    N1: { label: "N1", yieldKg: "1,000", ml: "2.23", pos: [225, 92], note: "北部測線的深井爆破。精確的位置、起爆時間、埋深與當量，都是後續衰減分析的基準。" },
+    N2: { label: "N2", yieldKg: "750", ml: "1.81", pos: [240, 122], note: "750 kg 炸藥，CWB 測得 ML 1.81。可用來觀察較小當量下的 PGV 衰減。" },
+    N3: { label: "N3", yieldKg: "3,000", ml: "2.63", pos: [172, 230], note: "十次中炸藥量最大。與同測區的 N3P（750 kg）形成難得的「同點不同當量」對照，可直接檢驗 PGV 的標度律。" },
+    N3P: { label: "N3P", yieldKg: "750", ml: "1.90", pos: [190, 255], note: "與 N3 同測區的 750 kg 對照爆破。相同的場址條件，讓「當量 → 振幅」的關係更容易被隔離出來。" },
+    N4: { label: "N4 / N5", yieldKg: "1,000", ml: "1.72 / 2.20", pos: [168, 300], note: "N4 與 N5 皆為 1,000 kg，CWB ML 分別為 1.72 與 2.20。相同當量、不同規模，提醒我們爆炸效率不是常數。" },
+    N6: { label: "N6", yieldKg: "1,000", ml: "2.13", pos: [177, 332], note: "1,000 kg，ML 2.13。位於中部測線，可用來比較不同地質區塊的衰減型態。" },
+    N7: { label: "N7", yieldKg: "750", ml: "1.72", pos: [155, 360], note: "750 kg，ML 1.72。與 N8、N10 同為 750 kg 級，是檢查爆炸效率變異的好材料。" },
+    N8: { label: "N8", yieldKg: "1,000", ml: "1.95", pos: [153, 392], note: "1,000 kg，ML 1.95。南部測線的資料，開始接近西部麓山帶與厚層沉積平原的影響區。" },
+    N9: { label: "N9", yieldKg: "1,500", ml: "2.15", pos: [145, 422], note: "1,500 kg，ML 2.15。介於 1,000 與 3,000 kg 之間，讓標度律有更多中間點。" },
+    N10: { label: "N10", yieldKg: "750", ml: "1.85", pos: [158, 452], note: "750 kg，ML 1.85。南部測線的最後一次爆破，也是十次實驗的收尾。" }
+  };
+
+  const shotDotsGroup = $("#shotDots");
+  const shotDetail = $("#shotDetail");
+  const shotRows = $$("#shotTable tbody tr");
+  let activeShot = "N3";
+
+  function buildShotDots() {
+    if (!shotDotsGroup) return;
+    shotDotsGroup.innerHTML = "";
+    Object.entries(shotData).forEach(([id, d]) => {
+      const [cx, cy] = d.pos;
+      const g = svgEl("g");
+      const c = svgEl("circle", {
+        cx, cy, r: 6, class: "shot-dot", "data-shot": id, tabindex: "0",
+        role: "button", "aria-label": `${d.label} 炸測位置`
+      });
+      const title = svgEl("title");
+      title.textContent = `${d.label} · ${d.yieldKg} kg · ML ${d.ml}`;
+      c.appendChild(title);
+      const label = addText(g, cx + 10, cy + 3.5, d.label.replace(" / ", "/"), { class: "shot-label" });
+      g.appendChild(c);
+      g.appendChild(label);
+      c.addEventListener("click", () => selectShot(id));
+      c.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectShot(id); }
+      });
+      shotDotsGroup.appendChild(g);
+    });
+  }
+
+  function selectShot(id) {
+    const d = shotData[id];
+    if (!d || !shotDetail) return;
+    activeShot = id;
+    shotDetail.innerHTML = `
+      <span class="shot-badge">${d.label.replace(" / ", "/")}</span>
+      <div><b>${d.yieldKg} kg · ML ${d.ml}</b><p>${d.note}</p></div>
+    `;
+    shotRows.forEach((row) => row.classList.toggle("is-active", row.dataset.shot === id));
+    $$(".shot-dot", shotDotsGroup).forEach((dot) => {
+      dot.classList.toggle("is-active", dot.dataset.shot === id);
+    });
+  }
+
+  buildShotDots();
+  if (shotRows.length) {
+    shotRows.forEach((row) => {
+      row.addEventListener("click", () => selectShot(row.dataset.shot));
+      row.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectShot(row.dataset.shot); }
+      });
+    });
+    selectShot(activeShot);
+  }
+
+  /* ---------------------------------------------------------
+     Energy donut
+     --------------------------------------------------------- */
+  const energyData = [
+    { key: "light", label: "光與熱", pct: 38, color: "#d9a441", text: "爆炸瞬間最直觀的能量形式；大部分能量其實都往這裡去了。比例為概念示意，非原始量測。" },
+    { key: "sound", label: "聲波", pct: 27, color: "#4e6f66", text: "空氣中的聲波也是能量出口；大氣層核爆時，次聲波監測站就是靠這個訊號。" },
+    { key: "rock", label: "圍岩破壞", pct: 30, color: "#b98a68", text: "把地表與周圍岩石震碎、掀翻的破壞能量。鑽井與覆蓋角礫石，就是為了把能量多留在這一步之前。" },
+    { key: "seismic", label: "遠場地震波", pct: 5, color: "#b4472f", text: "只有極小比例真正變成能傳很遠的地震波。這就是為什麼炸藥量與測得規模不是完全一對一。" }
+  ];
+  const donut = $("#energyDonut");
+  const energyLegend = $("#energyLegend");
+  const energyReadout = $("#energyReadout");
+  let activeEnergy = 0;
+
+  function buildDonut() {
+    if (!donut) return;
+    let acc = 0;
+    const stops = energyData.map((d) => {
+      const start = acc;
+      acc += d.pct;
+      return `${d.color} ${start}% ${acc}%`;
+    });
+    donut.style.background = `conic-gradient(${stops.join(", ")})`;
+  }
+
+  function updateEnergy(index) {
+    activeEnergy = index;
+    const d = energyData[index];
+    if (!donut || !energyReadout) return;
+    $$("#energyLegend button").forEach((b, i) => b.classList.toggle("is-active", i === index));
+    donut.style.boxShadow = `inset 0 0 0 1px rgba(76,62,45,.1), 0 0 0 5px ${d.color}22, var(--shadow)`;
+    energyReadout.innerHTML = `<b>${d.label}（${d.pct}%）：</b>${d.text}`;
+  }
+
+  buildDonut();
+  if (energyLegend) {
+    $$("#energyLegend button").forEach((btn, i) => {
+      btn.addEventListener("click", () => updateEnergy(i));
+      btn.addEventListener("mouseenter", () => updateEnergy(i));
+    });
+    updateEnergy(0);
+  }
+
+  /* ---------------------------------------------------------
+     PGV calculator
+     --------------------------------------------------------- */
+  const pgvSvg = $("#pgvChart");
+  const pgvR = $("#pgvR");
+  const pgvM = $("#pgvM");
+  const pgvROut = $("#pgvROut");
+  const pgvMOut = $("#pgvMOut");
+  const pgvOut = $("#pgvOut");
+  const pgvCm = $("#pgvCm");
+  let pgvMarker = null;
+  let pgvRing = null;
+  let pgvGuideX = null;
+  let pgvGuideY = null;
+  let pgvCurve = null;
+  let pgvLabel = null;
+  let pgvMarkerText = null;
+
+  const pgvLog = (R, M) => -1.43 * Math.log10(R) + 1.16 * M - 4.44;
+
+  function buildPGV() {
+    if (!pgvSvg) return;
+    pgvSvg.innerHTML = "";
+    const W = 680, H = 400, L = 72, R = 28, T = 28, B = 56;
+    const x = (dist) => L + (Math.log10(dist) / 2) * (W - L - R);
+    const y = (logv) => H - B - ((logv + 7) / 7.5) * (H - T - B);
+
+    const axis = svgEl("g", { class: "chart-axis" });
+    [1, 2, 5, 10, 20, 50, 100].forEach((d) => {
+      axis.appendChild(svgEl("line", { x1: x(d), y1: T, x2: x(d), y2: H - B, class: "chart-tick" }));
+      addText(axis, x(d), H - B + 22, d, { "text-anchor": "middle" });
+    });
+    [-7, -6, -5, -4, -3, -2, -1, 0].forEach((lv) => {
+      axis.appendChild(svgEl("line", { x1: L, y1: y(lv), x2: W - R, y2: y(lv), class: "chart-tick" }));
+      addText(axis, L - 12, y(lv) + 4, `10^${lv}`, { "text-anchor": "end" });
+    });
+    axis.appendChild(svgEl("line", { x1: L, y1: H - B, x2: W - R, y2: H - B, stroke: "rgba(76,62,45,.45)" }));
+    axis.appendChild(svgEl("line", { x1: L, y1: T, x2: L, y2: H - B, stroke: "rgba(76,62,45,.45)" }));
+    addText(axis, (L + W - R) / 2, H - 16, "震源距 R (km，對數)", { "text-anchor": "middle", class: "axis-title" });
+    addText(axis, 17, (T + H - B) / 2, "PGV (m/s，對數)", {
+      "text-anchor": "middle", class: "axis-title",
+      transform: `rotate(-90 17 ${(T + H - B) / 2})`
+    });
+    pgvSvg.appendChild(axis);
+
+    function curvePath(M) {
+      let d = "";
+      for (let i = 0; i <= 160; i++) {
+        const dist = 1 + (i / 160) * 99;
+        d += `${i === 0 ? "M" : "L"}${x(dist).toFixed(1)} ${y(pgvLog(dist, M)).toFixed(1)} `;
+      }
+      return d;
+    }
+
+    // family
+    [1, 2, 3, 4].forEach((M) => {
+      pgvSvg.appendChild(svgEl("path", { d: curvePath(M), class: "pgv-curve-ghost" }));
+      addText(pgvSvg, x(1.35), y(pgvLog(1.35, M)) - 4, `M${M}`, {
+        class: "pgv-label", fill: "rgba(180,71,47,.45)"
+      });
+    });
+
+    pgvCurve = svgEl("path", { d: curvePath(2.38), class: "pgv-curve" });
+    pgvSvg.appendChild(pgvCurve);
+
+    pgvGuideX = svgEl("line", { x1: x(10), y1: T, x2: x(10), y2: H - B, class: "pgv-guide" });
+    pgvGuideY = svgEl("line", { x1: L, y1: y(pgvLog(10, 2.38)), x2: W - R, y2: y(pgvLog(10, 2.38)), class: "pgv-guide" });
+    pgvSvg.appendChild(pgvGuideX);
+    pgvSvg.appendChild(pgvGuideY);
+
+    pgvRing = svgEl("circle", { cx: x(10), cy: y(pgvLog(10, 2.38)), r: 13, class: "pgv-marker-ring" });
+    pgvMarker = svgEl("circle", { cx: x(10), cy: y(pgvLog(10, 2.38)), r: 6.5, class: "pgv-marker" });
+    pgvSvg.appendChild(pgvRing);
+    pgvSvg.appendChild(pgvMarker);
+
+    pgvMarkerText = addText(pgvSvg, x(10) + 16, y(pgvLog(10, 2.38)) - 14, "R = 10 km · M = 2.38", {
+      class: "pgv-readout-label"
+    });
+
+    // legend
+    addText(pgvSvg, L + 10, T + 16, "細線：不同規模的衰減曲線", { class: "axis-title" });
+    addText(pgvSvg, L + 10, T + 31, "紅線：目前設定的規模", { class: "axis-title", fill: "var(--red)" });
+  }
+
+  function sciHTML(v) {
+    if (!Number.isFinite(v)) return "—";
+    if (v >= 0.01) return `${v.toFixed(3)}`;
+    if (v <= 0) return "0";
+    const exp = Math.floor(Math.log10(v));
+    const mant = v / Math.pow(10, exp);
+    const expText = String(exp).replace("-", "−");
+    return `${mant.toFixed(2)} × 10<sup>${expText}</sup>`;
+  }
+
+  function updatePGV() {
+    if (!pgvSvg || !pgvMarker) return;
+    const R = Number(pgvR.value);
+    const M = Number(pgvM.value);
+    const logv = pgvLog(R, M);
+    const v = Math.pow(10, logv);
+    const W = 680, H = 400, L = 72, Rm = 28, T = 28, B = 56;
+    const x = (dist) => L + (Math.log10(dist) / 2) * (W - L - Rm);
+    const y = (lv) => H - B - ((lv + 7) / 7.5) * (H - T - B);
+
+    pgvROut.textContent = `${R} km`;
+    pgvMOut.textContent = M.toFixed(2);
+    pgvOut.innerHTML = sciHTML(v);
+    pgvCm.textContent = `${(v * 100).toFixed(v < 0.0001 ? 4 : 3)} cm/s`;
+
+    // update selected curve
+    let d = "";
+    for (let i = 0; i <= 160; i++) {
+      const dist = 1 + (i / 160) * 99;
+      d += `${i === 0 ? "M" : "L"}${x(dist).toFixed(1)} ${y(pgvLog(dist, M)).toFixed(1)} `;
+    }
+    pgvCurve.setAttribute("d", d);
+
+    pgvMarker.setAttribute("cx", x(R));
+    pgvMarker.setAttribute("cy", y(logv));
+    pgvRing.setAttribute("cx", x(R));
+    pgvRing.setAttribute("cy", y(logv));
+    pgvGuideX.setAttribute("x1", x(R));
+    pgvGuideX.setAttribute("x2", x(R));
+    pgvGuideY.setAttribute("y1", y(logv));
+    pgvGuideY.setAttribute("y2", y(logv));
+    pgvMarkerText.setAttribute("x", x(R) + 16);
+    pgvMarkerText.setAttribute("y", y(logv) - 14);
+    pgvMarkerText.textContent = `R = ${R} km · M = ${M.toFixed(2)}`;
+  }
+
+  buildPGV();
+  if (pgvR && pgvM) {
+    pgvR.addEventListener("input", updatePGV);
+    pgvM.addEventListener("input", updatePGV);
+    $$("[data-preset]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (btn.dataset.preset === "kaohsiung") { pgvR.value = "10"; pgvM.value = "2.38"; }
+        if (btn.dataset.preset === "n3") { pgvR.value = "5"; pgvM.value = "2.63"; }
+        if (btn.dataset.preset === "far") { pgvR.value = "50"; pgvM.value = "2.38"; }
+        updatePGV();
+      });
+    });
+    updatePGV();
+  }
+
+  /* ---------------------------------------------------------
+     Quiz
+     --------------------------------------------------------- */
+  const quizData = [
+    {
+      q: "哪一組特徵最像「地下核試爆」？",
+      options: [
+        "高頻 Pg/Lg 比值偏高，且 mb 大、Ms 小",
+        "表面波特別強，Ms 遠大於 mb",
+        "震源機制是純雙力偶（DC）",
+        "Lg 波很強，Pg 幾乎看不到"
+      ],
+      correct: 0,
+      why: "爆炸是各向同性膨脹，P 波強、表面波弱，所以 mb 大、Ms 小；高頻 Pg 也相對 Lg 突出。"
+    },
+    {
+      q: "同樣距離下，20 秒雷利波的振幅卻差很多，最主要原因是什麼？",
+      options: [
+        "測站的儀器顏色不同",
+        "地下構造不均質，造成聚焦或散焦",
+        "爆炸發生的日期不同",
+        "20 秒這個週期選錯了"
+      ],
+      correct: 1,
+      why: "穿越日本海薄海洋地殼與低速上部地函的路徑，散射與衰減較強；大陸穩定地塊則衰減較小。"
+    },
+    {
+      q: "TAIGER 的 PGV 衰減式，主要用哪類測站資料建立？",
+      options: [
+        "西部厚層沉積平原測站",
+        "山區與丘陵的岩盤測站",
+        "海上氣槍震源",
+        "北韓牡丹江測站"
+      ],
+      correct: 1,
+      why: "研究刻意剔除受西部平原放大效應干擾的測站，只用山區與丘陵岩盤測站進行反演。"
+    },
+    {
+      q: "2014 年高雄氣爆，利用 PGV 衰減式推估的等效區域規模約是多少？",
+      options: ["ML 1.0", "ML 2.38", "ML 4.5", "ML 6.3"],
+      correct: 1,
+      why: "把各測站 5 Hz 垂直向 PGV 套入近地表爆炸衰減式，反推得到 ML ≈ 2.38。"
+    }
+  ];
+
+  const quizBox = $("#quizBox");
+  const quizProgress = $("#quizProgress");
+  const quizRestart = $("#quizRestart");
+  let quizIndex = 0;
+  let quizScore = 0;
+  let quizAnswered = false;
+
+  function renderQuiz() {
+    if (!quizBox) return;
+    const q = quizData[quizIndex];
+    quizAnswered = false;
+    quizProgress.textContent = `${quizIndex + 1} / ${quizData.length}`;
+    quizBox.innerHTML = `
+      <p class="quiz-question">${q.q}</p>
+      <div class="quiz-options">
+        ${q.options.map((opt, i) => `<button class="quiz-option" type="button" data-opt="${i}">${opt}</button>`).join("")}
+      </div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+      <button class="btn btn-solid quiz-next" id="quizNext" type="button">下一題 →</button>
+    `;
+    $$(".quiz-option", quizBox).forEach((btn) => {
+      btn.addEventListener("click", () => answerQuiz(Number(btn.dataset.opt)));
+    });
+    const next = $("#quizNext", quizBox);
+    next.addEventListener("click", () => {
+      if (quizIndex < quizData.length - 1) {
+        quizIndex++;
+        renderQuiz();
+      } else {
+        showQuizResult();
+      }
+    });
+  }
+
+  function answerQuiz(choice) {
+    if (quizAnswered) return;
+    quizAnswered = true;
+    const q = quizData[quizIndex];
+    const correct = choice === q.correct;
+    if (correct) quizScore++;
+    $$(".quiz-option", quizBox).forEach((btn, i) => {
+      btn.disabled = true;
+      if (i === q.correct) btn.classList.add("is-correct");
+      if (i === choice && !correct) btn.classList.add("is-wrong");
+    });
+    const feedback = $("#quizFeedback", quizBox);
+    feedback.innerHTML = `<b>${correct ? "答對了。" : "再看一下。"}</b>${q.why}`;
+    feedback.classList.add("is-visible");
+    const next = $("#quizNext", quizBox);
+    next.textContent = quizIndex < quizData.length - 1 ? "下一題 →" : "看成績 →";
+    next.classList.add("is-visible");
+  }
+
+  function showQuizResult() {
+    quizProgress.textContent = "完成";
+    const perfect = quizScore === quizData.length;
+    quizBox.innerHTML = `
+      <div class="quiz-result">
+        <p class="quiz-question">你答對了 ${quizScore} / ${quizData.length} 題。</p>
+        <p>${perfect ? "全部答對！你已經抓到這場演講的核心：物理差異 → 波形特徵 → 衰減關係 → 真實應用。" : "沒關係，回到上面的章節再看一眼。這份筆記的目的不是考試，而是把硬的知識聽懂。"}</p>
+        <button class="btn btn-solid" id="quizAgain" type="button">再玩一次</button>
+      </div>
+    `;
+    $("#quizAgain", quizBox).addEventListener("click", () => {
+      quizIndex = 0;
+      quizScore = 0;
+      renderQuiz();
+    });
+  }
+
+  if (quizRestart) {
+    quizRestart.addEventListener("click", () => {
+      quizIndex = 0;
+      quizScore = 0;
+      renderQuiz();
+    });
+  }
+  renderQuiz();
+
+  /* ---------------------------------------------------------
+     Keyboard section navigation (optional, subtle)
+     --------------------------------------------------------- */
+  document.addEventListener("keydown", (e) => {
+    if (e.target.matches("input, textarea, select, button, a")) return;
+    if (e.key !== "j" && e.key !== "k") return;
+    const ids = ["top", "toc", "forensic", "difference", "dprk", "rayleigh", "taiger", "pgv", "reflection", "sources"];
+    const current = ids.findIndex((id) => {
+      const el = document.getElementById(id);
+      if (!el) return false;
+      const r = el.getBoundingClientRect();
+      return r.top <= 140 && r.bottom > 140;
+    });
+    const next = e.key === "j" ? Math.min(current + 1, ids.length - 1) : Math.max(current - 1, 0);
+    const target = document.getElementById(ids[next]);
+    if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+  });
+
+  /* ---------------------------------------------------------
+     Small annual stamp: update footer year if needed
+     --------------------------------------------------------- */
+  const yearNodes = $$("[data-year]");
+  yearNodes.forEach((n) => { n.textContent = new Date().getFullYear(); });
+})();

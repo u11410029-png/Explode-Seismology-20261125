@@ -1,0 +1,45 @@
+/* Self-hosted, subsetted fonts for GitHub Pages.
+   LXGW WenKai TC, Ma Shan Zheng, Caveat — SIL Open Font License. */
+
+@font-face {
+  font-family: "LXGW WenKai TC";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/lxgw-300.woff2") format("woff2");
+}
+@font-face {
+  font-family: "LXGW WenKai TC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/lxgw-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "LXGW WenKai TC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/lxgw-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Ma Shan Zheng";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/mashan.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/caveat-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/caveat-600.woff2") format("woff2");
+}
